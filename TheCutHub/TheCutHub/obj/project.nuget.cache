@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "l4huOg0fRV0=",
+  "dgSpecHash": "uCMaYYwXvxQ=",
   "success": true,
-  "projectFilePath": "D:\\softuni\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj",
+  "projectFilePath": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

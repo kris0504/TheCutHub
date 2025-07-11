@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\softuni\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj": {}
+    "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj": {}
   },
   "projects": {
-    "D:\\softuni\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj": {
+    "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\softuni\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj",
+        "projectUniqueName": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj",
         "projectName": "TheCutHub",
-        "projectPath": "D:\\softuni\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj",
+        "projectPath": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\softuni\\TheCutHub\\TheCutHub\\TheCutHub\\obj\\",
+        "outputPath": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
