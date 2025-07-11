@@ -1,0 +1,28 @@
+﻿@model IEnumerable<TheCutHub.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "All Users";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@user.UserName</td>
+                <td>@user.FullName</td>
+                <td>-- loading role --</td> 
+            </tr>
+        }
+    </tbody>
+</table>
