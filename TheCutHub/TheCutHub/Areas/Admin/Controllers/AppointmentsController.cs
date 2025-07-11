@@ -21,7 +21,7 @@ namespace TheCutHub.Areas.Admin.Controllers
             var appointments = await _context.Appointments
                 .Include(a => a.User)
                 .Include(a => a.Barber)
-                .Include(a => a.Service)
+                .Include(a => a.Service) 
                 .ToListAsync();
 
             return View(appointments);

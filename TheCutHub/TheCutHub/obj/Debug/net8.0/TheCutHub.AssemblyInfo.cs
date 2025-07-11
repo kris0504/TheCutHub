@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TheCutHub")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbea14e93119136680e58e6cf88cc4d10a9d4538")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00ee337af3bed276e6ce39c0f29c3990d0e24773")]
 [assembly: System.Reflection.AssemblyProductAttribute("TheCutHub")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TheCutHub")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

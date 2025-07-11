@@ -1,0 +1,15 @@
+﻿@model TheCutHub.Models.Service
+
+<h2>Are you sure you want to delete this service?</h2>
+
+<div>
+    <h4>@Model.Name</h4>
+    <p>Price: @Model.Price.ToString("C")</p>
+    <p>Duration: @Model.DurationMinutes minutes</p>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
