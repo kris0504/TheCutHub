@@ -8,18 +8,19 @@ namespace TheCutHub.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Administrator")]
-    public class ServicesController : Controller
+    public class BarbersController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ServicesController(ApplicationDbContext context)
+        public BarbersController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Services.ToListAsync());
+            var barbers = await _context.Barbers.ToListAsync();
+            return View(barbers);
         }
 
         public IActionResult Create()
@@ -29,58 +30,58 @@ namespace TheCutHub.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Service service)
+        public async Task<IActionResult> Create(Barber barber)
         {
             if (ModelState.IsValid)
             {
-                _context.Services.Add(service);
+                _context.Barbers.Add(barber);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(service);
+            return View(barber);
         }
 
         public async Task<IActionResult> Edit(int id)
         {
-            var service = await _context.Services.FindAsync(id);
-            if (service == null) return NotFound();
+            var barber = await _context.Barbers.FindAsync(id);
+            if (barber == null) return NotFound();
 
-            return View(service);
+            return View(barber);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Service service)
+        public async Task<IActionResult> Edit(int id, Barber barber)
         {
-            if (id != service.Id) return NotFound();
+            if (id != barber.Id) return NotFound();
 
             if (ModelState.IsValid)
             {
-                _context.Services.Update(service);
+                _context.Barbers.Update(barber);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(service);
+            return View(barber);
         }
 
         public async Task<IActionResult> Delete(int id)
         {
-            var service = await _context.Services.FindAsync(id);
-            if (service == null) return NotFound();
+            var barber = await _context.Barbers.FindAsync(id);
+            if (barber == null) return NotFound();
 
-            return View(service);
+            return View(barber);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var service = await _context.Services.FindAsync(id);
-            if (service != null)
+            var barber = await _context.Barbers.FindAsync(id);
+            if (barber != null)
             {
-                _context.Services.Remove(service);
+                _context.Barbers.Remove(barber);
                 await _context.SaveChangesAsync();
             }
 
