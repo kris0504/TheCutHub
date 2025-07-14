@@ -30,9 +30,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FullName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProfileImageUrl)
-            </td>
+            
+                @* @Html.DisplayFor(modelItem => item.ProfileImageUrl) *@
+                <td>
+                        @if (!string.IsNullOrEmpty(item.ProfileImageUrl))
+                        {
+                        <img src="@item.ProfileImageUrl" width="100" />
+                        }
+                </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Bio)
             </td>
