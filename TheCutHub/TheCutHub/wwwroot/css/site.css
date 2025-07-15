@@ -20,3 +20,27 @@ html {
 body {
   margin-bottom: 60px;
 }
+:root {
+    --barber-red: #b22222;
+    --barber-blue: #003366;
+    --barber-light: #f8f9fa;
+}
+
+body {
+    background-color: var(--barber-light);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    background-image: linear-gradient(45deg, var(--barber-red), var(--barber-blue));
+}
+
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+}
+
+footer {
+    background-color: var(--barber-blue);
+    color: #fff;
+}

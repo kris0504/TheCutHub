@@ -2,7 +2,88 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="container text-center mt-5">
+    <h1 class="display-4">Welcome to <strong>TheCutHub</strong></h1>
+    <p class="lead">Book your appointment for a haircut, beard trim, or style consultation with just a few clicks.</p>
+    @if (User.Identity?.IsAuthenticated ?? false)
+    {
+        <a href="/Appointments/Create" class="btn btn-primary btn-lg mt-3">Book Now</a>
+    }
+    else
+    {
+        <a class="btn btn-primary btn-lg mt-3" asp-area="Identity" asp-page="/Account/Login">Book Now</a>
+    }
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-3">Our Services</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">✂️ Haircut</h5>
+                    <p class="card-text">Professional haircuts tailored to your style.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-4 mt-md-0">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">🧔 Beard Trim</h5>
+                    <p class="card-text">Keep your beard neat and sharp.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-4 mt-md-0">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">💇‍♂️ Style Consultation</h5>
+                    <p class="card-text">Get advice from our expert barbers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Style Consultation</h5>
+                    <p class="card-text">Personalized advice for your hairstyle and grooming.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-4 mt-md-0">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Hot Towel Shave</h5>
+                    <p class="card-text">Classic straight razor shave with hot towel and aftershave balm.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-4 mt-md-0">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Hair Wash & Massage</h5>
+                    <p class="card-text">Deep scalp cleaning with relaxing massage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center mt-5">
+    <h2>Meet Our Team</h2>
+    <p>Our professional barbers are here to help you look your best.</p>
+    <a href="/Barbers" class="btn btn-outline-dark">View Barbers</a>
+</div>
+
+<div class="container mt-5 text-center">
+    <h2>Already have an account?</h2>
+    <a href="/Identity/Account/Login" class="btn btn-success me-2">Login</a>
+    <a href="/Identity/Account/Register" class="btn btn-outline-success">Register</a>
 </div>
