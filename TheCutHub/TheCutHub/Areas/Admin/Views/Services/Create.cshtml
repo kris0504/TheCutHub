@@ -22,9 +22,13 @@
     </div>
 
     <div class="mb-3">
-        <label asp-for="DurationMinutes" class="form-label">Duration</label>
-        <input asp-for="DurationMinutes" class="form-control" />
-        <span asp-validation-for="DurationMinutes" class="text-danger"></span>
+        <select asp-for="DurationMinutes" class="form-control">
+            @for (int i = 5; i <= 240; i += 5)
+            {
+                <option value="@i">@i минути</option>
+            }
+        </select>
+
     </div>
 
     <div class="mb-3">

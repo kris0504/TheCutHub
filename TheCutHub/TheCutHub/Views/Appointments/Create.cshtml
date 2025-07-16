@@ -2,46 +2,51 @@
 
 @{
     ViewData["Title"] = "Create";
+    var selectedDate = ViewBag.SelectedDate as DateTime?;
+    var availableSlots = ViewBag.Slots as List<TimeSpan>;
+
 }
+<h2>Create Appointment</h2>
 
-<h1>Create</h1>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Date</label>
+        <input type="date" name="date" class="form-control"
+               value="@selectedDate?.ToString("yyyy-MM-dd")"
+               onchange="this.form.submit()" />
 
-<h4>Appointment</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @* <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
-            </div> *@
-            <div class="form-group">
-                <label asp-for="BarberId" class="control-label">Barber</label>
-                <select asp-for="BarberId" class ="form-control" asp-items="ViewBag.BarberId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceId" class="control-label">Service</label>
-                <select asp-for="ServiceId" class ="form-control" asp-items="ViewBag.ServiceId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="AppointmentDateTime" class="control-label"></label>
-                <input asp-for="AppointmentDateTime" class="form-control" />
-                <span asp-validation-for="AppointmentDateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
-                <span asp-validation-for="Notes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
     </div>
-</div>
 
+    <div class="form-group">
+        <label>Service</label>
+        <select name="serviceId" class="form-control" asp-items="ViewBag.ServiceId" required></select>
+    </div>
 
+    <div class="form-group">
+        <label>Barber</label>
+        <select name="barberId" class="form-control" asp-items="ViewBag.BarberId" required></select>
+    </div>
+
+    @if (availableSlots != null)
+    {
+        <h4>Available Time Slots:</h4>
+        <div class="row">
+            @foreach (var slot in availableSlots)
+            {
+                <div class="col-md-2 mb-2">
+                    <button name="timeSlot" value="@slot" class="btn btn-primary w-100">
+                        @slot.ToString(@"hh\:mm")
+                    </button>
+                </div>
+            }
+        </div>
+
+        @if (!availableSlots.Any())
+        {
+            <p class="text-danger">No available slots for this date.</p>
+        }
+    }
+</form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
