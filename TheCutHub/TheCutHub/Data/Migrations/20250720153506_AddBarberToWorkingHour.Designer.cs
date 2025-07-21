@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheCutHub.Data;
 
@@ -11,9 +12,11 @@ using TheCutHub.Data;
 namespace TheCutHub.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250720153506_AddBarberToWorkingHour")]
+    partial class AddBarberToWorkingHour
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -391,7 +394,7 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 1,
-                            BarberId = 1,
+                            BarberId = 0,
                             Day = 0,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -400,7 +403,7 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 2,
-                            BarberId = 1,
+                            BarberId = 0,
                             Day = 1,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -409,7 +412,7 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 3,
-                            BarberId = 1,
+                            BarberId = 0,
                             Day = 2,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -418,7 +421,7 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 4,
-                            BarberId = 1,
+                            BarberId = 0,
                             Day = 3,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -427,7 +430,7 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 5,
-                            BarberId = 1,
+                            BarberId = 0,
                             Day = 4,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -436,7 +439,7 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 6,
-                            BarberId = 1,
+                            BarberId = 0,
                             Day = 5,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -445,7 +448,7 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 7,
-                            BarberId = 1,
+                            BarberId = 0,
                             Day = 6,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,

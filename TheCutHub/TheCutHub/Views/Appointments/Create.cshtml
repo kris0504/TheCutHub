@@ -10,22 +10,24 @@
 
 <form asp-action="Create" method="post">
     <div class="form-group">
-        <label>Date</label>
-        <input type="date" name="date" class="form-control"
-               value="@selectedDate?.ToString("yyyy-MM-dd")"
-               onchange="this.form.submit()" />
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" class="form-control" />
+    </div>
+    <select id="service" name="serviceId" class="form-control" asp-items="ViewBag.ServiceId" required>
+        <option value="">-- Select a service --</option> 
+    </select>
+
+
+    <div id="slots-container">
 
     </div>
 
-    <div class="form-group">
-        <label>Service</label>
-        <select name="serviceId" class="form-control" asp-items="ViewBag.ServiceId" required></select>
-    </div>
 
     <div class="form-group">
         <label>Barber</label>
         <select name="barberId" class="form-control" asp-items="ViewBag.BarberId" required></select>
     </div>
+    <div id="slots-container"></div>
 
     @if (availableSlots != null)
     {
@@ -46,8 +48,41 @@
             <p class="text-danger">No available slots for this date.</p>
         }
     }
+    <div class="form-group">
+		<label>Notes</label>
+		<textarea name="notes" class="form-control" rows="3"></textarea>
+        </div>
+
+	<button type="submit" class="btn btn-success">Create Appointment</button>
+	<a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    <input type="hidden" name="selectedDate" value="@selectedDate?.ToString("yyyy-MM-dd")" />
+
 </form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById("date").addEventListener("change", loadSlots);
+        document.getElementById("service").addEventListener("change", loadSlots);
+        document.querySelector("[name='barberId']").addEventListener("change", loadSlots);
+
+        async function loadSlots() {
+            const date = document.getElementById("date").value;
+            const serviceId = document.getElementById("service").value;
+            const barberId = document.querySelector("[name='barberId']").value;
+
+            if (!date || !serviceId || !barberId) return;
+
+            try {
+                const response = await fetch(`/Appointments/GetSlots?date=${date}&serviceId=${serviceId}&barberId=${barberId}`);
+                const html = await response.text();
+                document.getElementById("slots-container").innerHTML = html;
+            } catch (error) {
+                console.error("Failed to load slots:", error);
+            }
+        }
+    </script>
 }

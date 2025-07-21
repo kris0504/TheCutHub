@@ -70,6 +70,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/github_rep/TheCutHub/TheCutHub/TheCutHub/Areas/Admin/Views/WorkingHours/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcV29ya2luZ0hvdXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/github_rep/TheCutHub/TheCutHub/TheCutHub/Areas/Admin/Views/WorkingHours/EditByBarber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcV29ya2luZ0hvdXJzXEVkaXRCeUJhcmJlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/github_rep/TheCutHub/TheCutHub/TheCutHub/Areas/Admin/Views/WorkingHours/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcV29ya2luZ0hvdXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/github_rep/TheCutHub/TheCutHub/TheCutHub/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -136,6 +148,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/github_rep/TheCutHub/TheCutHub/TheCutHub/Views/Appointments/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/github_rep/TheCutHub/TheCutHub/TheCutHub/Views/Appointments/_TimeSlotsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRzXF9UaW1lU2xvdHNQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/github_rep/TheCutHub/TheCutHub/TheCutHub/Views/Barbers/Index.cshtml]

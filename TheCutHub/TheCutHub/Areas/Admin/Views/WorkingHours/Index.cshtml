@@ -1,0 +1,26 @@
+﻿@model IEnumerable<TheCutHub.Models.Barber>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Select a Barber to Edit Working Hours</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var barber in Model)
+        {
+            <tr>
+                <td>@barber.FullName</td>
+                <td>
+                    <a asp-action="EditByBarber" asp-route-id="@barber.Id" class="btn btn-primary">Edit Working Hours</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

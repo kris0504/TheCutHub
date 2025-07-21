@@ -12,24 +12,28 @@ namespace TheCutHub.Services
             _context = context;
         }
 
-        public async Task<List<TimeSpan>> GetAvailableSlotsAsync(DateTime date, TimeSpan serviceDuration)
+        public async Task<List<TimeSpan>> GetAvailableSlotsAsync(DateTime date, TimeSpan serviceDuration, int barberId)
         {
             var dayOfWeek = date.DayOfWeek;
 
             var workingHour = await _context.WorkingHours
-                .FirstOrDefaultAsync(w => w.Day == dayOfWeek && w.IsWorking);
+    .FirstOrDefaultAsync(w => w.Day == dayOfWeek && w.IsWorking && w.BarberId == barberId);
+            Console.WriteLine($"[DEBUG] Searching working hour for: BarberId={barberId}, Day={dayOfWeek}");
 
-            if (workingHour == null)
+            if (workingHour == null) { 
+                Console.WriteLine("[DEBUG] No working hour found for this barber and day!"); 
                 return new List<TimeSpan>();
-
+            }
+            Console.WriteLine($"[DEBUG] WorkingHour: {workingHour.StartTime} - {workingHour.EndTime}, IsWorking={workingHour.IsWorking}");
             var appointments = await _context.Appointments
-                .Where(a => a.Date.Date == date.Date)
-                .Select(a => new
-                {
-                    a.TimeSlot,
-                    Duration = a.Service.DurationMinutes
-                })
-                .ToListAsync();
+     .Where(a => a.Date.Date == date.Date && a.BarberId == barberId)
+     .Include(a => a.Service)
+     .Select(a => new
+     {
+         a.TimeSlot,
+         Duration = a.Service.DurationMinutes
+     })
+     .ToListAsync();
 
             var slots = new List<TimeSpan>();
             var current = workingHour.StartTime;
@@ -42,9 +46,23 @@ namespace TheCutHub.Services
 
                 if (!isOccupied)
                     slots.Add(current);
+                if (workingHour == null || workingHour.StartTime >= workingHour.EndTime)
+                return new List<TimeSpan>();
 
                 current = current.Add(TimeSpan.FromMinutes(30));
+                Console.WriteLine($"[SLOTS] Date: {date}, Day: {dayOfWeek}, BarberId: {barberId}");
+                if (workingHour == null)
+                {
+                    Console.WriteLine("[SLOTS] No working hours found!");
+                }
+                else
+                {
+                    Console.WriteLine($"[SLOTS] Working from {workingHour.StartTime} to {workingHour.EndTime}, IsWorking: {workingHour.IsWorking}");
+                }
+
             }
+            if (workingHour == null || workingHour.StartTime >= workingHour.EndTime)
+                return new List<TimeSpan>();
 
             return slots;
         }

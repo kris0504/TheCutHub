@@ -22,9 +22,11 @@ namespace TheCutHub.Controllers
 
         public AppointmentsController(
             ApplicationDbContext context,
-            UserManager<ApplicationUser> userManager)
+            AppointmentService appointmentService,
+        UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _appointmentService = appointmentService;
             _userManager = userManager;
         }
 
@@ -90,7 +92,6 @@ namespace TheCutHub.Controllers
             {
                 ViewBag.SelectedDate = date.Value;
 
-                // Примерно, връщаме всички слотове от 9:00 до 18:00 през 30 мин.
                 var start = new TimeSpan(9, 0, 0);
                 var end = new TimeSpan(18, 0, 0);
                 var allSlots = new List<TimeSpan>();
@@ -100,18 +101,30 @@ namespace TheCutHub.Controllers
                     allSlots.Add(ts);
                 }
 
-                // Заети за деня
                 var bookedSlots = await _context.Appointments
                     .Where(a => a.Date == date.Value.Date)
                     .Select(a => a.TimeSlot)
                     .ToListAsync();
 
-                // Свободни слотове
+                
                 var availableSlots = allSlots.Except(bookedSlots).ToList();
                 ViewBag.Slots = availableSlots;
             }
 
             return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetSlots(DateTime date, int serviceId, int barberId)
+        {
+            if (serviceId == 0 || barberId == 0)
+                return BadRequest("Service or Barber not selected");
+
+            var service = await _context.Services.FindAsync(serviceId);
+            if (service == null)
+                return BadRequest("Invalid service");
+            
+            var slots = await _appointmentService.GetAvailableSlotsAsync(date, TimeSpan.FromMinutes(service.DurationMinutes), barberId);
+            return PartialView("_TimeSlotsPartial", slots);
         }
 
         // POST: Appointments/Create
@@ -134,7 +147,7 @@ namespace TheCutHub.Controllers
         //}
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(DateTime date, TimeSpan timeSlot, int serviceId, int barberId)
+        public async Task<IActionResult> Create(DateTime date, TimeSpan timeSlot, int serviceId, int barberId, string notes)
         {
             var userId = _userManager.GetUserId(User);
 
@@ -144,7 +157,8 @@ namespace TheCutHub.Controllers
                 TimeSlot = timeSlot,
                 ServiceId = serviceId,
                 BarberId = barberId,
-                UserId = userId
+                UserId = userId,
+                Notes = notes
             };
 
             _context.Add(appointment);

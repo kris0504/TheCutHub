@@ -19,7 +19,20 @@ namespace TheCutHub.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // тук можеш да сложиш seed-ване по-късно
+            builder.Entity<WorkingHour>().HasData(
+    Enum.GetValues(typeof(DayOfWeek))
+        .Cast<DayOfWeek>()
+        .Select((day, index) => new WorkingHour
+        {
+            Id = index + 1,
+            Day = day,
+            StartTime = new TimeSpan(9, 0, 0),
+            EndTime = new TimeSpan(18, 0, 0),
+            IsWorking = true,
+            BarberId = 1
+        })
+);
+
         }
     }
 }

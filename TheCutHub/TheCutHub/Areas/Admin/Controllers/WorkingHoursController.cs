@@ -19,7 +19,8 @@ namespace TheCutHub.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.WorkingHours.ToListAsync());
+            var barbers = await _context.Barbers.ToListAsync();
+            return View(barbers);
         }
         public async Task<IActionResult> Details(int? id)
         {
@@ -52,35 +53,50 @@ namespace TheCutHub.Areas.Admin.Controllers
         {
             if (id == null) return NotFound();
 
-            var workingHour = await _context.WorkingHours.FindAsync(id);
+            var workingHour = await _context.WorkingHours
+                .Include(w => w.Barber)
+                .FirstOrDefaultAsync(w => w.Id == id);
+
             if (workingHour == null) return NotFound();
 
             return View(workingHour);
         }
+
+        public async Task<IActionResult> EditByBarber(int id)
+        {
+            var workingHours = await _context.WorkingHours
+                .Where(w => w.BarberId == id)
+                .OrderBy(w => w.Day)
+                .ToListAsync();
+
+            ViewBag.BarberId = id;
+
+            return View("EditByBarber", workingHours);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Day,StartTime,EndTime,IsWorking")] WorkingHour workingHour)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Day,StartTime,EndTime,IsWorking,BarberId")] WorkingHour workingHour)
         {
-            if (id != workingHour.Id) return NotFound();
+            var existing = await _context.WorkingHours.FindAsync(id);
+            if (existing == null)
+                return NotFound();
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(workingHour);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.WorkingHours.Any(e => e.Id == id))
-                        return NotFound();
-                    else
-                        throw;
-                }
-                return RedirectToAction(nameof(Index));
+                existing.StartTime = workingHour.StartTime;
+                existing.EndTime = workingHour.EndTime;
+                existing.IsWorking = workingHour.IsWorking;
+
+                await _context.SaveChangesAsync();
+                return RedirectToAction("EditByBarber", new { id = existing.BarberId });
             }
+
+            workingHour.BarberId = existing.BarberId;
+            workingHour.Day = existing.Day;
             return View(workingHour);
         }
+
 
         // GET: Admin/WorkingHours/Delete/5
         public async Task<IActionResult> Delete(int? id)

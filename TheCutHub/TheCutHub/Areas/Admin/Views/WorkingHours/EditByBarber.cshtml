@@ -1,0 +1,37 @@
+﻿@model IEnumerable<TheCutHub.Models.WorkingHour>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var barberId = ViewBag.BarberId;
+}
+
+<h2>Working Hours for Barber #@barberId</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Day</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Is Working</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Day</td>
+                <td>@item.StartTime</td>
+                <td>@item.EndTime</td>
+                <td>@(item.IsWorking ? "Yes" : "No")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-outline-dark">Back to Barbers</a>

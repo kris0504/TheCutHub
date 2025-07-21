@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheCutHub.Data;
 
@@ -11,9 +12,11 @@ using TheCutHub.Data;
 namespace TheCutHub.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250719093715_SeedWorkingHours")]
+    partial class SeedWorkingHours
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -366,9 +369,6 @@ namespace TheCutHub.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BarberId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Day")
                         .HasColumnType("int");
 
@@ -383,15 +383,12 @@ namespace TheCutHub.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BarberId");
-
                     b.ToTable("WorkingHours");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            BarberId = 1,
                             Day = 0,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -400,7 +397,6 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 2,
-                            BarberId = 1,
                             Day = 1,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -409,7 +405,6 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 3,
-                            BarberId = 1,
                             Day = 2,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -418,7 +413,6 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 4,
-                            BarberId = 1,
                             Day = 3,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -427,7 +421,6 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 5,
-                            BarberId = 1,
                             Day = 4,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -436,7 +429,6 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 6,
-                            BarberId = 1,
                             Day = 5,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -445,7 +437,6 @@ namespace TheCutHub.Data.Migrations
                         new
                         {
                             Id = 7,
-                            BarberId = 1,
                             Day = 6,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
@@ -559,17 +550,6 @@ namespace TheCutHub.Data.Migrations
                     b.Navigation("Barber");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("TheCutHub.Models.WorkingHour", b =>
-                {
-                    b.HasOne("TheCutHub.Models.Barber", "Barber")
-                        .WithMany()
-                        .HasForeignKey("BarberId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Barber");
                 });
 
             modelBuilder.Entity("TheCutHub.Models.Barber", b =>

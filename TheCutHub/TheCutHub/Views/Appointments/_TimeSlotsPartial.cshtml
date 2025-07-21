@@ -1,0 +1,20 @@
+﻿@model List<TimeSpan>
+
+@if (!Model.Any())
+{
+    <p class="text-danger">No available slots for this date.</p>
+}
+else
+{
+    <h4>Available Time Slots:</h4>
+    <div class="row">
+        @foreach (var slot in Model)
+        {
+            <div class="col-md-2 mb-2">
+                <button name="timeSlot" value="@slot" class="btn btn-primary w-100">
+                    @slot.ToString(@"hh\:mm")
+                </button>
+            </div>
+        }
+    </div>
+}

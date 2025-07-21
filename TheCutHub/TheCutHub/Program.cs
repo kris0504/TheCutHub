@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TheCutHub.Data;
 using TheCutHub.Models;
+using TheCutHub.Services;
 
 namespace TheCutHub
 {
@@ -16,6 +17,7 @@ namespace TheCutHub
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+            builder.Services.AddScoped<AppointmentService>();
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>() // ����� � �� ��� ���� User/Admin
@@ -55,7 +57,7 @@ namespace TheCutHub
             app.MapRazorPages();
             
             await ApplicationDbInitializer.SeedRolesAndAdminAsync(app.Services);
-
+            await ApplicationDbInitializer.SeedWorkingHoursAsync(app.Services);
             app.Run();
         }
     }

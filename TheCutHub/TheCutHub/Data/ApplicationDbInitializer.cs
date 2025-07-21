@@ -8,6 +8,34 @@ namespace TheCutHub.Data
     {
         private const string AdminEmail = "admin@barberbook.com";
         private const string AdminPassword = "Admin123!";
+        public static async Task SeedWorkingHoursAsync(IServiceProvider serviceProvider)
+        {
+            using var scope = serviceProvider.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+            var barbers = await context.Barbers.ToListAsync();
+            var existingHours = await context.WorkingHours.ToListAsync();
+
+            foreach (var barber in barbers)
+            {
+                foreach (DayOfWeek day in Enum.GetValues(typeof(DayOfWeek)))
+                {
+                    if (!existingHours.Any(wh => wh.BarberId == barber.Id && wh.Day == day))
+                    {
+                        context.WorkingHours.Add(new WorkingHour
+                        {
+                            BarberId = barber.Id,
+                            Day = day,
+                            StartTime = new TimeSpan(9, 0, 0),
+                            EndTime = new TimeSpan(18, 0, 0),
+                            IsWorking = true
+                        });
+                    }
+                }
+            }
+
+            await context.SaveChangesAsync();
+        }
 
         public static async Task SeedRolesAndAdminAsync(IServiceProvider serviceProvider)
         {

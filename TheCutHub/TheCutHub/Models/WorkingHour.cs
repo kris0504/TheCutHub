@@ -16,9 +16,12 @@ namespace TheCutHub.Models
 
         [Required]
         [Display(Name = "End Time")]
-        [Compare("StartTime", ErrorMessage = "End time must be after start time")]
+        
         public TimeSpan EndTime { get; set; }
 
         public bool IsWorking { get; set; } = true;
+        [Required]
+        public int BarberId { get; set; }
+        public Barber? Barber { get; set; }
     }
 }
