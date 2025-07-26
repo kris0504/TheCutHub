@@ -284,14 +284,19 @@ namespace TheCutHub.Data.Migrations
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("ProfileImageUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Barbers");
                 });
@@ -307,6 +312,9 @@ namespace TheCutHub.Data.Migrations
                     b.Property<int>("BarberId")
                         .HasColumnType("int");
 
+                    b.Property<int>("BarberName")
+                        .HasColumnType("int");
+
                     b.Property<string>("Comment")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
@@ -320,6 +328,10 @@ namespace TheCutHub.Data.Migrations
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -358,6 +370,28 @@ namespace TheCutHub.Data.Migrations
                     b.ToTable("Services");
                 });
 
+            modelBuilder.Entity("TheCutHub.Models.WorkImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BarberId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BarberId");
+
+                    b.ToTable("WorkImages");
+                });
+
             modelBuilder.Entity("TheCutHub.Models.WorkingHour", b =>
                 {
                     b.Property<int>("Id")
@@ -378,6 +412,9 @@ namespace TheCutHub.Data.Migrations
                     b.Property<bool>("IsWorking")
                         .HasColumnType("bit");
 
+                    b.Property<int>("SlotIntervalInMinutes")
+                        .HasColumnType("int");
+
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
 
@@ -395,6 +432,7 @@ namespace TheCutHub.Data.Migrations
                             Day = 0,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
+                            SlotIntervalInMinutes = 30,
                             StartTime = new TimeSpan(0, 9, 0, 0, 0)
                         },
                         new
@@ -404,6 +442,7 @@ namespace TheCutHub.Data.Migrations
                             Day = 1,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
+                            SlotIntervalInMinutes = 30,
                             StartTime = new TimeSpan(0, 9, 0, 0, 0)
                         },
                         new
@@ -413,6 +452,7 @@ namespace TheCutHub.Data.Migrations
                             Day = 2,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
+                            SlotIntervalInMinutes = 30,
                             StartTime = new TimeSpan(0, 9, 0, 0, 0)
                         },
                         new
@@ -422,6 +462,7 @@ namespace TheCutHub.Data.Migrations
                             Day = 3,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
+                            SlotIntervalInMinutes = 30,
                             StartTime = new TimeSpan(0, 9, 0, 0, 0)
                         },
                         new
@@ -431,6 +472,7 @@ namespace TheCutHub.Data.Migrations
                             Day = 4,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
+                            SlotIntervalInMinutes = 30,
                             StartTime = new TimeSpan(0, 9, 0, 0, 0)
                         },
                         new
@@ -440,6 +482,7 @@ namespace TheCutHub.Data.Migrations
                             Day = 5,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
+                            SlotIntervalInMinutes = 30,
                             StartTime = new TimeSpan(0, 9, 0, 0, 0)
                         },
                         new
@@ -449,6 +492,7 @@ namespace TheCutHub.Data.Migrations
                             Day = 6,
                             EndTime = new TimeSpan(0, 18, 0, 0, 0),
                             IsWorking = true,
+                            SlotIntervalInMinutes = 30,
                             StartTime = new TimeSpan(0, 9, 0, 0, 0)
                         });
                 });
@@ -542,10 +586,21 @@ namespace TheCutHub.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TheCutHub.Models.Barber", b =>
+                {
+                    b.HasOne("TheCutHub.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TheCutHub.Models.Review", b =>
                 {
                     b.HasOne("TheCutHub.Models.Barber", "Barber")
-                        .WithMany()
+                        .WithMany("Reviews")
                         .HasForeignKey("BarberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -559,6 +614,17 @@ namespace TheCutHub.Data.Migrations
                     b.Navigation("Barber");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TheCutHub.Models.WorkImage", b =>
+                {
+                    b.HasOne("TheCutHub.Models.Barber", "Barber")
+                        .WithMany()
+                        .HasForeignKey("BarberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Barber");
                 });
 
             modelBuilder.Entity("TheCutHub.Models.WorkingHour", b =>
@@ -575,6 +641,8 @@ namespace TheCutHub.Data.Migrations
             modelBuilder.Entity("TheCutHub.Models.Barber", b =>
                 {
                     b.Navigation("Appointments");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("TheCutHub.Models.Service", b =>

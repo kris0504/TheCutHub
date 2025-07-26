@@ -15,10 +15,16 @@ namespace TheCutHub.Data
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<WorkingHour> WorkingHours { get; set; }
+        public DbSet<WorkImage> WorkImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Entity<Barber>()
+        .HasOne(b => b.User)
+        .WithMany() // или .WithMany(u => u.Barbers) ако имаш обратна колекция
+        .HasForeignKey(b => b.UserId)
+        .OnDelete(DeleteBehavior.Restrict);
             builder.Entity<WorkingHour>().HasData(
     Enum.GetValues(typeof(DayOfWeek))
         .Cast<DayOfWeek>()

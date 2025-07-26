@@ -5,6 +5,10 @@
 @{
     ViewData["Title"] = "All Users";
 }
+@if (TempData["BarberRemoved"] != null)
+{
+    <div class="alert alert-warning">@TempData["BarberRemoved"]</div>
+}
 
 <h2>@ViewData["Title"]</h2>
 
@@ -15,17 +19,43 @@
             <th>Username</th>
             <th>Full Name</th>
             <th>Role</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var user in Model)
         {
+            var roles = ViewBag.UserRoles as Dictionary<string, IList<string>>;
             <tr>
                 <td>@user.Email</td>
                 <td>@user.UserName</td>
                 <td>@user.FullName</td>
-                <td>-- loading role --</td> 
+                <td>
+                    @if (roles != null && roles.ContainsKey(user.Id))
+                    {
+                        @string.Join(", ", roles[user.Id])
+                    }
+                </td>
+                <td>
+                    @if (roles != null && roles.ContainsKey(user.Id) && !roles[user.Id].Contains("Barber"))
+                    {
+                        <form asp-area="Admin" asp-controller="Users" asp-action="MakeBarber" method="post">
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <button class="btn btn-sm btn-primary">Make barber</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-area="Admin" asp-controller="Users" asp-action="RemoveBarber" method="post" onsubmit="return confirm('Сигурен ли си, че искаш да премахнеш бръснаря?');">
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <button class="btn btn-sm btn-danger">Remove barber</button>
+                        </form>
+
+                    }
+                </td>
             </tr>
         }
+
     </tbody>
+
 </table>

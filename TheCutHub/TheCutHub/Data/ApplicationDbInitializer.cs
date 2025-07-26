@@ -48,7 +48,7 @@ namespace TheCutHub.Data
             await context.Database.MigrateAsync();
 
             // Seed roles
-            string[] roles = { "Administrator", "User" };
+            string[] roles = { "Administrator", "User","Barber" };
 
             foreach (var role in roles)
             {

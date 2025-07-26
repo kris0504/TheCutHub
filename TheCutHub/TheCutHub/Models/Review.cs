@@ -8,9 +8,11 @@ namespace TheCutHub.Models
 
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
+        public string UserName { get; set; }
 
         public int BarberId { get; set; }
         public Barber Barber { get; set; }
+        public int BarberName { get; set; }
 
         [Range(1, 5)]
         public int Rating { get; set; }

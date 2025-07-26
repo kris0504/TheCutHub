@@ -3,12 +3,136 @@
   "WorkspaceRootPath": "D:\\github_rep\\TheCutHub\\TheCutHub\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\appointments\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\appointments\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\barber\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\barber\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\barber\\views\\profile\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\barber\\views\\profile\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\viewmodels\\barberprofileeditviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\viewmodels\\barberprofileeditviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\barber\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\barber\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250723153103_barberprofileeditviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250723153103_barberprofileeditviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\barber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\barber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\applicationdbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\applicationdbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\workimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\workimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\controllers\\barberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\controllers\\barberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\barbers\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\barbers\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\barbers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\barbers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\controllers\\barberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\controllers\\barberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\barbers\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\barbers\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\barbers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\barbers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250722155840_adduseridtobarber_fixed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250722155840_adduseridtobarber_fixed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250722111714_adddefaultvaluetoslotinterval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250722111714_adddefaultvaluetoslotinterval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250710134247_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250710134247_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250721090013_slotholes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250721090013_slotholes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722155708_AddUserToBarber_Fixed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TheCutHub\\Data\\Migrations\\20250722155708_AddUserToBarber_Fixed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\appointments\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\appointments\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\appointments\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -19,28 +143,24 @@
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\appointments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\appointments\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\appointments\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\controllers\\workinghourscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\controllers\\workinghourscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\workinghours\\editbybarber.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\workinghours\\editbybarber.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\appointments\\_timeslotspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\appointments\\_timeslotspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\controllers\\barberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\controllers\\barberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\controllers\\workinghourscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\controllers\\workinghourscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\workinghour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,12 +171,16 @@
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\workinghours\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\appointments\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\appointments\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\workinghours\\editbybarber.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\workinghours\\editbybarber.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250720160149_barb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250720160149_barb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\workinghours\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -65,26 +189,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\services\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\services\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\barber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\barber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\applicationdbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\applicationdbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\barbers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\views\\barbers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -111,16 +215,8 @@
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\services\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -131,20 +227,8 @@
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\appointments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\barbers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\barbers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -159,14 +243,6 @@
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\barbers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -175,20 +251,8 @@
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\admin\\views\\barbers\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\admin\\views\\barbers\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -199,20 +263,8 @@
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\thecuthub.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\controllers\\barberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\controllers\\barberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250710134247_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250710134247_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\HomeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -235,12 +287,16 @@
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250719093715_seedworkinghours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250720160149_barb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250720160149_barb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250720153506_addbarbertoworkinghour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250720153506_addbarbertoworkinghour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250722181025_barberfunnull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250722181025_barberfunnull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|d:\\github_rep\\thecuthub\\thecuthub\\thecuthub\\data\\migrations\\20250722163353_makebarberfullnamenullable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{702B2904-23CE-48E8-A4C0-DE3A5AC2F766}|TheCutHub\\TheCutHub.csproj|solutionrelative:thecuthub\\data\\migrations\\20250722163353_makebarberfullnamenullable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -250,566 +306,335 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Details.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Views\\Appointments\\Details.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Details.cshtml",
-              "RelativeToolTip": "TheCutHub\\Views\\Appointments\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Barber\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Barber\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Barber\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Barber\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-20T20:33:42.304Z",
+              "WhenOpened": "2025-07-26T09:08:57.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-26T09:05:52.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AppointmentsController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\AppointmentsController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Controllers\\AppointmentsController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\AppointmentsController.cs",
-              "RelativeToolTip": "TheCutHub\\Controllers\\AppointmentsController.cs",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAiwKEAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T13:54:56.504Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Create.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Views\\Appointments\\Create.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Create.cshtml",
-              "RelativeToolTip": "TheCutHub\\Views\\Appointments\\Create.cshtml",
-              "ViewState": "AgIAACIAAAAAAAAAAAAqwFgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-15T09:45:35.514Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Index.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Views\\Appointments\\Index.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Index.cshtml",
-              "RelativeToolTip": "TheCutHub\\Views\\Appointments\\Index.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACYAAAB+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T11:09:55.09Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Edit.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Views\\Appointments\\Edit.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Edit.cshtml",
-              "RelativeToolTip": "TheCutHub\\Views\\Appointments\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-15T09:47:23.072Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppointmentService.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Services\\AppointmentService.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Services\\AppointmentService.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Services\\AppointmentService.cs",
-              "RelativeToolTip": "TheCutHub\\Services\\AppointmentService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T20:01:15.757Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "WorkingHoursController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\WorkingHoursController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\WorkingHoursController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\WorkingHoursController.cs",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\WorkingHoursController.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAuwF0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T17:09:18.515Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Program.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Program.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Program.cs",
-              "RelativeToolTip": "TheCutHub\\Program.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAwwDsAAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T12:14:09.982Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "20250720160149_barb.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250720160149_barb.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250720160149_barb.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250720160149_barb.cs",
-              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250720160149_barb.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-20T16:01:50.069Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BarbersController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\BarbersController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\BarbersController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\BarbersController.cs",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\BarbersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T15:37:54.539Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AppointmentsController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\AppointmentsController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\AppointmentsController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\AppointmentsController.cs",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\AppointmentsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T13:52:09.018Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "_TimeSlotsPartial.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\_TimeSlotsPartial.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Views\\Appointments\\_TimeSlotsPartial.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\_TimeSlotsPartial.cshtml",
-              "RelativeToolTip": "TheCutHub\\Views\\Appointments\\_TimeSlotsPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-19T13:00:41.776Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Barber.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Barber.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Models\\Barber.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Barber.cs",
-              "RelativeToolTip": "TheCutHub\\Models\\Barber.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T12:45:18.638Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Edit.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Services\\Edit.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Edit.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Services\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-11T14:59:06.936Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Index.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Index.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Index.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-19T09:20:57.068Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "EditByBarber.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\EditByBarber.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\EditByBarber.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\EditByBarber.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\EditByBarber.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-20T16:33:20.945Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "TheCutHub\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-10T14:01:11.736Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "WorkingHour.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\WorkingHour.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Models\\WorkingHour.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\WorkingHour.cs",
-              "RelativeToolTip": "TheCutHub\\Models\\WorkingHour.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T19:02:40.509Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Edit.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Edit.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Edit.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-19T09:21:43.966Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ApplicationDbInitializer.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\ApplicationDbInitializer.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Data\\ApplicationDbInitializer.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\ApplicationDbInitializer.cs",
-              "RelativeToolTip": "TheCutHub\\Data\\ApplicationDbInitializer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T14:43:35.431Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "TheCutHub\\Data\\ApplicationDbContext.cs",
               "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "TheCutHub\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAswB4AAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwCwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T12:50:36.141Z"
+              "WhenOpened": "2025-07-10T12:50:36.141Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "20250720153506_AddBarberToWorkingHour.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250720153506_AddBarberToWorkingHour.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250720153506_AddBarberToWorkingHour.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250720153506_AddBarberToWorkingHour.cs",
-              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250720153506_AddBarberToWorkingHour.cs",
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Barber\\Views\\Profile\\Edit.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Barber\\Views\\Profile\\Edit.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Barber\\Views\\Profile\\Edit.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Barber\\Views\\Profile\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-23T10:12:02.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "20250723153103_BarberProfileEditViewModel.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250723153103_BarberProfileEditViewModel.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250723153103_BarberProfileEditViewModel.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250723153103_BarberProfileEditViewModel.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250723153103_BarberProfileEditViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-20T15:35:06.754Z"
+              "WhenOpened": "2025-07-23T15:31:03.676Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T09:27:18.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Index.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Services\\Index.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Index.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Services\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-11T14:31:34.523Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Services\\Index.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Views\\Services\\Index.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Services\\Index.cshtml",
-              "RelativeToolTip": "TheCutHub\\Views\\Services\\Index.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAewCoAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T11:01:37.019Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "ServicesController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\ServicesController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\ServicesController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\ServicesController.cs",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\ServicesController.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAiwFoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Barber\\Controllers\\ProfileController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Barber\\Controllers\\ProfileController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Barber\\Controllers\\ProfileController.cs",
+              "RelativeToolTip": "TheCutHub\\Areas\\Barber\\Controllers\\ProfileController.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T14:28:53.331Z"
+              "WhenOpened": "2025-07-23T09:23:31.761Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Service.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Service.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Models\\Service.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Service.cs",
-              "RelativeToolTip": "TheCutHub\\Models\\Service.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAYwBsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "BarberProfileEditViewModel.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\ViewModels\\BarberProfileEditViewModel.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Models\\ViewModels\\BarberProfileEditViewModel.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\ViewModels\\BarberProfileEditViewModel.cs",
+              "RelativeToolTip": "TheCutHub\\Models\\ViewModels\\BarberProfileEditViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T12:48:18.964Z"
+              "WhenOpened": "2025-07-23T15:25:00.296Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Barbers\\Index.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Views\\Barbers\\Index.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Barbers\\Index.cshtml",
-              "RelativeToolTip": "TheCutHub\\Views\\Barbers\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-12T07:56:25.858Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Create.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Services\\Create.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Create.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Services\\Create.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAMwB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-11T14:32:26.625Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "20250719093715_SeedWorkingHours.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250719093715_SeedWorkingHours.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250719093715_SeedWorkingHours.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250719093715_SeedWorkingHours.cs",
-              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250719093715_SeedWorkingHours.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "ApplicationDbInitializer.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\ApplicationDbInitializer.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\ApplicationDbInitializer.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\ApplicationDbInitializer.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\ApplicationDbInitializer.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAMwC8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-19T09:37:16.069Z"
+              "WhenOpened": "2025-07-10T14:43:35.431Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Delete.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Services\\Delete.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Delete.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Services\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-11T14:59:42.207Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "20250716182009_timespanToMinutes.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250716182009_timespanToMinutes.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250716182009_timespanToMinutes.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250716182009_timespanToMinutes.cs",
-              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250716182009_timespanToMinutes.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAgAAAA0AAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "Barber.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Barber.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Models\\Barber.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Barber.cs",
+              "RelativeToolTip": "TheCutHub\\Models\\Barber.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAiwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T18:20:09.634Z"
+              "WhenOpened": "2025-07-10T12:45:18.638Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "DashboardController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T15:17:56.926Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T17:06:27.242Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\UsersController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T15:31:15.312Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "WorkingHourController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\WorkingHourController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\WorkingHourController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\WorkingHourController.cs",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\WorkingHourController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T17:04:23.14Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Appointments\\Index.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Appointments\\Index.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Appointments\\Index.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Appointments\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-11T13:53:47.036Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 10,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "TheCutHub\\Models\\ApplicationUser.cs",
               "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\ApplicationUser.cs",
               "RelativeToolTip": "TheCutHub\\Models\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T12:49:30.57Z"
+              "WhenOpened": "2025-07-10T12:49:30.57Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "20250715193458_ReplaceDurationMinutesWithTimeSpan.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250715193458_ReplaceDurationMinutesWithTimeSpan.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250715193458_ReplaceDurationMinutesWithTimeSpan.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250715193458_ReplaceDurationMinutesWithTimeSpan.cs",
-              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250715193458_ReplaceDurationMinutesWithTimeSpan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T19:34:58.347Z"
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\appsettings.json",
+              "RelativeDocumentMoniker": "TheCutHub\\appsettings.json",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\appsettings.json",
+              "RelativeToolTip": "TheCutHub\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-10T13:24:24.462Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "20250715194547_AddWorkingHoursTable.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250715194547_AddWorkingHoursTable.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250715194547_AddWorkingHoursTable.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250715194547_AddWorkingHoursTable.cs",
-              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250715194547_AddWorkingHoursTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Program.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Program.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Program.cs",
+              "RelativeToolTip": "TheCutHub\\Program.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwEEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T19:45:47.975Z"
+              "WhenOpened": "2025-07-10T12:14:09.982Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 16,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAAoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-10T14:01:11.736Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Delete.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Delete.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Delete.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-11T15:45:37.267Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "Review.cs",
               "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Review.cs",
               "RelativeDocumentMoniker": "TheCutHub\\Models\\Review.cs",
               "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Review.cs",
               "RelativeToolTip": "TheCutHub\\Models\\Review.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T12:50:07.227Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Appointment.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Appointment.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Models\\Appointment.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Appointment.cs",
-              "RelativeToolTip": "TheCutHub\\Models\\Appointment.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T12:48:44.526Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Edit.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Edit.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Edit.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Edit.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "DocumentIndex": 17,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Barbers\\Details.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\Barbers\\Details.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Barbers\\Details.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\Barbers\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAEwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-11T15:45:02.789Z"
+              "WhenOpened": "2025-07-23T09:11:06.725Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 19,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "TheCutHub\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAABSAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Barbers\\Index.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\Barbers\\Index.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Barbers\\Index.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\Barbers\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-15T08:13:31.01Z"
+              "WhenOpened": "2025-07-12T07:56:25.858Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Index.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Index.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Index.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Index.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-11T15:42:48.471Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "ServicesController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\ServicesController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Controllers\\ServicesController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\ServicesController.cs",
-              "RelativeToolTip": "TheCutHub\\Controllers\\ServicesController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAIwDQAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "WorkImage.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\WorkImage.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Models\\WorkImage.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\WorkImage.cs",
+              "RelativeToolTip": "TheCutHub\\Models\\WorkImage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T13:50:02.134Z"
+              "WhenOpened": "2025-07-23T15:27:28.112Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 14,
+              "Title": "BarbersController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\BarbersController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Controllers\\BarbersController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\BarbersController.cs",
+              "RelativeToolTip": "TheCutHub\\Controllers\\BarbersController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCcAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T13:53:31.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BarbersController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\BarbersController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\BarbersController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\BarbersController.cs",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\BarbersController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAewCAAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T15:37:54.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Service.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Service.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Models\\Service.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Service.cs",
+              "RelativeToolTip": "TheCutHub\\Models\\Service.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAzwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T12:48:18.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\UsersController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:31:15.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "20250722181025_barberfunnull.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722181025_barberfunnull.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250722181025_barberfunnull.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722181025_barberfunnull.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250722181025_barberfunnull.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T18:10:26.128Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAiwCkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-10T15:01:19.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAmwFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:05:09.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAiwD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-10T15:32:37.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Create.cshtml",
               "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Create.cshtml",
@@ -821,19 +646,511 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 24,
               "Title": "Register.cshtml",
               "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeToolTip": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-15T08:21:01.645Z"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "20250722155840_AddUserIdToBarber_Fixed.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722155840_AddUserIdToBarber_Fixed.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250722155840_AddUserIdToBarber_Fixed.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722155840_AddUserIdToBarber_Fixed.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250722155840_AddUserIdToBarber_Fixed.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T15:58:40.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "20250721090013_slotHoles.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250721090013_slotHoles.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250721090013_slotHoles.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250721090013_slotHoles.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250721090013_slotHoles.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T09:00:14.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "20250722163353_MakeBarberFullNameNullable.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722163353_MakeBarberFullNameNullable.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250722163353_MakeBarberFullNameNullable.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722163353_MakeBarberFullNameNullable.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250722163353_MakeBarberFullNameNullable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T16:33:53.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "20250722155708_AddUserToBarber_Fixed.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722155708_AddUserToBarber_Fixed.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250722155708_AddUserToBarber_Fixed.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722155708_AddUserToBarber_Fixed.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250722155708_AddUserToBarber_Fixed.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T15:57:09.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "20250722111714_AddDefaultValueToSlotInterval.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722111714_AddDefaultValueToSlotInterval.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250722111714_AddDefaultValueToSlotInterval.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250722111714_AddDefaultValueToSlotInterval.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250722111714_AddDefaultValueToSlotInterval.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T11:17:14.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "20250710134247_InitialCreate.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250710134247_InitialCreate.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250710134247_InitialCreate.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250710134247_InitialCreate.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250710134247_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T13:42:47.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Create.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\Appointments\\Create.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Create.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\Appointments\\Create.cshtml",
+              "ViewState": "AgIAADcAAAAAAAAAAAAYwFgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-15T09:45:35.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Index.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\Appointments\\Index.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Index.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\Appointments\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T11:09:55.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Details.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\Appointments\\Details.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Details.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\Appointments\\Details.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAC8AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-20T20:33:42.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "AppointmentsController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\AppointmentsController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Controllers\\AppointmentsController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\AppointmentsController.cs",
+              "RelativeToolTip": "TheCutHub\\Controllers\\AppointmentsController.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAUwKEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T13:54:56.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "_TimeSlotsPartial.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\_TimeSlotsPartial.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\Appointments\\_TimeSlotsPartial.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\_TimeSlotsPartial.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\Appointments\\_TimeSlotsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-19T13:00:41.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "EditByBarber.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\EditByBarber.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\EditByBarber.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\EditByBarber.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\EditByBarber.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-20T16:33:20.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "WorkingHour.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\WorkingHour.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Models\\WorkingHour.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\WorkingHour.cs",
+              "RelativeToolTip": "TheCutHub\\Models\\WorkingHour.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAkwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T19:02:40.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "20250720160149_barb.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250720160149_barb.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250720160149_barb.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250720160149_barb.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250720160149_barb.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T16:01:50.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "AppointmentService.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Services\\AppointmentService.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Services\\AppointmentService.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Services\\AppointmentService.cs",
+              "RelativeToolTip": "TheCutHub\\Services\\AppointmentService.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAowDcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T20:01:15.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "WorkingHoursController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\WorkingHoursController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\WorkingHoursController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\WorkingHoursController.cs",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\WorkingHoursController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAAGUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T17:09:18.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Edit.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\Appointments\\Edit.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Appointments\\Edit.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\Appointments\\Edit.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-15T09:47:23.072Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 41,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Edit.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Edit.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Edit.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Edit.cshtml",
+              "ViewState": "AgIAADsAAAAAAAAAAAAkwFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-19T09:21:43.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "AppointmentsController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\AppointmentsController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\AppointmentsController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\AppointmentsController.cs",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\AppointmentsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T13:52:09.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Edit.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Services\\Edit.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Edit.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Services\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-11T14:59:06.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Index.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Index.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Index.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\WorkingHours\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-19T09:20:57.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "20250720153506_AddBarberToWorkingHour.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250720153506_AddBarberToWorkingHour.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250720153506_AddBarberToWorkingHour.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250720153506_AddBarberToWorkingHour.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250720153506_AddBarberToWorkingHour.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T15:35:06.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T09:27:18.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Index.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Services\\Index.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Index.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Services\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-11T14:31:34.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Services\\Index.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\Services\\Index.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Services\\Index.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\Services\\Index.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAewCoAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T11:01:37.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "ServicesController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\ServicesController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\ServicesController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\ServicesController.cs",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\ServicesController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAiwFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T14:28:53.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Create.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Services\\Create.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Create.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Services\\Create.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAMwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-11T14:32:26.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "20250719093715_SeedWorkingHours.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250719093715_SeedWorkingHours.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250719093715_SeedWorkingHours.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250719093715_SeedWorkingHours.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250719093715_SeedWorkingHours.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-19T09:37:16.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Delete.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Services\\Delete.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Services\\Delete.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Services\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-11T14:59:42.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "20250716182009_timespanToMinutes.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250716182009_timespanToMinutes.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250716182009_timespanToMinutes.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250716182009_timespanToMinutes.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250716182009_timespanToMinutes.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAgAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T18:20:09.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:17:56.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T17:06:27.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "WorkingHourController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\WorkingHourController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Controllers\\WorkingHourController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Controllers\\WorkingHourController.cs",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Controllers\\WorkingHourController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T17:04:23.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Appointments\\Index.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Appointments\\Index.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Appointments\\Index.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Appointments\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-11T13:53:47.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "20250715193458_ReplaceDurationMinutesWithTimeSpan.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250715193458_ReplaceDurationMinutesWithTimeSpan.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250715193458_ReplaceDurationMinutesWithTimeSpan.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250715193458_ReplaceDurationMinutesWithTimeSpan.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250715193458_ReplaceDurationMinutesWithTimeSpan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T19:34:58.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "20250715194547_AddWorkingHoursTable.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250715194547_AddWorkingHoursTable.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250715194547_AddWorkingHoursTable.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250715194547_AddWorkingHoursTable.cs",
+              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250715194547_AddWorkingHoursTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T19:45:47.975Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Models\\Appointment.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Models\\Appointment.cs",
+              "RelativeToolTip": "TheCutHub\\Models\\Appointment.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T12:48:44.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Edit.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Edit.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Edit.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Edit.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-11T15:45:02.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "TheCutHub\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-15T08:13:31.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Index.cshtml",
+              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Index.cshtml",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Index.cshtml",
+              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-11T15:42:48.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "ServicesController.cs",
+              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\ServicesController.cs",
+              "RelativeDocumentMoniker": "TheCutHub\\Controllers\\ServicesController.cs",
+              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\ServicesController.cs",
+              "RelativeToolTip": "TheCutHub\\Controllers\\ServicesController.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAIwDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T13:50:02.134Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
               "Title": "site.css",
               "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "TheCutHub\\wwwroot\\css\\site.css",
@@ -845,31 +1162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-10T15:01:19.39Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Delete.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Delete.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Barbers\\Delete.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Barbers\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-11T15:45:37.267Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 61,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
@@ -881,31 +1174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Users\\Index.cshtml",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Admin\\Views\\Users\\Index.cshtml",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Admin\\Views\\Users\\Index.cshtml",
-              "RelativeToolTip": "TheCutHub\\Areas\\Admin\\Views\\Users\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-10T15:32:37.464Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\appsettings.json",
-              "RelativeDocumentMoniker": "TheCutHub\\appsettings.json",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\appsettings.json",
-              "RelativeToolTip": "TheCutHub\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-10T13:24:24.462Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 63,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
@@ -917,19 +1186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "Register.cshtml.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "RelativeToolTip": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAmwKUAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T15:05:09.51Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 64,
               "Title": "TheCutHub.csproj",
               "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\TheCutHub.csproj",
               "RelativeDocumentMoniker": "TheCutHub\\TheCutHub.csproj",
@@ -941,7 +1198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 65,
               "Title": "Logout.cshtml.cs",
               "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
               "RelativeDocumentMoniker": "TheCutHub\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
@@ -950,30 +1207,6 @@
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T15:04:47.983Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "BarbersController.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\BarbersController.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Controllers\\BarbersController.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Controllers\\BarbersController.cs",
-              "RelativeToolTip": "TheCutHub\\Controllers\\BarbersController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T13:53:31.132Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "20250710134247_InitialCreate.cs",
-              "DocumentMoniker": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250710134247_InitialCreate.cs",
-              "RelativeDocumentMoniker": "TheCutHub\\Data\\Migrations\\20250710134247_InitialCreate.cs",
-              "ToolTip": "D:\\github_rep\\TheCutHub\\TheCutHub\\TheCutHub\\Data\\Migrations\\20250710134247_InitialCreate.cs",
-              "RelativeToolTip": "TheCutHub\\Data\\Migrations\\20250710134247_InitialCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T13:42:47.54Z"
             }
           ]
         }

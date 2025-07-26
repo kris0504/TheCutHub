@@ -15,7 +15,10 @@
             <th>Start</th>
             <th>End</th>
             <th>Is Working</th>
+            <th>Slot Interval (min)</th>
             <th>Edit</th>
+            
+
         </tr>
     </thead>
     <tbody>
@@ -26,11 +29,15 @@
                 <td>@item.StartTime</td>
                 <td>@item.EndTime</td>
                 <td>@(item.IsWorking ? "Yes" : "No")</td>
+                <td>@item.SlotIntervalInMinutes</td>
+
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">Edit</a>
                 </td>
             </tr>
         }
+       
+
     </tbody>
 </table>
 
