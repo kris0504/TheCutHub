@@ -1,0 +1,43 @@
+# Build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio cache
+.vs/
+
+# JetBrains Rider
+.idea/
+
+# VS Code settings
+.vscode/
+
+# Logs
+*.log
+
+# ASP.NET Core secrets
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# Local databases
+*.db
+*.db-shm
+*.db-wal
+
+# Copilot & metadata binary files
+*.v2
+*.futdcache.*
+*.metadata.*
+
+# System files
+*.DS_Store
+Thumbs.db
+
+# Git conflict backups
+*.orig

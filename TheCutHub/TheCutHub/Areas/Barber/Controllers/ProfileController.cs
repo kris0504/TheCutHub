@@ -65,18 +65,14 @@ namespace TheCutHub.Areas.Barber.Controllers
                 return View(model);
             }
 
-            // Ръчно мапване от ViewModel към Entity
+
             barber.FullName = model.FullName;
             barber.Bio = model.Bio;
             barber.ProfileImageUrl = model.ProfileImageUrl;
 
-            // Явно казваш на EF, че е променено
+
             _context.Barbers.Update(barber);
 
-            // _context.Barbers.Update(barber);
-            //_context.Entry(barber).Property(b => b.FullName).IsModified = true;
-            //_context.Entry(barber).Property(b => b.Bio).IsModified = true;
-            //_context.Entry(barber).Property(b => b.ProfileImageUrl).IsModified = true;
            
             var result = await _context.SaveChangesAsync();
             Console.WriteLine($"[DEBUG] SaveChanges result = {result}");

@@ -71,13 +71,13 @@ namespace TheCutHub.Areas.Admin.Controllers
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null) return NotFound();
 
-            // 1. Премахване на ролята
+          
             if (await _userManager.IsInRoleAsync(user, "Barber"))
             {
                 await _userManager.RemoveFromRoleAsync(user, "Barber");
             }
 
-            // 2. Изтриване от таблицата Barbers
+            
             var barber = await _context.Barbers.FirstOrDefaultAsync(b => b.UserId == user.Id);
             if (barber != null)
             {
