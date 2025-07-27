@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,11 +21,12 @@ namespace TheCutHub.Controllers
         }
 
         // GET: Barbers
+        
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Barbers.ToListAsync());
+            var barbers = await _context.Barbers.ToListAsync();
+            return View(barbers);
         }
-
         // GET: Barbers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -34,7 +36,8 @@ namespace TheCutHub.Controllers
             }
 
             var barber = await _context.Barbers
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(b => b.Appointments)
+                .FirstOrDefaultAsync(b => b.Id == id);
             if (barber == null)
             {
                 return NotFound();

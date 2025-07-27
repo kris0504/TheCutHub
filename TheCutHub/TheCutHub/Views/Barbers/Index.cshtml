@@ -1,53 +1,24 @@
 ﻿@model IEnumerable<TheCutHub.Models.Barber>
 
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Index";
 }
 
 <h1>Barbers</h1>
-
-@* <p>
-    <a asp-action="Create">Create New</a>
-</p> *@
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Full Name
-            </th>
-            <th>
-                
-            </th>
-            <th>
-                Bio
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            
-                @* @Html.DisplayFor(modelItem => item.ProfileImageUrl) *@
-                <td>
-                        @if (!string.IsNullOrEmpty(item.ProfileImageUrl))
-                        {
-                        <img src="@item.ProfileImageUrl" width="100" />
-                        }
-                </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.Bio)
-            </td>
-           @*  <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td> *@
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+	@foreach (var b in Model)
+	{
+		<div class="col-md-4 mb-4">
+			<div class="card">
+				<img src="@(b.ProfileImageUrl ?? "/images/default-barber.png")"
+					 class="card-img-top" alt="@b.FullName" />
+				<div class="card-body">
+					<h5 class="card-title">@b.FullName</h5>
+					<p class="card-text">@b.Bio?.Substring(0, Math.Min(100, b.Bio.Length))…</p>
+					<a asp-action="Details" asp-route-id="@b.Id"
+					   class="btn btn-sm btn-primary">Преглед</a>
+				</div>
+			</div>
+		</div>
+	}
+</div>

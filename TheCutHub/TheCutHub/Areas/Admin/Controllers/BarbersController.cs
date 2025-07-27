@@ -30,7 +30,7 @@ namespace TheCutHub.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Barber barber)
+        public async Task<IActionResult> Create(TheCutHub.Models.Barber barber)
         {
             if (ModelState.IsValid)
             {
@@ -52,7 +52,7 @@ namespace TheCutHub.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Barber barber)
+        public async Task<IActionResult> Edit(int id, TheCutHub.Models.Barber barber)
         {
             if (id != barber.Id) return NotFound();
 

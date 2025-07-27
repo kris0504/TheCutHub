@@ -44,6 +44,16 @@
         <input asp-for="EndTime" id="EndTime" class="form-control" />
         <span asp-validation-for="EndTime" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="SlotIntervalInMinutes" class="control-label">Slot interval</label>
+        <select asp-for="SlotIntervalInMinutes" class="form-control">
+            <option value="15">15 minutes</option>
+            <option value="20">20 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="60">60 minutes</option>
+        </select>
+        <span asp-validation-for="SlotIntervalInMinutes" class="text-danger"></span>
+    </div>
 
     <div class="form-check">
         <input asp-for="IsWorking" class="form-check-input" />

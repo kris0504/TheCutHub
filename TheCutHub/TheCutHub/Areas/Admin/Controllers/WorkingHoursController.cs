@@ -76,20 +76,21 @@ namespace TheCutHub.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Day,StartTime,EndTime,IsWorking,BarberId")] WorkingHour workingHour)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Day,StartTime,EndTime,IsWorking,BarberId,SlotIntervalInMinutes")] WorkingHour workingHour)
         {
             var existing = await _context.WorkingHours.FindAsync(id);
             if (existing == null)
                 return NotFound();
+            
 
-            if (ModelState.IsValid)
+           if (ModelState.IsValid)
             {
                 existing.StartTime = workingHour.StartTime;
                 existing.EndTime = workingHour.EndTime;
                 existing.IsWorking = workingHour.IsWorking;
-
+                existing.SlotIntervalInMinutes = workingHour.SlotIntervalInMinutes;
                 await _context.SaveChangesAsync();
-                return RedirectToAction("EditByBarber", new { id = existing.BarberId });
+               return RedirectToAction("EditByBarber", new { id = existing.BarberId });
             }
 
             workingHour.BarberId = existing.BarberId;

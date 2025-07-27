@@ -20,8 +20,9 @@ namespace TheCutHub.Services
     .FirstOrDefaultAsync(w => w.Day == dayOfWeek && w.IsWorking && w.BarberId == barberId);
             Console.WriteLine($"[DEBUG] Searching working hour for: BarberId={barberId}, Day={dayOfWeek}");
 
-            if (workingHour == null) { 
-                Console.WriteLine("[DEBUG] No working hour found for this barber and day!"); 
+            if (workingHour == null)
+            {
+                Console.WriteLine("[DEBUG] No working hour found for this barber and day!");
                 return new List<TimeSpan>();
             }
             Console.WriteLine($"[DEBUG] WorkingHour: {workingHour.StartTime} - {workingHour.EndTime}, IsWorking={workingHour.IsWorking}");
@@ -46,10 +47,13 @@ namespace TheCutHub.Services
 
                 if (!isOccupied)
                     slots.Add(current);
-                if (workingHour == null || workingHour.StartTime >= workingHour.EndTime)
-                return new List<TimeSpan>();
+                var interval = TimeSpan.FromMinutes(
+                 workingHour.SlotIntervalInMinutes > 0 ? workingHour.SlotIntervalInMinutes : 30 );
 
-                current = current.Add(TimeSpan.FromMinutes(30));
+                if (workingHour == null || workingHour.StartTime >= workingHour.EndTime)
+                    return new List<TimeSpan>();
+
+                current = current.Add(interval);
                 Console.WriteLine($"[SLOTS] Date: {date}, Day: {dayOfWeek}, BarberId: {barberId}");
                 if (workingHour == null)
                 {
