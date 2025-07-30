@@ -30,13 +30,6 @@ namespace TheCutHub.Controllers
             _userManager = userManager;
         }
 
-        //public AppointmentsController(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //    _appointmentService = new AppointmentService(context); // още не сме направили DI
-        //}
-
-       
 
         // GET: Appointments
         public async Task<IActionResult> Index()
@@ -75,14 +68,7 @@ namespace TheCutHub.Controllers
         }
 
         // GET: Appointments/Create
-        //public IActionResult Create()
-        //{
-            
-        //    ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "FullName");
-        //    ViewData["ServiceId"] = new SelectList(_context.Services, "Id", "Name");
-        //    ViewData["UserId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
-        //    return View();
-        //}
+       
         public async Task<IActionResult> Create(DateTime? date)
         {
             ViewBag.ServiceId = new SelectList(_context.Services, "Id", "Name");
@@ -127,24 +113,6 @@ namespace TheCutHub.Controllers
             return PartialView("_TimeSlotsPartial", slots);
         }
 
-        // POST: Appointments/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("Id,UserId,BarberId,ServiceId,AppointmentDateTime,Notes")] Appointment appointment)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(appointment);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "FullName", appointment.BarberId);
-        //    ViewData["ServiceId"] = new SelectList(_context.Services, "Id", "Name", appointment.ServiceId);
-        //    ViewData["UserId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id", appointment.UserId);
-        //    return View(appointment);
-        //}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(DateTime date, TimeSpan timeSlot, int serviceId, int barberId, string notes)
@@ -187,8 +155,7 @@ namespace TheCutHub.Controllers
         }
 
         // POST: Appointments/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+   
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,BarberId,ServiceId,AppointmentDateTime,Notes")] Appointment appointment)

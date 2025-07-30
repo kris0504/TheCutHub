@@ -11,21 +11,105 @@
     <div class="col-md-8">
         <h2>@Model.FullName</h2>
         <p>@Model.Bio</p>
-        <h5>Ревюта</h5>
+
+        <h5>Reviews</h5>
         @if (Model.Reviews?.Any() ?? false)
         {
-            foreach (var r in Model.Reviews)
-            {
-                <div class="border p-2 mb-2">
-                    <strong>@r.UserName:</strong> @r.Comment<br />
-                    <small class="text-muted">@r.CreatedOn.ToShortDateString()</small>
-                </div>
-            }
+            <button id="toggleReviewsBtn" class="btn btn-outline-secondary btn-sm mb-2" type="button">
+                Show Reviews
+            </button>
+
+            <div id="reviewList" class="collapse" >
+                @foreach (var review in Model.Reviews)
+                {
+                    <div class="mb-3 border-bottom pb-2">
+                        <strong>@review.User.UserName</strong> – @review.Rating ★<br />
+                        <p>@review.Comment</p>
+
+                     
+                        @if (User.Identity.IsAuthenticated && User.Identity.Name == Model.User.UserName)
+                        {
+                            <form asp-area="Barber" asp-controller="Reviews" asp-action="Delete" method="post" class="d-inline">
+
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@review.Id" />
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        }
+                    </div>
+                }
+            </div>
         }
         else
         {
-            <p><em>Все още няма ревюта.</em></p>
+            <p><em>No reviews.</em></p>
         }
+        @if (User.Identity.IsAuthenticated)
+        {
+            <form asp-controller="Reviews" asp-action="Add" method="post" asp-area="Barber">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="BarberId" value="@Model.Id" />
+                <div class="mb-3">
+                    <label for="Rating">Rating (1-5)</label>
+                    <select name="Rating" class="form-control" required>
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="Comment">Comment</label>
+                    <textarea name="Comment" class="form-control" maxlength="500" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send review</button>
+            </form>
+        }
+        else
+        {
+            <p><em>Само влезли потребители могат да оставят ревю.</em></p>
+        }
+
+        <h5 class="mt-4">Portfolio</h5>
+        @if (Model.WorkImages?.Any() ?? false)
+        {
+            <div class="row">
+                @foreach (var img in Model.WorkImages)
+                {
+                    <div class="col-sm-6 col-lg-4 mb-3">
+                        <div class="card">
+                            <img src="@img.ImageUrl"
+                                 class="card-img-top img-fluid"
+                                 alt="Portfolio photo" />
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p><em>No photos found.</em></p>
+        }
+
     </div>
 </div>
-<a asp-action="Index" class="btn btn-secondary mt-3">Назад към списъка</a>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Back to list</a>
+@section Scripts {
+    <script>
+        const toggleBtn = document.getElementById("toggleReviewsBtn");
+        const reviewList = document.getElementById("reviewList");
+
+        toggleBtn?.addEventListener("click", () => {
+            const isCollapsed = reviewList.classList.contains("show");
+
+            if (isCollapsed) {
+                bootstrap.Collapse.getOrCreateInstance(reviewList).hide();
+                toggleBtn.textContent = "Show Reviews";
+            } else {
+                bootstrap.Collapse.getOrCreateInstance(reviewList).show();
+                toggleBtn.textContent = "Hide Reviews";
+            }
+        });
+    </script>
+}

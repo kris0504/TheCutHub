@@ -36,7 +36,11 @@ namespace TheCutHub.Controllers
             }
 
             var barber = await _context.Barbers
+                 .Include(b => b.User)
                 .Include(b => b.Appointments)
+                .Include(b => b.WorkImages)
+                .Include(b => b.Reviews)
+                  .ThenInclude(r => r.User)
                 .FirstOrDefaultAsync(b => b.Id == id);
             if (barber == null)
             {

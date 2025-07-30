@@ -22,7 +22,7 @@ namespace TheCutHub.Data
             base.OnModelCreating(builder);
             builder.Entity<Barber>()
         .HasOne(b => b.User)
-        .WithMany() // или .WithMany(u => u.Barbers) ако имаш обратна колекция
+        .WithMany() 
         .HasForeignKey(b => b.UserId)
         .OnDelete(DeleteBehavior.Restrict);
             builder.Entity<WorkingHour>().HasData(

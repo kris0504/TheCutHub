@@ -8,7 +8,7 @@ namespace TheCutHub.Models
 
         [Required]
         public string ImageUrl { get; set; } = null!;
-
+        [Required]
         public int BarberId { get; set; }
         public Barber Barber { get; set; } = null!;
     }

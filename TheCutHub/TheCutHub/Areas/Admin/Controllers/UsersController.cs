@@ -60,7 +60,7 @@ namespace TheCutHub.Areas.Admin.Controllers
                 _context.Barbers.Add(barber);
                 await _context.SaveChangesAsync();
 
-                TempData["BarberCreated"] = $"Потребителят {user.Email} вече е бръснар.";
+                TempData["BarberCreated"] = $"User {user.Email} is already a barber.";
             }
 
             return RedirectToAction(nameof(Index));
@@ -85,7 +85,7 @@ namespace TheCutHub.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            TempData["BarberRemoved"] = $"Потребителят {user.Email} вече не е бръснар.";
+            TempData["BarberRemoved"] = $"User {user.Email} is not a barber anymore.";
             return RedirectToAction(nameof(Index));
         }
 

@@ -18,14 +18,11 @@ namespace TheCutHub.Services
 
             var workingHour = await _context.WorkingHours
     .FirstOrDefaultAsync(w => w.Day == dayOfWeek && w.IsWorking && w.BarberId == barberId);
-            Console.WriteLine($"[DEBUG] Searching working hour for: BarberId={barberId}, Day={dayOfWeek}");
-
             if (workingHour == null)
             {
-                Console.WriteLine("[DEBUG] No working hour found for this barber and day!");
                 return new List<TimeSpan>();
             }
-            Console.WriteLine($"[DEBUG] WorkingHour: {workingHour.StartTime} - {workingHour.EndTime}, IsWorking={workingHour.IsWorking}");
+            
             var appointments = await _context.Appointments
      .Where(a => a.Date.Date == date.Date && a.BarberId == barberId)
      .Include(a => a.Service)
@@ -54,15 +51,7 @@ namespace TheCutHub.Services
                     return new List<TimeSpan>();
 
                 current = current.Add(interval);
-                Console.WriteLine($"[SLOTS] Date: {date}, Day: {dayOfWeek}, BarberId: {barberId}");
-                if (workingHour == null)
-                {
-                    Console.WriteLine("[SLOTS] No working hours found!");
-                }
-                else
-                {
-                    Console.WriteLine($"[SLOTS] Working from {workingHour.StartTime} to {workingHour.EndTime}, IsWorking: {workingHour.IsWorking}");
-                }
+                
 
             }
             if (workingHour == null || workingHour.StartTime >= workingHour.EndTime)

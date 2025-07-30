@@ -14,6 +14,8 @@ namespace TheCutHub.Models.ViewModels
         [Display(Name = "Profile picture URL")]
         [Url(ErrorMessage = "Invalid URL.")]
         public string? ProfileImageUrl { get; set; }
+        [Display(Name = "Upload new profile picture")]
+        public IFormFile? ProfileImageFile { get; set; }
         [BindNever]
         public string? Email { get; set; }
         [BindNever]

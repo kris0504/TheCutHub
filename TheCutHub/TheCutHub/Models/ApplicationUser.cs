@@ -9,5 +9,6 @@ namespace TheCutHub.Models
         public string? FullName { get; set; }
 
         public ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
+
     }
 }
