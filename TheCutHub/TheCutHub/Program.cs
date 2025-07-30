@@ -41,6 +41,8 @@ namespace TheCutHub
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseStatusCodePagesWithReExecute("/Error/{0}");
+            app.UseExceptionHandler("/Error");
 
             app.UseRouting();
 
