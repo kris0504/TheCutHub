@@ -25,6 +25,7 @@ namespace TheCutHub.Services
             
             var appointments = await _context.Appointments
      .Where(a => a.Date.Date == date.Date && a.BarberId == barberId)
+     .Include(a => a.User)
      .Include(a => a.Service)
      .Select(a => new
      {

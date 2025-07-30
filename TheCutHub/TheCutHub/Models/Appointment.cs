@@ -10,8 +10,8 @@ namespace TheCutHub.Models
         public int Id { get; set; }
 
         [Required]
-        public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
+        public string? UserId { get; set; }
+        public ApplicationUser? User { get; set; }
         [Required]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
@@ -20,12 +20,12 @@ namespace TheCutHub.Models
 
         [NotMapped]
         public DateTime AppointmentDateTime => Date.Date + TimeSlot;
-
+        [Required]
         public int BarberId { get; set; }
-        public Barber Barber { get; set; }
+        public Barber? Barber { get; set; }
         [Required]
         public int ServiceId { get; set; }
-        public Service Service { get; set; }
+        public Service? Service { get; set; }
 
         public string? Notes { get; set; }
     }

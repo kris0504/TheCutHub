@@ -5,6 +5,7 @@ namespace TheCutHub.Models
     public class Barber
     {
         public int Id { get; set; }
+        [Required]
         public string UserId { get; set; } = null!;
         public ApplicationUser User { get; set; } = null!;
 
