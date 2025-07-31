@@ -39,6 +39,8 @@ namespace TheCutHub.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> MakeBarber(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
@@ -66,6 +68,8 @@ namespace TheCutHub.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> RemoveBarber(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
