@@ -31,7 +31,7 @@ public class AppointmentServiceTests
             User = fakeUser
         };
 
-        context.Users.Add(fakeUser); // или context.ApplicationUsers.Add(...) ако имаш DbSet
+        context.Users.Add(fakeUser); 
         context.Barbers.Add(barber);
         var service = new Service
         {

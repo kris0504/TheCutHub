@@ -19,8 +19,8 @@ namespace TheCutHub
             builder.Services.AddScoped<AppointmentService>();
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddRoles<IdentityRole>() 
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+            .AddRoles<IdentityRole>() 
+            .AddEntityFrameworkStores<ApplicationDbContext>();
             
 
             builder.Services.AddControllersWithViews();

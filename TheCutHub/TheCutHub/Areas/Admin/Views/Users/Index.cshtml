@@ -40,13 +40,15 @@
                     @if (roles != null && roles.ContainsKey(user.Id) && !roles[user.Id].Contains("Barber"))
                     {
                         <form asp-area="Admin" asp-controller="Users" asp-action="MakeBarber" method="post">
+                            @Html.AntiForgeryToken();
                             <input type="hidden" name="userId" value="@user.Id" />
                             <button class="btn btn-sm btn-primary">Make barber</button>
                         </form>
                     }
                     else
                     {
-                        <form asp-area="Admin" asp-controller="Users" asp-action="RemoveBarber" method="post" onsubmit="return confirm('Сигурен ли си, че искаш да премахнеш бръснаря?');">
+                        <form asp-area="Admin" asp-controller="Users" asp-action="RemoveBarber" method="post" onsubmit="return confirm('Are you sure you want to remove the barber?');">
+                            @Html.AntiForgeryToken();
                             <input type="hidden" name="userId" value="@user.Id" />
                             <button class="btn btn-sm btn-danger">Remove barber</button>
                         </form>
