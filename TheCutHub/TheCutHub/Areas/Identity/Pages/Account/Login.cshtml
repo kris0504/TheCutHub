@@ -5,12 +5,12 @@
     ViewData["Title"] = "Log in";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1>@ViewData["Title"]</h1> 
 <div class="row">
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
-                @Html.AntiForgeryToken();
+                @Html.AntiForgeryToken()
 
                 <h2>Use a local account to log in.</h2>
                 <hr />

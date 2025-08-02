@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using TheCutHub.Data;
+using System.Threading.Tasks;
+using TheCutHub.Areas.Admin.Services;
 
 namespace TheCutHub.Areas.Admin.Controllers
 {
@@ -9,21 +9,16 @@ namespace TheCutHub.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class AppointmentsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAdminAppointmentService _appointmentService;
 
-        public AppointmentsController(ApplicationDbContext context)
+        public AppointmentsController(IAdminAppointmentService appointmentService)
         {
-            _context = context;
+            _appointmentService = appointmentService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var appointments = await _context.Appointments
-                .Include(a => a.User)
-                .Include(a => a.Barber)
-                .Include(a => a.Service) 
-                .ToListAsync();
-
+            var appointments = await _appointmentService.GetAllAsync();
             return View(appointments);
         }
     }

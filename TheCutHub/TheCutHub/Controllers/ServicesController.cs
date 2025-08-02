@@ -1,82 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using TheCutHub.Data;
 using TheCutHub.Models;
+using TheCutHub.Services;
 
 namespace TheCutHub.Controllers
 {
     public class ServicesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IServiceService _serviceService;
 
-        public ServicesController(ApplicationDbContext context)
+        public ServicesController(IServiceService serviceService)
         {
-            _context = context;
+            _serviceService = serviceService;
         }
 
         // GET: Services
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Services.ToListAsync());
+            var services = await _serviceService.GetAllAsync();
+            return View(services);
         }
 
         // GET: Services/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var service = await _context.Services
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (service == null)
-            {
-                return NotFound();
-            }
+            var service = await _serviceService.GetByIdAsync(id.Value);
+            if (service == null) return NotFound();
 
             return View(service);
         }
 
         // GET: Services/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Create() => View();
 
         // POST: Services/Create
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,Price,DurationMinutes")] Service service)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(service);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(service);
+            if (!ModelState.IsValid)
+                return View(service);
+
+            await _serviceService.CreateAsync(service);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Services/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var service = await _context.Services.FindAsync(id);
-            if (service == null)
-            {
-                return NotFound();
-            }
+            var service = await _serviceService.GetByIdAsync(id.Value);
+            if (service == null) return NotFound();
+
             return View(service);
         }
 
@@ -85,48 +63,32 @@ namespace TheCutHub.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Price,DurationMinutes")] Service service)
         {
-            if (id != service.Id)
+            if (id != service.Id) return NotFound();
+
+            if (!ModelState.IsValid)
+                return View(service);
+
+            try
             {
-                return NotFound();
+                await _serviceService.UpdateAsync(service);
+            }
+            catch
+            {
+                if (!_serviceService.Exists(service.Id))
+                    return NotFound();
+                throw;
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(service);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ServiceExists(service.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(service);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Services/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var service = await _context.Services
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (service == null)
-            {
-                return NotFound();
-            }
+            var service = await _serviceService.GetByIdAsync(id.Value);
+            if (service == null) return NotFound();
 
             return View(service);
         }
@@ -136,19 +98,10 @@ namespace TheCutHub.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var service = await _context.Services.FindAsync(id);
-            if (service != null)
-            {
-                _context.Services.Remove(service);
-            }
+            var success = await _serviceService.DeleteAsync(id);
+            if (!success) return NotFound();
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool ServiceExists(int id)
-        {
-            return _context.Services.Any(e => e.Id == id);
         }
     }
 }

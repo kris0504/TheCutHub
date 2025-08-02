@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using TheCutHub.Data;
+using System.Threading.Tasks;
+using TheCutHub.Areas.Admin.Services;
 using TheCutHub.Models;
 
 namespace TheCutHub.Areas.Admin.Controllers
@@ -10,41 +10,35 @@ namespace TheCutHub.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class BarbersController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAdminBarberService _barberService;
 
-        public BarbersController(ApplicationDbContext context)
+        public BarbersController(IAdminBarberService barberService)
         {
-            _context = context;
+            _barberService = barberService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var barbers = await _context.Barbers.ToListAsync();
+            var barbers = await _barberService.GetAllAsync();
             return View(barbers);
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Create() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TheCutHub.Models.Barber barber)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Barbers.Add(barber);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            if (!ModelState.IsValid)
+                return View(barber);
 
-            return View(barber);
+            await _barberService.CreateAsync(barber);
+            return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Edit(int id)
         {
-            var barber = await _context.Barbers.FindAsync(id);
+            var barber = await _barberService.GetByIdAsync(id);
             if (barber == null) return NotFound();
 
             return View(barber);
@@ -56,19 +50,16 @@ namespace TheCutHub.Areas.Admin.Controllers
         {
             if (id != barber.Id) return NotFound();
 
-            if (ModelState.IsValid)
-            {
-                _context.Barbers.Update(barber);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            if (!ModelState.IsValid)
+                return View(barber);
 
-            return View(barber);
+            await _barberService.UpdateAsync(barber);
+            return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Delete(int id)
         {
-            var barber = await _context.Barbers.FindAsync(id);
+            var barber = await _barberService.GetByIdAsync(id);
             if (barber == null) return NotFound();
 
             return View(barber);
@@ -78,12 +69,8 @@ namespace TheCutHub.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var barber = await _context.Barbers.FindAsync(id);
-            if (barber != null)
-            {
-                _context.Barbers.Remove(barber);
-                await _context.SaveChangesAsync();
-            }
+            var success = await _barberService.DeleteAsync(id);
+            if (!success) return NotFound();
 
             return RedirectToAction(nameof(Index));
         }
