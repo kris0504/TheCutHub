@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.EntityFrameworkCore;
-using TheCutHub.Data;
-using TheCutHub.Models;
+using System.Threading.Tasks;
+using TheCutHub.Areas.Admin.Services;
 
 namespace TheCutHub.Areas.Admin.Controllers
 {
@@ -12,27 +9,17 @@ namespace TheCutHub.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class UsersController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly ApplicationDbContext _context;
+        private readonly IAdminUserService _userService;
 
-        public UsersController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
+        public UsersController(IAdminUserService userService)
         {
-            _userManager = userManager;
-            _roleManager = roleManager;
-            _context = context;
+            _userService = userService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var users = await _userManager.Users.ToListAsync();
-
-            var userRoles = new Dictionary<string, IList<string>>();
-
-            foreach (var user in users)
-            {
-                userRoles[user.Id] = await _userManager.GetRolesAsync(user);
-            }
+            var users = await _userService.GetAllUsersAsync();
+            var userRoles = await _userService.GetUserRolesMapAsync();
 
             ViewBag.UserRoles = userRoles;
             return View(users);
@@ -40,58 +27,24 @@ namespace TheCutHub.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public async Task<IActionResult> MakeBarber(string userId)
         {
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null) return NotFound();
+            var result = await _userService.MakeBarberAsync(userId);
+            if (!result) return NotFound();
 
-            if (!await _userManager.IsInRoleAsync(user, "Barber"))
-            {
-                await _userManager.AddToRoleAsync(user, "Barber");
-            }
-
-            if (!await _context.Barbers.AnyAsync(b => b.UserId == user.Id))
-            {
-                var barber = new TheCutHub.Models.Barber
-                {
-                    UserId = user.Id,
-                    FullName = user.FullName ?? user.Email
-                };
-
-                _context.Barbers.Add(barber);
-                await _context.SaveChangesAsync();
-
-                TempData["BarberCreated"] = $"User {user.Email} is already a barber.";
-            }
-
+            TempData["BarberCreated"] = "User is now a barber.";
             return RedirectToAction(nameof(Index));
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public async Task<IActionResult> RemoveBarber(string userId)
         {
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null) return NotFound();
+            var result = await _userService.RemoveBarberAsync(userId);
+            if (!result) return NotFound();
 
-          
-            if (await _userManager.IsInRoleAsync(user, "Barber"))
-            {
-                await _userManager.RemoveFromRoleAsync(user, "Barber");
-            }
-
-            
-            var barber = await _context.Barbers.FirstOrDefaultAsync(b => b.UserId == user.Id);
-            if (barber != null)
-            {
-                _context.Barbers.Remove(barber);
-                await _context.SaveChangesAsync();
-            }
-
-            TempData["BarberRemoved"] = $"User {user.Email} is not a barber anymore.";
+            TempData["BarberRemoved"] = "User is no longer a barber.";
             return RedirectToAction(nameof(Index));
         }
-
     }
 }

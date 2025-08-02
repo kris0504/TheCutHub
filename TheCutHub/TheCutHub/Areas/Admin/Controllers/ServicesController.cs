@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using TheCutHub.Data;
+using System.Threading.Tasks;
+using TheCutHub.Areas.Admin.Services;
 using TheCutHub.Models;
 
 namespace TheCutHub.Areas.Admin.Controllers
@@ -10,40 +10,35 @@ namespace TheCutHub.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class ServicesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAdminServiceService _serviceService;
 
-        public ServicesController(ApplicationDbContext context)
+        public ServicesController(IAdminServiceService serviceService)
         {
-            _context = context;
+            _serviceService = serviceService;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Services.ToListAsync());
+            var services = await _serviceService.GetAllAsync();
+            return View(services);
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Create() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Service service)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Services.Add(service);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            if (!ModelState.IsValid)
+                return View(service);
 
-            return View(service);
+            await _serviceService.CreateAsync(service);
+            return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Edit(int id)
         {
-            var service = await _context.Services.FindAsync(id);
+            var service = await _serviceService.GetByIdAsync(id);
             if (service == null) return NotFound();
 
             return View(service);
@@ -55,19 +50,16 @@ namespace TheCutHub.Areas.Admin.Controllers
         {
             if (id != service.Id) return NotFound();
 
-            if (ModelState.IsValid)
-            {
-                _context.Services.Update(service);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            if (!ModelState.IsValid)
+                return View(service);
 
-            return View(service);
+            await _serviceService.UpdateAsync(service);
+            return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Delete(int id)
         {
-            var service = await _context.Services.FindAsync(id);
+            var service = await _serviceService.GetByIdAsync(id);
             if (service == null) return NotFound();
 
             return View(service);
@@ -77,12 +69,8 @@ namespace TheCutHub.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var service = await _context.Services.FindAsync(id);
-            if (service != null)
-            {
-                _context.Services.Remove(service);
-                await _context.SaveChangesAsync();
-            }
+            var success = await _serviceService.DeleteAsync(id);
+            if (!success) return NotFound();
 
             return RedirectToAction(nameof(Index));
         }

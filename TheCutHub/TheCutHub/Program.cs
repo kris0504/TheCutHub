@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using TheCutHub.Areas.Admin.Interfaces;
 using TheCutHub.Areas.Admin.Services;
 using TheCutHub.Data;
 using TheCutHub.Models;
@@ -18,12 +19,17 @@ namespace TheCutHub
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
             // builder.Services.AddScoped<AppointmentService>();
+            builder.Services.AddScoped<IAdminServiceService, AdminServiceService>();
+
             builder.Services.AddScoped<IBarberService, BarberService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
             builder.Services.AddScoped<IAdminAppointmentService, AdminAppointmentService>();
             builder.Services.AddScoped<IAdminBarberService, AdminBarberService>();
             builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+            builder.Services.AddScoped<IAdminUserService, AdminUserService>();
             builder.Services.AddScoped<IServiceService, ServiceService>();
+            builder.Services.AddScoped<IAdminWorkingHourService, AdminWorkingHourService>();
+
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
             .AddRoles<IdentityRole>() 
             .AddEntityFrameworkStores<ApplicationDbContext>();
