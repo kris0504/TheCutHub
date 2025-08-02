@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TheCutHub.Areas.Admin.Interfaces;
 using TheCutHub.Areas.Admin.Services;
+using TheCutHub.Areas.Barber.Services;
 using TheCutHub.Data;
 using TheCutHub.Models;
 using TheCutHub.Services;
@@ -29,7 +30,9 @@ namespace TheCutHub
             builder.Services.AddScoped<IAdminUserService, AdminUserService>();
             builder.Services.AddScoped<IServiceService, ServiceService>();
             builder.Services.AddScoped<IAdminWorkingHourService, AdminWorkingHourService>();
-
+            builder.Services.AddScoped<IBarberProfileService, BarberProfileService>();
+            builder.Services.AddScoped<IAdminServiceService, AdminServiceService>();
+            
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
             .AddRoles<IdentityRole>() 
             .AddEntityFrameworkStores<ApplicationDbContext>();
