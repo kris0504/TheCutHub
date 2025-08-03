@@ -97,9 +97,11 @@ namespace TheCutHub.Services
 
                     current = current.Add(interval);
                 }
-
+                    
                 return slots;
             }
+
+
         }
 
   

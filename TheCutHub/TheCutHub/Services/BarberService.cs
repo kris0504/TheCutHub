@@ -36,7 +36,7 @@ public class BarberService : IBarberService
     {
         _context.Barbers.Add(barber);
         await _context.SaveChangesAsync();
-    }
+    }   
 
     public async Task UpdateAsync(Barber barber)
     {
