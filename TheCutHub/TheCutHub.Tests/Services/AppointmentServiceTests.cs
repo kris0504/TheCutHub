@@ -35,7 +35,7 @@ namespace TheCutHub.Tests.Services
 
             
             Assert.NotNull(result);
-            Assert.Equal("user1", result.UserId);
+            Assert.Equal("user1", result?.UserId);
         }
 
         [Fact]
@@ -239,9 +239,9 @@ namespace TheCutHub.Tests.Services
             var result = await svc.GetByIdAsync(10);
 
             Assert.NotNull(result);
-            Assert.Equal("u1", result.User.UserName);
-            Assert.Equal("B1", result.Barber.FullName);
-            Assert.Equal("Cut", result.Service.Name);
+            Assert.Equal("u1", result?.User?.UserName);
+            Assert.Equal("B1", result?.Barber?.FullName);
+            Assert.Equal("Cut", result?.Service?.Name);
         }
 
         [Fact]
@@ -259,7 +259,7 @@ namespace TheCutHub.Tests.Services
             await svc.EditAsync(appt);
 
             var updated = await ctx.Appointments.FindAsync(1);
-            Assert.Equal(DateTime.Today.AddDays(1), updated.Date);
+            Assert.Equal(DateTime.Today.AddDays(1), updated?.Date);
         }
 
 
