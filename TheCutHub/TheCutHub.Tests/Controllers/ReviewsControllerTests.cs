@@ -13,6 +13,8 @@ using TheCutHub.Models.ViewModels;
 using TheCutHub.Models;
 using TheCutHub.Services;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.EntityFrameworkCore;
+using TheCutHub.Data;
 
 namespace TheCutHub.Tests.Controllers
 {
@@ -22,8 +24,12 @@ namespace TheCutHub.Tests.Controllers
             Mock<IReviewService> reviewServiceMock,
             Mock<UserManager<ApplicationUser>> userManagerMock,
             ClaimsPrincipal user = null!)
+
         {
-            var controller = new ReviewsController(reviewServiceMock.Object, userManagerMock.Object);
+            var dbContextMock = new Mock<ApplicationDbContext>(new DbContextOptions<ApplicationDbContext>());
+
+            var controller = new ReviewsController(reviewServiceMock.Object, userManagerMock.Object, dbContextMock.Object);
+
             controller.ControllerContext = new ControllerContext
             {
                 HttpContext = new DefaultHttpContext { User = user ?? new ClaimsPrincipal() }

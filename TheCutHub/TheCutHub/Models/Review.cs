@@ -6,11 +6,11 @@ namespace TheCutHub.Models
     {
         public int Id { get; set; }
         [Required]
-        public string UserId { get; set; }
+        public  string UserId { get; set; }
         public ApplicationUser User { get; set; }
         [Required]
         public int BarberId { get; set; }
-        public Barber Barber { get; set; }
+        public Barber? Barber { get; set; }
 
         [Range(1, 5)]
         public int Rating { get; set; }

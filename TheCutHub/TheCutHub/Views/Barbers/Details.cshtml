@@ -3,72 +3,55 @@
     ViewData["Title"] = Model.FullName;
 }
 
-<div class="row">
+<div class="row" data-barber-id="@Model.Id">
     <div class="col-md-4">
         <img src="@(Model.ProfileImageUrl ?? "/images/default-barber.png")"
              class="img-fluid rounded" alt="@Model.FullName" />
     </div>
+
     <div class="col-md-8">
-        <h2>@Model.FullName</h2>
-        <p>@Model.Bio</p>
+        <h2>@Html.Encode(Model.FullName)</h2>
+        <p>@Html.Encode(Model.Bio)</p>
 
         <h5>Reviews</h5>
-        @if (Model.Reviews?.Any() ?? false)
-        {
-            <button id="toggleReviewsBtn" class="btn btn-outline-secondary btn-sm mb-2" type="button">
+
+        <div id="reviewSection">
+            <button id="toggleReviewsBtn" class="btn btn-outline-secondary btn-sm mb-2">
                 Show Reviews
             </button>
 
-            <div id="reviewList" class="collapse" >
-                @foreach (var review in Model.Reviews)
-                {
-                    <div class="mb-3 border-bottom pb-2">
-                        <strong>@review.User.UserName</strong> – @review.Rating ★<br />
-                        <p>@review.Comment</p>
-
-                     
-                        @if (User.Identity.IsAuthenticated && User.Identity.Name == Model.User.UserName)
-                        {
-                            <form asp-area="Barber" asp-controller="Reviews" asp-action="Delete" method="post" class="d-inline">
-
-
-                                @Html.AntiForgeryToken()
-                                <input type="hidden" name="id" value="@review.Id" />
-                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                            </form>
-                        }
-                    </div>
-                }
+            <div id="reviewContainer" style="display:none">
+                <div class="text-muted">Loading…</div>
             </div>
-        }
-        else
-        {
-            <p><em>No reviews.</em></p>
-        }
+        </div>
+
         @if (User.Identity.IsAuthenticated)
         {
-            <form asp-controller="Reviews" asp-action="Add" method="post" asp-area="Barber">
+            <form asp-controller="Reviews" asp-action="Add" method="post">
                 @Html.AntiForgeryToken()
                 <input type="hidden" name="BarberId" value="@Model.Id" />
+
                 <div class="mb-3">
                     <label for="Rating">Rating (1-5)</label>
-                    <select name="Rating" class="form-control" required>
+                    <select id="Rating" name="Rating" class="form-control" required>
                         @for (int i = 1; i <= 5; i++)
                         {
                             <option value="@i">@i</option>
                         }
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label for="Comment">Comment</label>
-                    <textarea name="Comment" class="form-control" maxlength="500" required></textarea>
+                    <textarea id="Comment" name="Comment" class="form-control" maxlength="500" required></textarea>
                 </div>
+
                 <button type="submit" class="btn btn-primary">Send review</button>
             </form>
         }
         else
         {
-            <p><em>Само влезли потребители могат да оставят ревю.</em></p>
+            <p><em>You have to be logged in to leave a review.</em></p>
         }
 
         <h5 class="mt-4">Portfolio</h5>
@@ -79,9 +62,7 @@
                 {
                     <div class="col-sm-6 col-lg-4 mb-3">
                         <div class="card">
-                            <img src="@img.ImageUrl"
-                                 class="card-img-top img-fluid"
-                                 alt="Portfolio photo" />
+                            <img src="@img.ImageUrl" class="card-img-top img-fluid" alt="Portfolio photo" />
                         </div>
                     </div>
                 }
@@ -92,25 +73,46 @@
             <p><em>No photos found.</em></p>
         }
 
+        <a asp-action="Index" class="btn btn-secondary mt-3">Back to list</a>
     </div>
 </div>
 
-<a asp-action="Index" class="btn btn-secondary mt-3">Back to list</a>
 @section Scripts {
     <script>
-        const toggleBtn = document.getElementById("toggleReviewsBtn");
-        const reviewList = document.getElementById("reviewList");
+        $(function () {
+            const $btn = $('#toggleReviewsBtn');
+            const $container = $('#reviewContainer');
+            const barberId = $('.row[data-barber-id]').data('barber-id');
+            let isLoaded = false;
 
-        toggleBtn?.addEventListener("click", () => {
-            const isCollapsed = reviewList.classList.contains("show");
+            $btn.on('click', function () {
+                if (!isLoaded) {
+                    $.get(`/Reviews/List?barberId=${barberId}&page=1`)
+                        .done(function (data) {
+                            $container.html(data).slideDown();
+                            $btn.text('Hide Reviews');
+                            isLoaded = true;
+                        })
+                        .fail(function () {
+                            $container.html('<div class="text-danger">Failed to load reviews.</div>');
+                        });
+                } else {
+                    $container.slideUp(() => $container.empty());
+                    $btn.text('Show Reviews');
+                    isLoaded = false;
+                }
+            });
 
-            if (isCollapsed) {
-                bootstrap.Collapse.getOrCreateInstance(reviewList).hide();
-                toggleBtn.textContent = "Show Reviews";
-            } else {
-                bootstrap.Collapse.getOrCreateInstance(reviewList).show();
-                toggleBtn.textContent = "Hide Reviews";
-            }
+            
+            $container.on('click', 'a[href^="/Reviews/List"]', function (e) {
+                e.preventDefault();
+                const url = $(this).attr('href');
+                $container.load(url, function (response, status) {
+                    if (status === "error") {
+                        $container.html("<div class='alert alert-danger'>Failed to load reviews.</div>");
+                    }
+                });
+            });
         });
     </script>
 }

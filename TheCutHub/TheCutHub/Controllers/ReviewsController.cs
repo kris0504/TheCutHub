@@ -3,26 +3,56 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using TheCutHub.Data;
 using TheCutHub.Models;
 using TheCutHub.Models.ViewModels;
 using TheCutHub.Services;
+using X.PagedList;
+
+
+
 
 namespace TheCutHub.Controllers
 {
     [Authorize]
-    [Area("Barber")]
+    
     public class ReviewsController : Controller
     {
         private readonly IReviewService _reviewService;
         private readonly UserManager<ApplicationUser> _userManager;
-
+        private readonly ApplicationDbContext _context;
         public ReviewsController(
             IReviewService reviewService,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager, 
+            ApplicationDbContext context)
         {
             _reviewService = reviewService;
             _userManager = userManager;
+            _context = context;
         }
+
+
+        [AllowAnonymous]
+        public IActionResult List(int barberId, int page = 1)
+        {
+            const int pageSize = 5;
+
+            var reviewsQuery = _context.Reviews
+                .Include(r => r.User)
+                .Where(r => r.BarberId == barberId);
+
+            var reviewCount = reviewsQuery.Count(); 
+            
+            var reviews = reviewsQuery
+                .OrderByDescending(r => r.CreatedOn)
+                .ToPagedList(page, pageSize);
+
+            ViewBag.BarberId = barberId;
+
+            return PartialView("_ReviewListPartial", reviews);
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -56,14 +86,15 @@ namespace TheCutHub.Controllers
                 return NotFound();
 
 
-            var currentUserName = User.Identity?.Name;
-            var isBarber = review.Barber?.User?.UserName == currentUserName;
+            var currentUserId = _userManager.GetUserId(User);
+            var isAuthor = review.UserId == currentUserId;
             var isAdmin = User.IsInRole("Administrator");
 
-            if (!isBarber && !isAdmin)
+            if (!isAuthor && !isAdmin)
                 return Forbid();
 
-    
+
+
             await _reviewService.DeleteAsync(review);
 
             return RedirectToAction("Details", "Barbers", new { id = review.BarberId, area = "" });
