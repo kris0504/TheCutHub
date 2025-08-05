@@ -72,7 +72,7 @@ namespace TheCutHub.Controllers
                 model.Rating,
                 DateTime.UtcNow);
 
-            TempData["Success"] = "Review is successfully added!";
+            TempData["ReviewSuccess"] = "Review is successfully added!";
             return RedirectToAction("Details", "Barbers", new { id = model.BarberId, area = "" });
         }
 

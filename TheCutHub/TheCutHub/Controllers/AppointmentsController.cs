@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using TheCutHub.Models;
 using TheCutHub.Services;
+using X.PagedList;
 
 
 namespace TheCutHub.Controllers
@@ -12,6 +14,7 @@ namespace TheCutHub.Controllers
     {
         private readonly IAppointmentService _appointmentService;
         private readonly UserManager<ApplicationUser> _userManager;
+        
 
         public AppointmentsController(
             IAppointmentService appointmentService,
@@ -19,15 +22,18 @@ namespace TheCutHub.Controllers
         {
             _appointmentService = appointmentService;
             _userManager = userManager;
+
         }
 
         // GET: Appointments
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> Index(int page = 1)
         {
             var userId = _userManager.GetUserId(User);
-            var appointments = await _appointmentService.GetAppointmentsByUserIdAsync(userId);
+            var appointments = await _appointmentService.GetAppointmentsByUserAsync(userId, page, 10);
             return View(appointments);
         }
+
 
         // GET: Appointments/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -67,8 +73,11 @@ namespace TheCutHub.Controllers
                 return BadRequest("Invalid service");
 
             var slots = await _appointmentService.GetAvailableSlotsAsync(date, TimeSpan.FromMinutes(service.DurationMinutes), barberId);
-            return PartialView("_TimeSlotsPartial", slots);
+
+            var formattedSlots = slots.Select(s => s.ToString(@"hh\:mm")).ToList();
+            return Json(formattedSlots);
         }
+
 
         // POST: Appointments/Create
         [HttpPost]

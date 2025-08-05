@@ -1,6 +1,7 @@
 ﻿using TheCutHub.Data;
 using Microsoft.EntityFrameworkCore;
 using TheCutHub.Models;
+using X.PagedList;
 
 namespace TheCutHub.Services
 {
@@ -19,6 +20,15 @@ namespace TheCutHub.Services
 
         public async Task<Service?> GetServiceByIdAsync(int id) =>
             await _context.Services.FindAsync(id);
+        public async Task<IPagedList<Appointment>> GetAppointmentsByUserAsync(string userId, int page, int pageSize)
+        {
+            return await _context.Appointments
+                .Include(a => a.Barber)
+                .Include(a => a.Service)
+                .Where(a => a.UserId == userId)
+                .OrderByDescending(a => a.Date)
+                .ToPagedListAsync(page, pageSize);
+        }
 
         public async Task<IEnumerable<Appointment>> GetAppointmentsByUserIdAsync(string userId)
             {

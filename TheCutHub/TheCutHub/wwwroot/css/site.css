@@ -7,6 +7,7 @@
     --barber-accent: #8b1e3f;
     --barber-hover: #d3b87d;
     --barber-blue: #003366;
+    --barber-white: #d4d4d4;
 }
 
 html {
@@ -20,12 +21,18 @@ body {
     margin: 0;
     background-color: var(--barber-dark);
     color: var(--barber-text);
-    font-family: 'Oswald', 'Segoe UI', sans-serif;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Inter', sans-serif;
+}
+.text-warning {
+    color: var(--barber-white) !important;
 }
 
 main {
     flex: 1 0 auto;
-    padding-bottom: 2rem; 
 }
 
 footer {
@@ -152,7 +159,7 @@ input[type="file"] {
         input[type="file"]::file-selector-button:hover {
             background-color: var(--barber-hover);
         }
-/* TABLES - Dark Theme */
+
 table {
     width: 100%;
     color: var(--barber-text);
@@ -179,7 +186,7 @@ tr:hover {
     background-color: #2a2a2a;
 }
 
-/* FIX Bootstrap default btn-outline-primary */
+
 .btn-outline-primary {
     border-color: var(--barber-gold);
     color: var(--barber-gold);
@@ -191,7 +198,128 @@ tr:hover {
         border-color: var(--barber-hover);
     }
 
-/* Optional: spacing for Create New button */
+
 .btn-create {
     margin-bottom: 1rem;
+}
+
+.img-fluid {
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+}
+
+.flatpickr-input {
+    background-color: var(--barber-panel) !important;
+    color: var(--barber-text) !important;
+    border: 1px solid var(--barber-gold) !important;
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+
+
+.flatpickr-calendar {
+    background-color: var(--barber-panel) !important;
+    color: var(--barber-text) !important;
+    border: 1px solid var(--barber-gray);
+}
+
+
+.flatpickr-day:hover {
+    background-color: var(--barber-hover) !important;
+    color: #121212 !important;
+    border-radius: 50%;
+}
+
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+    background-color: var(--barber-gold) !important;
+    color: #121212 !important;
+    border-radius: 50%;
+}
+
+
+.flatpickr-months,
+.flatpickr-months .flatpickr-month {
+    background-color: var(--barber-panel) !important;
+    color: var(--barber-gold) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+.flatpickr-current-month input.cur-year {
+    color: var(--barber-gold) !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+
+.flatpickr-weekdays {
+    background-color: var(--barber-panel) !important;
+    border-bottom: none !important;
+}
+
+.flatpickr-weekday {
+    color: var(--barber-gold) !important;
+    font-weight: bold;
+}
+
+
+.flatpickr-monthDropdown-months,
+.numInputWrapper {
+    background-color: var(--barber-panel) !important;
+    color: var(--barber-text) !important;
+    border: 1px solid var(--barber-gray) !important;
+}
+.choices__inner {
+    background-color: var(--barber-panel) !important;
+    color: var(--barber-text) !important;
+    border: 1px solid var(--barber-gold) !important;
+    border-radius: 6px !important;
+    padding: 0.5rem !important;
+}
+.choices__list--dropdown,
+.choices__list[role="listbox"] {
+    background-color: var(--barber-panel) !important;
+    color: var(--barber-text) !important;
+    border: 1px solid var(--barber-gray) !important;
+}
+
+.choices__item--selectable {
+    background-color: transparent !important;
+    color: var(--barber-text) !important;
+    padding: 0.5rem !important;
+}
+
+    .choices__item--selectable:hover,
+    .choices__item--selectable.is-highlighted {
+        background-color: var(--barber-hover) !important;
+        color: #121212 !important;
+    }
+.choices__placeholder {
+    color: #999 !important; 
+    opacity: 0.7;
+}
+.choices[data-type*=select-one]::after {
+    border-color: var(--barber-gold) transparent transparent transparent !important;
+}
+.pagination .page-link {
+    background-color: var(--barber-panel);
+    color: var(--barber-gold);
+    border: 1px solid var(--barber-gray);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--barber-gold);
+    color: #121212;
+    border-color: var(--barber-gold);
+}
+.past-appointment {
+    background-color: #555b61 !important;
+    color: var(--barber-text) !important;
+    opacity: 0.8;
+}
 }

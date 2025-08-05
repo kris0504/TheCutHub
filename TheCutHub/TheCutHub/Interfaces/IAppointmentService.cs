@@ -1,4 +1,5 @@
 ﻿using TheCutHub.Models;
+using X.PagedList;
 
 public interface IAppointmentService
 {
@@ -11,5 +12,5 @@ public interface IAppointmentService
     IEnumerable<Barber> GetBarbers();
     IEnumerable<Service> GetServices();
     Task<Service?> GetServiceByIdAsync(int id);
-
+    Task<IPagedList<Appointment>> GetAppointmentsByUserAsync(string userId, int page, int pageSize);
 }
