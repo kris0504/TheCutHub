@@ -1,153 +1,168 @@
 ﻿@model TheCutHub.Models.Appointment
 
 @{
-    ViewData["Title"] = "Create Appointment";
-    var selectedDate = ViewBag.SelectedDate as DateTime?;
-    var availableSlots = ViewBag.Slots as List<TimeSpan>;
+	ViewData["Title"] = "Create Appointment";
+	var selectedDate = ViewBag.SelectedDate as DateTime?;
+	var availableSlots = ViewBag.Slots as List<TimeSpan>;
 }
 
 <h1 class="mb-4">Create Appointment</h1>
 
 <div class="card shadow p-4">
-    <form asp-action="Create" method="post">
-        @Html.AntiForgeryToken()
+	<form asp-action="Create" method="post">
+		@Html.AntiForgeryToken()
 
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <label for="date" class="form-label">Date</label>
-                <input type="date" id="date" name="date" class="form-control" required />
-            </div>
+		<div class="row mb-3">
+			<div class="col-md-4">
+				<label for="date" class="form-label">Date</label>
+				<input type="date" id="date" name="date" class="form-control" required />
+			</div>
 
-            <div class="col-md-4">
-                <label for="service" class="form-label">Service</label>
-                <select id="service" name="serviceId" class="form-select" asp-items="ViewBag.ServiceId" required>
-                    <option value="">-- Select a service --</option>
-                </select>
-            </div>
+			<div class="col-md-4">
+				<label for="service" class="form-label">Service</label>
+				<select id="service" name="ServiceId" class="form-select">
+					<option value="">-- Select Service --</option>
+					@foreach (var item in (SelectList)ViewBag.ServiceId)
+					{
 
-            <div class="col-md-4">
-                <label for="barberId" class="form-label">Barber</label>
-                <select name="barberId" class="form-select" asp-items="ViewBag.BarberId" required></select>
-            </div>
-        </div>
+						if (item.Selected)
+						{
+							<option value="@item.Value" selected>@item.Text</option>
+						}
+						else
+						{
+							<option value="@item.Value">@item.Text</option>
+						}
 
-        <div id="slots-container" class="mb-4">
-            @if (availableSlots != null)
-            {
-                <h4 class="section-title">Available Time Slots</h4>
-                <div class="row">
-                    @foreach (var slot in availableSlots)
-                    {
-                        <div class="col-4 col-md-2 mb-2">
-                            <button name="timeSlot" value="@slot" class="btn btn-outline-primary w-100">
-                                @slot.ToString(@"hh\:mm")
-                            </button>
-                        </div>
-                    }
-                </div>
 
-                @if (!availableSlots.Any())
-                {
-                    <p class="text-danger">No available slots for this date.</p>
-                }
-            }
-        </div>
+					}
+				</select>
 
-        <div class="mb-3">
-            <label class="form-label">Notes (optional)</label>
-            <textarea name="notes" class="form-control" rows="3" placeholder="e.g. I prefer fade haircut..."></textarea>
-        </div>
+			</div>
 
-        <input type="hidden" name="selectedDate" value="@selectedDate?.ToString("yyyy-MM-dd")" />
+			<div class="col-md-4">
+				<label for="barberId" class="form-label">Barber</label>
+				<select name="barberId" class="form-select" asp-items="ViewBag.BarberId" required></select>
+			</div>
+		</div>
 
-        <div class="d-flex gap-3">
-            <button type="submit" class="btn btn-primary">
-                <i class="bi bi-check-circle-fill me-1"></i>Confirm Appointment
-            </button>
-            <a asp-action="Index" class="btn btn-outline-dark">
-                <i class="bi bi-arrow-left-circle me-1"></i>Back to Appointments
-            </a>
-        </div>
-    </form>
+		<div id="slots-container" class="mb-4">
+			@if (availableSlots != null)
+			{
+				<h4 class="section-title">Available Time Slots</h4>
+				<div class="row">
+					@foreach (var slot in availableSlots)
+					{
+						<div class="col-4 col-md-2 mb-2">
+							<button name="timeSlot" value="@slot" class="btn btn-outline-primary w-100">
+								@slot.ToString(@"hh\:mm")
+							</button>
+						</div>
+					}
+				</div>
+
+				@if (!availableSlots.Any())
+				{
+					<p class="text-danger">No available slots for this date.</p>
+				}
+			}
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label">Notes (optional)</label>
+			<textarea name="notes" class="form-control" rows="3" placeholder="e.g. I prefer fade haircut..."></textarea>
+		</div>
+
+		<input type="hidden" name="selectedDate" value="@selectedDate?.ToString("yyyy-MM-dd")" />
+
+		<div class="d-flex gap-3">
+			<button type="submit" class="btn btn-primary">
+				<i class="bi bi-check-circle-fill me-1"></i>Confirm Appointment
+			</button>
+			<a asp-action="Index" class="btn btn-outline-dark">
+				<i class="bi bi-arrow-left-circle me-1"></i>Back to Appointments
+			</a>
+		</div>
+	</form>
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            new Choices("#service", {
-                searchEnabled: false,
-                itemSelectText: '',
-                shouldSort: false
-            });
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			new Choices("#service", {
+				searchEnabled: false,
+				itemSelectText: '',
+				shouldSort: false
+			});
 
-            new Choices("[name='barberId']", {
-                searchEnabled: false,
-                itemSelectText: '',
-                shouldSort: false
-            });
-        });
-    </script>
+			new Choices("[name='barberId']", {
+				searchEnabled: false,
+				itemSelectText: '',
+				shouldSort: false
+			});
+		});
+	</script>
 
-    <script>
-        flatpickr("#date", {
-            minDate: "today",
-            dateFormat: "Y-m-d",
-            theme: "dark"
-        });
+	<script>
+		flatpickr("#date", {
+			minDate: "today",
+			dateFormat: "Y-m-d",
+			theme: "dark"
+		});
 
-        document.getElementById("service").addEventListener("change", loadSlots);
-        document.querySelector("[name='barberId']").addEventListener("change", loadSlots);
-        document.getElementById("date").addEventListener("change", loadSlots);
+		document.getElementById("service").addEventListener("change", loadSlots);
+		document.querySelector("[name='barberId']").addEventListener("change", loadSlots);
+		document.getElementById("date").addEventListener("change", loadSlots);
 
-        async function loadSlots() {
-            const date = document.getElementById("date").value;
-            const serviceId = document.getElementById("service").value;
-            const barberId = document.querySelector("[name='barberId']").value;
+		async function loadSlots() {
+			const date = document.getElementById("date").value;
+			const serviceId = document.getElementById("service").value;
+			const barberId = document.querySelector("[name='barberId']").value;
 
-            if (!date || !serviceId || !barberId) return;
+			if (!date || !serviceId || !barberId) return;
 
-            try {
-                const response = await fetch(`/Appointments/GetSlots?date=${date}&serviceId=${serviceId}&barberId=${barberId}`);
-                const slots = await response.json();
+			try {
+				const response = await fetch(`/Appointments/GetSlots?date=${date}&serviceId=${serviceId}&barberId=${barberId}`);
+				const slots = await response.json();
 
-                const container = document.getElementById("slots-container");
-                container.innerHTML = "";
+				const container = document.getElementById("slots-container");
+				container.innerHTML = "";
 
-                if (slots.length === 0) {
-                    const p = document.createElement("p");
-                    p.textContent = "No available slots for this date.";
-                    p.classList.add("text-danger");
-                    container.appendChild(p);
-                } else {
-                    const row = document.createElement("div");
-                    row.classList.add("row");
+				if (slots.length === 0) {
+					const p = document.createElement("p");
+					p.textContent = "No available slots for this date.";
+					p.classList.add("text-danger");
+					container.appendChild(p);
+				} else {
+					const row = document.createElement("div");
+					row.classList.add("row");
 
-                    slots.forEach(slot => {
-                        const col = document.createElement("div");
-                        col.classList.add("col-md-2", "mb-2");
+					slots.forEach(slot => {
+						const col = document.createElement("div");
+						col.classList.add("col-md-2", "mb-2");
 
-                        const button = document.createElement("button");
-                        button.type = "submit";
-                        button.name = "timeSlot";
-                        button.value = slot;
-                        button.className = "btn btn-primary w-100";
-                        button.textContent = slot;
+						const button = document.createElement("button");
+						button.type = "submit";
+						button.name = "timeSlot";
+						button.value = slot;
+						button.className = "btn btn-primary w-100";
+						button.textContent = slot;
 
-                        col.appendChild(button);
-                        row.appendChild(col);
-                    });
+						col.appendChild(button);
+						row.appendChild(col);
+					});
 
-                    container.appendChild(row);
-                }
+					container.appendChild(row);
+				}
 
-            } catch (error) {
-                console.error("Failed to load slots:", error);
-            }
-        }
+			} catch (error) {
+				console.error("Failed to load slots:", error);
+			}
+		}
 
-    </script>
+	</script>
 }

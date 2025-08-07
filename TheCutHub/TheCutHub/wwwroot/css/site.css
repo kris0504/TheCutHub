@@ -322,4 +322,16 @@ tr:hover {
     color: var(--barber-text) !important;
     opacity: 0.8;
 }
+.text-gold {
+    color: var(--barber-gold);
 }
+
+.btn-outline-gold {
+    border: 1px solid var(--barber-gold);
+    color: var(--barber-gold);
+}
+
+    .btn-outline-gold:hover {
+        background-color: var(--barber-gold);
+        color: black;
+    }

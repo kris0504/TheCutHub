@@ -1,45 +1,30 @@
 ﻿@model IEnumerable<TheCutHub.Models.Service>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Services";
 }
 
-<h1>Services</h1>
+<h1 class="text-gold mb-4 fw-bold">Our Services</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DurationMinutes)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DurationMinutes)
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    @foreach (var service in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-gold bg-dark text-light">
+                <div class="card-body">
+                    <h5 class="card-title text-gold">@service.Name</h5>
+                    <p class="card-text">@service.Description</p>
+                    <p class="card-text">
+                        <strong>Price:</strong> @string.Format("{0:F2} лв.", service.Price)<br />
+                        <strong>Duration:</strong> @service.DurationMinutes мин.
+                    </p>
+                </div>
+                <div class="card-footer border-top-0 bg-transparent">
+                    <a asp-action="Details" asp-route-id="@service.Id" class="btn btn-outline-info btn-sm">
+                        <i class="bi bi-eye"></i> View
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -47,9 +47,9 @@ namespace TheCutHub.Controllers
         }
 
         // GET: Appointments/Create
-        public IActionResult Create(DateTime? date)
+        public IActionResult Create(DateTime? date, int? serviceId)
         {
-            ViewBag.ServiceId = new SelectList(_appointmentService.GetServices(), "Id", "Name");
+            ViewBag.ServiceId = new SelectList(_appointmentService.GetServices(), "Id", "Name",serviceId);
             ViewBag.BarberId = new SelectList(_appointmentService.GetBarbers(), "Id", "FullName");
 
             if (date.HasValue)

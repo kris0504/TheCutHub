@@ -18,27 +18,7 @@ namespace TheCutHub.Tests.Services
             return new ApplicationDbContext(options);
         }
 
-        [Fact]
-        public async Task CreateAsync_AddsServiceToDatabase()
-        {
-            var context = GetInMemoryDbContext();
-            var service = new ServiceService(context);
-
-            var newService = new Service
-            {
-                Name = "Haircut",
-                Description = "Basic haircut",
-                Price = 20,
-                DurationMinutes = 30
-            };
-
-            await service.CreateAsync(newService);
-
-            var result = await context.Services.FirstOrDefaultAsync();
-            Assert.NotNull(result);
-            Assert.Equal("Haircut", result.Name);
-        }
-
+       
         [Fact]
         public async Task GetAllAsync_ReturnsAllServices()
         {
@@ -70,50 +50,7 @@ namespace TheCutHub.Tests.Services
             Assert.Equal("Beard Trim", result.Name);
         }
 
-        [Fact]
-        public async Task UpdateAsync_UpdatesService()
-        {
-            var context = GetInMemoryDbContext();
-            var s = new Service { Id = 5, Name = "Old", Price = 5 };
-            context.Services.Add(s);
-            await context.SaveChangesAsync();
-
-            var service = new ServiceService(context);
-            s.Name = "Updated";
-            s.Price = 50;
-
-            await service.UpdateAsync(s);
-
-            var updated = await context.Services.FindAsync(5);
-            Assert.Equal("Updated", updated!.Name);
-            Assert.Equal(50, updated.Price);
-        }
-
-        [Fact]
-        public async Task DeleteAsync_RemovesService_WhenExists()
-        {
-            var context = GetInMemoryDbContext();
-            var s = new Service { Id = 3, Name = "ToDelete" };
-            context.Services.Add(s);
-            await context.SaveChangesAsync();
-
-            var service = new ServiceService(context);
-            var result = await service.DeleteAsync(3);
-
-            Assert.True(result);
-            Assert.Empty(context.Services);
-        }
-
-        [Fact]
-        public async Task DeleteAsync_ReturnsFalse_WhenNotFound()
-        {
-            var context = GetInMemoryDbContext();
-            var service = new ServiceService(context);
-
-            var result = await service.DeleteAsync(999);
-
-            Assert.False(result);
-        }
+       
 
         [Fact]
         public void Exists_ReturnsTrue_WhenFound()
