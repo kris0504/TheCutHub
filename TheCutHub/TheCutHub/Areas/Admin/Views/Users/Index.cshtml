@@ -1,63 +1,101 @@
-﻿@model IEnumerable<TheCutHub.Models.ApplicationUser>
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Mvc.Common
+@using X.PagedList.Web.Common
+@model IPagedList<TheCutHub.Models.ApplicationUser>
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@{
     ViewData["Title"] = "All Users";
-}
-@if (TempData["BarberRemoved"] != null)
-{
-    <div class="alert alert-warning">@TempData["BarberRemoved"]</div>
+    var roles = ViewBag.UserRoles as Dictionary<string, IList<string>>;
+    string selectedRole = ViewBag.CurrentRole as string;
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="container mt-5">
+    <h2 class="section-title text-center mb-4">
+        <i class="bi bi-people-fill me-2 text-gold"></i> @ViewData["Title"]
+    </h2>
 
-<table class="table table-bordered table-hover">
-    <thead class="table-dark">
-        <tr>
-            <th>Email</th>
-            <th>Username</th>
-            <th>Full Name</th>
-            <th>Role</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
+    <form method="get" class="row mb-4 justify-content-center">
+        <div class="col-md-3">
+            <select name="role" class="form-select">
+                <option value="">-- All Roles --</option>
+                <option value="User" selected="@(ViewBag.CurrentRole == "User")">User (no role)</option>
+                <option value="Administrator" selected="@(ViewBag.CurrentRole == "Administrator")">Administrator</option>
+                <option value="Barber" selected="@(ViewBag.CurrentRole == "Barber")">Barber</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <input type="text" name="search" value="@ViewBag.SearchTerm" class="form-control" placeholder="Search by email or username..." />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-outline-gold w-100">
+                <i class="bi bi-search me-1"></i> Filter
+            </button>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-hover table-bordered align-middle">
+            <thead>
+                <tr class="text-gold text-uppercase">
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Role</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Email</td>
+                        <td>@user.UserName</td>
+                        <td>@user.FullName</td>
+                        <td>
+                            @if (roles != null && roles.ContainsKey(user.Id))
+                            {
+                                @string.Join(", ", roles[user.Id])
+                            }
+                        </td>
+                        <td class="text-center">
+                            @if (roles != null && roles.ContainsKey(user.Id) && !roles[user.Id].Contains("Barber"))
+                            {
+                                <form asp-area="Admin" asp-controller="Users" asp-action="MakeBarber" method="post" class="d-inline">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="userId" value="@user.Id" />
+                                    <button class="btn btn-sm btn-outline-gold">
+                                        <i class="bi bi-scissors me-1"></i> Make Barber
+                                    </button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form asp-area="Admin" asp-controller="Users" asp-action="RemoveBarber" method="post" class="d-inline" onsubmit="return confirm('Are you sure you want to remove the barber?');">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="userId" value="@user.Id" />
+                                    <button class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash3-fill me-1"></i> Remove Barber
+                                    </button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-4 d-flex justify-content-center">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, role = ViewBag.CurrentRole, search = ViewBag.SearchTerm }),
+                 new PagedListRenderOptions
         {
-            var roles = ViewBag.UserRoles as Dictionary<string, IList<string>>;
-            <tr>
-                <td>@user.Email</td>
-                <td>@user.UserName</td>
-                <td>@user.FullName</td>
-                <td>
-                    @if (roles != null && roles.ContainsKey(user.Id))
-                    {
-                        @string.Join(", ", roles[user.Id])
-                    }
-                </td>
-                <td>
-                    @if (roles != null && roles.ContainsKey(user.Id) && !roles[user.Id].Contains("Barber"))
-                    {
-                        <form asp-area="Admin" asp-controller="Users" asp-action="MakeBarber" method="post">
-                            @Html.AntiForgeryToken();
-                            <input type="hidden" name="userId" value="@user.Id" />
-                            <button class="btn btn-sm btn-primary">Make barber</button>
-                        </form>
-                    }
-                    else
-                    {
-                        <form asp-area="Admin" asp-controller="Users" asp-action="RemoveBarber" method="post" onsubmit="return confirm('Are you sure you want to remove the barber?');">
-                            @Html.AntiForgeryToken();
-                            <input type="hidden" name="userId" value="@user.Id" />
-                            <button class="btn btn-sm btn-danger">Remove barber</button>
-                        </form>
+            Display = PagedListDisplayMode.IfNeeded,
+            UlElementClasses = new[] { "pagination" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" }
+        })
 
-                    }
-                </td>
-            </tr>
-        }
-
-    </tbody>
-
-</table>
+    </div>
+</div>

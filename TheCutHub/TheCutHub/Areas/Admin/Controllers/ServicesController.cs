@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TheCutHub.Areas.Admin.Services;
 using TheCutHub.Models;
-
+using X.PagedList;
 namespace TheCutHub.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -17,11 +17,15 @@ namespace TheCutHub.Areas.Admin.Controllers
             _serviceService = serviceService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search, int page = 1)
         {
-            var services = await _serviceService.GetAllAsync();
-            return View(services);
+            const int pageSize = 5;
+            var pagedList = await _serviceService.GetPagedAsync(search, page, pageSize);
+
+            ViewBag.Search = search;             
+            return View(pagedList);              
         }
+
 
         public IActionResult Create() => View();
 

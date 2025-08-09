@@ -16,10 +16,21 @@ namespace TheCutHub.Areas.Admin.Controllers
             _appointmentService = appointmentService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(
+    string? client, DateOnly? date,
+    string sort = "date_desc",
+    int page = 1)
         {
-            var appointments = await _appointmentService.GetAllAsync();
-            return View(appointments);
+            const int pageSize = 10;
+
+            var paged = await _appointmentService.GetPagedAsync(
+                            client, date, sort, page, pageSize);
+
+            ViewBag.Client = client;
+            ViewBag.Date = date?.ToString("yyyy-MM-dd");
+            ViewBag.Sort = sort;
+
+            return View(paged);         
         }
     }
 }

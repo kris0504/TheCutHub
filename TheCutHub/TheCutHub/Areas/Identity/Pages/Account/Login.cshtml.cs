@@ -107,7 +107,10 @@ namespace TheCutHub.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
-
+            if (!Url.IsLocalUrl(returnUrl) || returnUrl.ToLower().Contains("/logout"))
+            {
+                returnUrl = Url.Content("~/");
+            }
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             if (ModelState.IsValid)

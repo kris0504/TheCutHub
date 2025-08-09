@@ -39,7 +39,7 @@ namespace TheCutHub.Tests.Controllers.Admin
                         { "user2", new List<string> { "Barber" } }
                     });
 
-            var result = await _controller.Index();
+            var result = await _controller.Index(null,null,null);
 
             
             var viewResult = Assert.IsType<ViewResult>(result);

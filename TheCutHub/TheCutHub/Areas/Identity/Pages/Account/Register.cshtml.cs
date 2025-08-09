@@ -118,7 +118,7 @@ namespace TheCutHub.Areas.Identity.Pages.Account
             {
                 if (await _userManager.FindByNameAsync(Input.UserName) != null)
                 {
-                    ModelState.AddModelError("Input.UserName", "Потребителското име вече е заето.");
+                    ModelState.AddModelError("Input.UserName", "The username is already taken.");
                     return Page();
                 }
                 var user = CreateUser();

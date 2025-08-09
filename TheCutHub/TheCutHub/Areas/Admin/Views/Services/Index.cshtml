@@ -1,38 +1,76 @@
-﻿@model IEnumerable<TheCutHub.Models.Service>
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Mvc.Core.Common
+@using X.PagedList.Web.Common
+
+
+@model IPagedList<TheCutHub.Models.Service>
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@{
     ViewData["Title"] = "All Services";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h2 class="mb-4">@ViewData["Title"]</h2>
+
+<form method="get" asp-action="Index" class="input-group mb-3 w-50">
+    <input type="text" name="search" value="@ViewBag.Search" class="form-control" placeholder="Search by name" />
+    <button type="submit" class="btn btn-outline-light">Search</button>
+</form>
 
 <a asp-area="Admin" asp-controller="Services" asp-action="Create" class="btn btn-success mb-3">Add New Service</a>
 
-<table class="table table-bordered table-hover">
-    <thead class="table-dark">
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Duration (min)</th>
-            <th>Description</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var s in Model)
-        {
-            <tr>
-                <td>@s.Name</td>
-                <td>@s.Price.ToString("C")</td>
-                <td>@s.DurationMinutes</td>
-                <td>@s.Description</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-sm btn-primary">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@s.Id" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">No services found.</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-dark table-bordered table-hover">
+            <thead>
+                <tr class="text-gold text-uppercase">
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Duration (min)</th>
+                    <th>Description</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in Model)
+                {
+                    <tr>
+                        <td>@s.Name</td>
+                        <td>@s.Price.ToString("C")</td>
+                        <td>@s.DurationMinutes</td>
+                        <td>@s.Description</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-sm btn-outline-primary me-2">
+                                <i class="bi bi-pencil-fill"></i> Edit
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@s.Id" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this service?');">
+                                <i class="bi bi-trash-fill"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        @Html.PagedListPager(
+                Model,
+                page => Url.Action("Index", new { page, search = ViewBag.Search }),
+                new PagedListRenderOptions
+    {
+        UlElementClasses = new[] { "pagination" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" },
+        Display = PagedListDisplayMode.IfNeeded
+    })
+  
+
+    </div>
+}

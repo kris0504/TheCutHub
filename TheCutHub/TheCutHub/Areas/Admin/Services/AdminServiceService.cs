@@ -3,12 +3,27 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TheCutHub.Data;
 using TheCutHub.Models;
+using X.PagedList;
 
 namespace TheCutHub.Areas.Admin.Services
 {
     public class AdminServiceService : IAdminServiceService
     {
         private readonly ApplicationDbContext _context;
+
+
+
+        public async Task<IPagedList<Service>> GetPagedAsync(string? search, int page, int pageSize)
+        {
+            var query = _context.Services.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(search))
+                query = query.Where(s => s.Name.Contains(search));
+
+            return await query
+                .OrderBy(s => s.Name)
+                .ToPagedListAsync(page, pageSize);
+        }
 
         public AdminServiceService(ApplicationDbContext context)
         {

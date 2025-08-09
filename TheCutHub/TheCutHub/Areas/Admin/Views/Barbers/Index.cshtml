@@ -1,41 +1,52 @@
 ﻿@model IEnumerable<TheCutHub.Models.Barber>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@{
     ViewData["Title"] = "All Barbers";
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="container mt-5">
+    <h2 class="section-title text-center mb-4">
+        <i class="bi bi-person-bounding-box me-2 text-gold"></i> @ViewData["Title"]
+    </h2>
 
-<a asp-action="Create" class="btn btn-success mb-3">Add New Barber</a>
+    <div class="table-responsive">
+        <table class="table table-dark table-hover table-bordered align-middle">
+            <thead>
+                <tr class="text-gold text-uppercase">
+                    <th>Full Name</th>
+                    <th>Bio</th>
+                    <th>Profile Image</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var b in Model)
+                {
+                    <tr>
+                        <td>@b.FullName</td>
+                        <td>@(string.IsNullOrEmpty(b.Bio) ? "No bio" : b.Bio)</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(b.ProfileImageUrl))
+                            {
+                                <img src="@b.ProfileImageUrl" class="img-fluid rounded" style="max-width: 100px;" />
+                            }
+                            else
+                            {
+                                <span class="text-muted">No image</span>
+                            }
+                        </td>
+                        <td class="text-center">
+                            <a asp-area="Barber" asp-controller="Profile" asp-action="Edit" asp-route-id="@b.UserId" class="btn btn-sm btn-outline-primary me-2">
+                                <i class="bi bi-pencil-fill me-1"></i> Edit
+                            </a>
 
-<table class="table table-striped table-bordered">
-    <thead class="table-dark">
-        <tr>
-            <th>Full Name</th>
-            <th>Bio</th>
-            <th>Profile Image</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var b in Model)
-        {
-            <tr>
-                <td>@b.FullName</td>
-                <td>@b.Bio</td>
-                <td>
-                    @if (!string.IsNullOrEmpty(b.ProfileImageUrl))
-                    {
-                        <img src="@b.ProfileImageUrl" width="100" />
-                    }
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@b.Id" class="btn btn-sm btn-primary">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@b.Id" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                            <a asp-action="Delete" asp-route-id="@b.Id" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this barber?');">
+                                <i class="bi bi-trash-fill me-1"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,48 +1,69 @@
 ﻿@model TheCutHub.Models.Service
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@{
     ViewData["Title"] = "Edit Service";
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="container mt-5">
+    <h2 class="section-title text-center mb-4">
+        <i class="bi bi-pencil-square me-2 text-gold"></i> @ViewData["Title"]
+    </h2>
 
-<form asp-action="Edit" method="post">
-    @Html.AntiForgeryToken()    
-    <input type="hidden" asp-for="Id" />
+    <div class="card shadow p-4 mx-auto" style="max-width: 600px;">
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
 
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label text-gold">
+                    <i class="bi bi-tag-fill me-1"></i> Name
+                </label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Price" class="form-label text-gold">
+                        <i class="bi bi-currency-dollar me-1"></i> Price
+                    </label>
+                    <input asp-for="Price" class="form-control" step="0.01" min="0" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="DurationMinutes" class="form-label text-gold">
+                        <i class="bi bi-stopwatch me-1"></i> Duration
+                    </label>
+                    <select asp-for="DurationMinutes" class="form-select">
+                        @for (int i = 10; i <= 180; i += 5)
+                        {
+                            <option value="@i">@i min</option>
+                        }
+                    </select>
+                    <span asp-validation-for="DurationMinutes" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label text-gold">
+                    <i class="bi bi-pencil me-1"></i> Description
+                </label>
+                <textarea asp-for="Description" rows="4" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex gap-3 justify-content-end">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check2-circle me-1"></i> Save
+                </button>
+                <a asp-action="Index" class="btn btn-outline-gold">
+                    <i class="bi bi-x-circle me-1"></i> Cancel
+                </a>
+            </div>
+        </form>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Price" class="form-label"></label>
-        <input asp-for="Price" class="form-control" />
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <select asp-for="DurationMinutes" class="form-control">
-            @for (int i = 5; i <= 240; i += 5)
-            {
-                <option value="@i">@i minutes</option>
-            }
-        </select>
-
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Description" class="form-label"></label>
-        <textarea asp-for="Description" class="form-control"></textarea>
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

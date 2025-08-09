@@ -1,118 +1,160 @@
 ﻿@model TheCutHub.Models.Barber
 @{
-    ViewData["Title"] = Model.FullName;
+	ViewData["Title"] = Model.FullName;
 }
 
 <div class="row" data-barber-id="@Model.Id">
-    <div class="col-md-4">
-        <img src="@(Model.ProfileImageUrl ?? "/images/default-barber.png")"
-             class="img-fluid rounded" alt="@Model.FullName" />
-    </div>
+	<div class="col-md-4 mb-3">
+		<img src="@(Model.ProfileImageUrl ?? "/images/default-barber.png")"
+			 class="img-fluid rounded shadow-sm w-100"
+			 style="object-fit: cover;" alt="@Model.FullName" />
+	</div>
 
-    <div class="col-md-8">
-        <h2>@Html.Encode(Model.FullName)</h2>
-        <p>@Html.Encode(Model.Bio)</p>
+	<div class="col-md-8">
+		<h2 class="text-gold">@Html.Encode(Model.FullName)</h2>
+		@if (ViewBag.AverageRating > 0)
+		{
+			
+				var avg = (double)ViewBag.AverageRating;
+				var fullStars = (int)Math.Floor(avg);
+				var hasHalfStar = avg - fullStars >= 0.5;
+				var emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+			
 
-        <h5>Reviews</h5>
+			<div class="d-flex align-items-center mb-3">
+				<div class="text-warning me-2">
+					
+						@for (int i = 0; i < fullStars; i++)
+						{
+							<text><i class="bi bi-star-fill"></i></text>
+						}
+					
 
-        <div id="reviewSection">
-            <button id="toggleReviewsBtn" class="btn btn-outline-secondary btn-sm mb-2">
-                Show Reviews
-            </button>
+					@if (hasHalfStar)
+					{
+						<i class="bi bi-star-half"></i>
+					}
 
-            <div id="reviewContainer" style="display:none">
-                <div class="text-muted">Loading…</div>
-            </div>
-        </div>
+					
+						@for (int i = 0; i < emptyStars; i++)
+						{
+							<text><i class="bi bi-star"></i></text>
+						}
+					
+				</div>
 
-        @if (User.Identity.IsAuthenticated)
-        {
-            <form asp-controller="Reviews" asp-action="Add" method="post">
-                @Html.AntiForgeryToken()
-                <input type="hidden" name="BarberId" value="@Model.Id" />
+				<span class="text-light">(@avg.ToString("0.0") ★)</span>
+			</div>
+		}
 
-                <div class="mb-3">
-                    <label for="Rating">Rating (1-5)</label>
-                    <select id="Rating" name="Rating" class="form-control" required>
-                        @for (int i = 1; i <= 5; i++)
-                        {
-                            <option value="@i">@i</option>
-                        }
-                    </select>
-                </div>
+		<p class="text-muted">@Html.Encode(Model.Bio)</p>
 
-                <div class="mb-3">
-                    <label for="Comment">Comment</label>
-                    <textarea id="Comment" name="Comment" class="form-control" maxlength="500" required></textarea>
-                </div>
+		<hr class="border-secondary" />
 
-                <button type="submit" class="btn btn-primary">Send review</button>
-            </form>
-        }
-        else
-        {
-            <p><em>You have to be logged in to leave a review.</em></p>
-        }
+		<h5 class="text-gold">Reviews</h5>
 
-        <h5 class="mt-4">Portfolio</h5>
-        @if (Model.WorkImages?.Any() ?? false)
-        {
-            <div class="row">
-                @foreach (var img in Model.WorkImages)
-                {
-                    <div class="col-sm-6 col-lg-4 mb-3">
-                        <div class="card">
-                            <img src="@img.ImageUrl" class="card-img-top img-fluid" alt="Portfolio photo" />
-                        </div>
-                    </div>
-                }
-            </div>
-        }
-        else
-        {
-            <p><em>No photos found.</em></p>
-        }
+		<div id="reviewSection">
+			<button id="toggleReviewsBtn" class="btn btn-outline-primary btn-sm mb-3">
+				Show Reviews
+			</button>
 
-        <a asp-action="Index" class="btn btn-secondary mt-3">Back to list</a>
-    </div>
+			<div id="reviewContainer" style="display:none">
+				<div class="text-muted">Loading…</div>
+			</div>
+		</div>
+
+		@if (User.Identity.IsAuthenticated)
+		{
+			<form asp-controller="Reviews" asp-action="Add" method="post" class="mt-3">
+				@Html.AntiForgeryToken()
+				<input type="hidden" name="BarberId" value="@Model.Id" />
+
+				<div class="mb-3">
+					<label for="Rating" class="form-label">Rating (1-5)</label>
+					<select id="Rating" name="Rating" class="form-select" required>
+						@for (int i = 1; i <= 5; i++)
+						{
+							<option value="@i">@i</option>
+						}
+					</select>
+				</div>
+
+				<div class="mb-3">
+					<label for="Comment" class="form-label">Comment</label>
+					<textarea id="Comment" name="Comment" class="form-control" rows="3" maxlength="500" required></textarea>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Send Review</button>
+			</form>
+		}
+		else
+		{
+			<p class="text-muted"><em>You must be logged in to leave a review.</em></p>
+		}
+
+		<hr class="border-secondary mt-4" />
+
+		<h5 class="text-gold mb-3">Portfolio</h5>
+		@if (Model.WorkImages?.Any() ?? false)
+		{
+			<div class="row">
+				@foreach (var img in Model.WorkImages)
+				{
+					<div class="col-sm-6 col-lg-4 mb-4">
+						<div class="card border-0 shadow-sm h-100">
+							<img src="@img.ImageUrl" class="card-img-top rounded" alt="Portfolio photo"
+								 style="object-fit: cover; height: 250px;" />
+						</div>
+					</div>
+				}
+			</div>
+		}
+		else
+		{
+			<p class="text-muted"><em>No portfolio images available.</em></p>
+		}
+
+		<a asp-action="Index" class="btn btn-outline-secondary mt-4">← Back to list</a>
+	</div>
 </div>
 
+
 @section Scripts {
-    <script>
-        $(function () {
-            const $btn = $('#toggleReviewsBtn');
-            const $container = $('#reviewContainer');
-            const barberId = $('.row[data-barber-id]').data('barber-id');
-            let isLoaded = false;
+	<script>
+		$(function () {
+			const $btn = $('#toggleReviewsBtn');
+			const $container = $('#reviewContainer');
+			const barberId = $('.row[data-barber-id]').data('barber-id');
+			let isLoaded = false;
 
-            $btn.on('click', function () {
-                if (!isLoaded) {
-                    $.get(`/Reviews/List?barberId=${barberId}&page=1`)
-                        .done(function (data) {
-                            $container.html(data).slideDown();
-                            $btn.text('Hide Reviews');
-                            isLoaded = true;
-                        })
-                        .fail(function () {
-                            $container.html('<div class="text-danger">Failed to load reviews.</div>');
-                        });
-                } else {
-                    $container.slideUp(() => $container.empty());
-                    $btn.text('Show Reviews');
-                    isLoaded = false;
-                }
-            });
+			$btn.on('click', function () {
+				if (!isLoaded) {
+					$.get(`/Reviews/List?barberId=${barberId}&page=1`)
+						.done(function (data) {
+							$container.html(data).slideDown();
+							$btn.text('Hide Reviews');
+							isLoaded = true;
+						})
+						.fail(function () {
+							$container.html('<div class="text-danger">Failed to load reviews.</div>');
+						});
+				} else {
+					$container.slideUp(() => $container.empty());
+					$btn.text('Show Reviews');
+					isLoaded = false;
+				}
+			});
 
-            
-            $container.on('click', 'a[href^="/Reviews/List"]', function (e) {
-                e.preventDefault();
-                const url = $(this).attr('href');
-                $container.load(url, function (response, status) {
-                    if (status === "error") {
-                        $container.html("<div class='alert alert-danger'>Failed to load reviews.</div>");
-                    }
-                });
-            });
-        });
-    </script>
+
+			$container.on('click', 'a[href^="/Reviews/List"]', function (e) {
+				e.preventDefault();
+				const url = $(this).attr('href');
+				$container.load(url, function (response, status) {
+					if (status === "error") {
+						$container.html("<div class='alert alert-danger'>Failed to load reviews.</div>");
+					}
+				});
+			});
+		});
+	</script>
 }

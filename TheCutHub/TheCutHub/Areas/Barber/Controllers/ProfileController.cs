@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TheCutHub.Areas.Barber.Services;
 using TheCutHub.Models;
 using TheCutHub.Models.ViewModels;
@@ -8,7 +9,7 @@ using TheCutHub.Models.ViewModels;
 namespace TheCutHub.Areas.Barber.Controllers
 {
     [Area("Barber")]
-    [Authorize(Roles = "Barber")]
+    [Authorize(Roles = "Barber,Administrator")]
     public class ProfileController : Controller
     {
         private readonly IBarberProfileService _profileService;
@@ -20,13 +21,30 @@ namespace TheCutHub.Areas.Barber.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Edit()
+
+        public async Task<IActionResult> Edit(string? id = null)
         {
-            var user = await _userManager.GetUserAsync(User);
-            var model = await _profileService.GetProfileAsync(user.Id);
+            string userId;
+
+            if (id != null)
+            {
+                var user = await _userManager.FindByIdAsync(id.ToString());
+                if (user == null) return NotFound();
+                userId = user.Id;
+            }
+            else
+            {
+                userId = _userManager.GetUserId(User);
+            }
+
+            var model = await _profileService.GetProfileAsync(userId);
             if (model == null) return NotFound();
+
+            ViewBag.BarberId = (await _profileService.GetProfileAsync(userId))?.WorkImages?.FirstOrDefault()?.BarberId;
             return View(model);
         }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

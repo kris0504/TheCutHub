@@ -1,10 +1,59 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@{
     ViewData["Title"] = "Admin Dashboard";
 }
 
-<h2>Welcome to the Admin Panel</h2>
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title">Welcome to the Admin Panel</h2>
+        <p class="lead text-light">Manage your system with full control over users, services, barbers, and more.</p>
+    </div>
 
-<p>You can manage users, services and appointments here.</p>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+            <a asp-area="Admin" asp-controller="Users" asp-action="Index" class="card text-center text-decoration-none h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-people-fill display-4 text-gold mb-3"></i>
+                    <h5 class="card-title">Manage Users</h5>
+                    <p class="card-text">View and manage all registered users.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-area="Admin" asp-controller="Barbers" asp-action="Index" class="card text-center text-decoration-none h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-person-bounding-box display-4 text-gold mb-3"></i>
+                    <h5 class="card-title">Manage Barbers</h5>
+                    <p class="card-text">Edit barbers and their profiles.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-area="Admin" asp-controller="Services" asp-action="Index" class="card text-center text-decoration-none h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-scissors display-4 text-gold mb-3"></i>
+                    <h5 class="card-title">Manage Services</h5>
+                    <p class="card-text">Add or update available services.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-area="Admin" asp-controller="Appointments" asp-action="Index" class="card text-center text-decoration-none h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-calendar-check display-4 text-gold mb-3"></i>
+                    <h5 class="card-title">Manage Appointments</h5>
+                    <p class="card-text">View and handle all appointments.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-area="Admin" asp-controller="WorkingHours" asp-action="Index" class="card text-center text-decoration-none h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-clock-history display-4 text-gold mb-3"></i>
+                    <h5 class="card-title">Working Hours</h5>
+                    <p class="card-text">Set working hours for each barber.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using TheCutHub.Data;
 using TheCutHub.Models;
 using TheCutHub.Services;
 
@@ -7,10 +9,11 @@ namespace TheCutHub.Controllers
     public class BarbersController : Controller
     {
         private readonly IBarberService _barberService;
-
-        public BarbersController(IBarberService barberService)
+        private readonly ApplicationDbContext _context;
+        public BarbersController(IBarberService barberService, ApplicationDbContext context)
         {
-            _barberService = barberService;
+			_context = context;
+			_barberService = barberService;
         }
 
         public async Task<IActionResult> Index()
@@ -25,7 +28,12 @@ namespace TheCutHub.Controllers
 
             var barber = await _barberService.GetDetailsAsync(id.Value);
             if (barber == null) return NotFound();
+            var reviews = await _context.Reviews
+        .Where(r => r.BarberId == barber.Id)
+        .ToListAsync();
 
+            var averageRating = reviews.Any() ? reviews.Average(r => r.Rating) : 0;
+            ViewBag.AverageRating = averageRating;
             return View(barber);
         }
 

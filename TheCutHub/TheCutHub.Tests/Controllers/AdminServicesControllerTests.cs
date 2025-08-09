@@ -29,7 +29,7 @@ namespace TheCutHub.Tests.Controllers.Admin
             _mockService.Setup(s => s.GetAllAsync()).ReturnsAsync(services);
 
             
-            var result = await _controller.Index();
+            var result = await _controller.Index(null);
 
             
             var viewResult = Assert.IsType<ViewResult>(result);

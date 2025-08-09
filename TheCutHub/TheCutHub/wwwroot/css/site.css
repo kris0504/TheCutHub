@@ -335,3 +335,51 @@ tr:hover {
         background-color: var(--barber-gold);
         color: black;
     }
+.card-title {
+    color: var(--barber-gold);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.25rem;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: var(--barber-text);
+}
+
+.section-title {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--barber-gold);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.form-label {
+    color: var(--barber-gold);
+}
+.review-list .card {
+    background-color: var(--barber-panel);
+    border-color: var(--barber-border);
+    transition: transform 0.2s ease;
+}
+    .review-list .card:hover {
+        transform: scale(1.01);
+    }
+
+.review-list i {
+    font-size: 1rem;
+    margin-right: 2px;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-internal-autofill-selected {
+    background-color: var(--barber-panel) !important;
+    color: var(--barber-text) !important;
+    -webkit-text-fill-color: var(--barber-text) !important;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: 0 0 0px 1000px var(--barber-panel) inset !important;
+}
+input:focus {
+    border-color: var(--barber-gold);
+    box-shadow: 0 0 0 0.2rem rgba(191, 161, 109, 0.25);
+}

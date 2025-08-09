@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TheCutHub.Areas.Admin.Services;
-
+using X.PagedList;
 namespace TheCutHub.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -16,14 +16,43 @@ namespace TheCutHub.Areas.Admin.Controllers
             _userService = userService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string role, string search, int? page)
         {
             var users = await _userService.GetAllUsersAsync();
             var userRoles = await _userService.GetUserRolesMapAsync();
 
+            if (!string.IsNullOrEmpty(role))
+            {
+                if (role == "User")
+                {
+                    users = users.Where(u => !userRoles.ContainsKey(u.Id) || userRoles[u.Id].Count == 0).ToList();
+                }
+                else
+                {
+                    users = users.Where(u => userRoles.ContainsKey(u.Id) && userRoles[u.Id].Contains(role)).ToList();
+                }
+            }
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = search.ToLower();
+                users = users.Where(u =>
+                    (!string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(search)) ||
+                    (!string.IsNullOrEmpty(u.UserName) && u.UserName.ToLower().Contains(search))
+                ).ToList();
+            }
+
             ViewBag.UserRoles = userRoles;
-            return View(users);
+            ViewBag.CurrentRole = role;
+            ViewBag.SearchTerm = search;
+
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
+
+            return View(users.ToPagedList(pageNumber, pageSize));
         }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

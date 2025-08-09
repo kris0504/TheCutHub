@@ -125,7 +125,7 @@ namespace TheCutHub.Tests.Controllers
             mockService.Setup(s => s.GetServices()).Returns(new List<Service> { new Service { Id = 1, Name = "S" } });
 
             var controller = new AppointmentsController(mockService.Object, null!);
-            var result = controller.Create(null);
+            var result = controller.Create(null,null);
 
             var view = Assert.IsType<ViewResult>(result);
             Assert.NotNull(view);

@@ -42,7 +42,7 @@ namespace TheCutHub.Controllers
                 .Include(r => r.User)
                 .Where(r => r.BarberId == barberId);
 
-            var reviewCount = reviewsQuery.Count(); 
+           // var reviewCount = reviewsQuery.Count(); 
             
             var reviews = reviewsQuery
                 .OrderByDescending(r => r.CreatedOn)
