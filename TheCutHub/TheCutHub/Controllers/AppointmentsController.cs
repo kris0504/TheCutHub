@@ -2,19 +2,18 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using TheCutHub.Models;
+using TheCutHub.Models.ViewModels;
 using TheCutHub.Services;
 using X.PagedList;
 
-
 namespace TheCutHub.Controllers
 {
+    [Authorize] 
     public class AppointmentsController : Controller
     {
         private readonly IAppointmentService _appointmentService;
         private readonly UserManager<ApplicationUser> _userManager;
-        
 
         public AppointmentsController(
             IAppointmentService appointmentService,
@@ -22,10 +21,7 @@ namespace TheCutHub.Controllers
         {
             _appointmentService = appointmentService;
             _userManager = userManager;
-
         }
-
-        // GET: Appointments
 
         public async Task<IActionResult> Index(int page = 1)
         {
@@ -34,8 +30,6 @@ namespace TheCutHub.Controllers
             return View(appointments);
         }
 
-
-        // GET: Appointments/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -46,22 +40,21 @@ namespace TheCutHub.Controllers
             return View(appointment);
         }
 
-        // GET: Appointments/Create
+        [HttpGet]
         public IActionResult Create(DateTime? date, int? serviceId)
         {
-            ViewBag.ServiceId = new SelectList(_appointmentService.GetServices(), "Id", "Name",serviceId);
+            ViewBag.ServiceId = new SelectList(_appointmentService.GetServices(), "Id", "Name", serviceId);
             ViewBag.BarberId = new SelectList(_appointmentService.GetBarbers(), "Id", "FullName");
 
-            if (date.HasValue)
+            var model = new CreateAppointmentInputModel
             {
-                ViewBag.SelectedDate = date.Value;
-               
-            }
+                Date = date ?? DateTime.Today
+            };
 
-            return View();
+            ViewBag.SelectedDate = date;
+            return View(model);
         }
 
-        // AJAX: Load available slots
         [HttpGet]
         public async Task<IActionResult> GetSlots(DateTime date, int serviceId, int barberId)
         {
@@ -73,34 +66,40 @@ namespace TheCutHub.Controllers
                 return BadRequest("Invalid service");
 
             var slots = await _appointmentService.GetAvailableSlotsAsync(date, TimeSpan.FromMinutes(service.DurationMinutes), barberId);
-
             var formattedSlots = slots.Select(s => s.ToString(@"hh\:mm")).ToList();
             return Json(formattedSlots);
         }
 
-
-        // POST: Appointments/Create
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(DateTime date, TimeSpan timeSlot, int serviceId, int barberId, string notes)
+        public async Task<IActionResult> Create(CreateAppointmentInputModel input)
         {
-            var userId = _userManager.GetUserId(User);
-
-            var appointment = new Appointment
+            if (!ModelState.IsValid)
             {
-                Date = date.Date,
-                TimeSlot = timeSlot,
-                ServiceId = serviceId,
-                BarberId = barberId,
-                UserId = userId,
-                Notes = notes
-            };
+                ViewBag.ServiceId = new SelectList(_appointmentService.GetServices(), "Id", "Name", input.ServiceId);
+                ViewBag.BarberId = new SelectList(_appointmentService.GetBarbers(), "Id", "FullName", input.BarberId);
+                return View(input);
+            }
 
-            await _appointmentService.CreateAsync(appointment);
+         
+            var slotFree = await _appointmentService.IsSlotFreeAsync(input.BarberId, input.Date, input.TimeSlot, input.ServiceId);
+            if (!slotFree)
+            {
+                ModelState.AddModelError(nameof(input.TimeSlot), "This timeslot is already taken.");
+                ViewBag.ServiceId = new SelectList(_appointmentService.GetServices(), "Id", "Name", input.ServiceId);
+                ViewBag.BarberId = new SelectList(_appointmentService.GetBarbers(), "Id", "FullName", input.BarberId);
+                return View(input);
+            }
+
+            var userId = _userManager.GetUserId(User)!;
+            await _appointmentService.CreateAsync(userId, input.Date, input.TimeSlot, input.BarberId, input.ServiceId, input.Notes);
+
+            TempData["Success"] = "Successfully created an appointment.";
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Appointments/Edit/5
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -115,27 +114,26 @@ namespace TheCutHub.Controllers
             return View(appointment);
         }
 
-        // POST: Appointments/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Appointment appointment)
         {
             if (id != appointment.Id) return NotFound();
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                await _appointmentService.EditAsync(appointment);
-                return RedirectToAction(nameof(Index));
+                ViewBag.BarberId = new SelectList(_appointmentService.GetBarbers(), "Id", "FullName", appointment.BarberId);
+                ViewBag.ServiceId = new SelectList(_appointmentService.GetServices(), "Id", "Name", appointment.ServiceId);
+                ViewBag.UserId = appointment.UserId;
+                return View(appointment);
             }
 
-            ViewBag.BarberId = new SelectList(_appointmentService.GetBarbers(), "Id", "FullName", appointment.BarberId);
-            ViewBag.ServiceId = new SelectList(_appointmentService.GetServices(), "Id", "Name", appointment.ServiceId);
-            ViewBag.UserId = appointment.UserId;
+           
 
-            return View(appointment);
+            await _appointmentService.EditAsync(appointment);
+            return RedirectToAction(nameof(Index));
         }
 
-        // GET: Appointments/Delete/5
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -148,7 +146,6 @@ namespace TheCutHub.Controllers
             return View(appointment);
         }
 
-        // POST: Appointments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize]

@@ -32,17 +32,20 @@ namespace TheCutHub
             builder.Services.AddScoped<IAdminWorkingHourService, AdminWorkingHourService>();
             builder.Services.AddScoped<IBarberProfileService, BarberProfileService>();
             builder.Services.AddScoped<IAdminServiceService, AdminServiceService>();
-            
+            builder.Services.AddScoped<
+              TheCutHub.Areas.Barber.Interfaces.IBarberAppointmentService,
+              TheCutHub.Areas.Barber.Services.BarberAppointmentService>();
+        
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-            .AddRoles<IdentityRole>() 
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
-            
+
 
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
-            
-            
+
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -72,9 +75,9 @@ namespace TheCutHub
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.MapRazorPages();
-            
-            await ApplicationDbInitializer.SeedRolesAndAdminAsync(app.Services);
-            await ApplicationDbInitializer.SeedWorkingHoursAsync(app.Services);
+
+            await ApplicationDbInitializer.SeedAsync(app.Services);
+           
             app.Run();
         }
     }

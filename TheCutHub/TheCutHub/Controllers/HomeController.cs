@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TheCutHub.Models;
+using TheCutHub.Models.ViewModels;
 
 namespace TheCutHub.Controllers
 {

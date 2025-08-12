@@ -1,0 +1,65 @@
+﻿@using X.PagedList.Mvc.Common
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<TheCutHub.Models.Appointment>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "My Bookings";
+}
+
+
+<div class="card bg-dark border-secondary shadow-sm">
+    <div class="card-header border-secondary d-flex align-items-center justify-content-between">
+        <h4 class="mb-0 text-gold">My Bookings</h4>
+        <span class="text-muted small">@Model.TotalItemCount total</span>
+    </div>
+
+    <div class="card-body p-0">
+        @if (!Model.Any())
+        {
+            <div class="p-4 text-center text-muted">Нямате записани часове.</div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-dark table-hover align-middle mb-0">
+                    <thead class="table-active">
+                        <tr>
+                            <th style="width:140px">Date</th>
+                            <th style="width:100px">Time</th>
+                            <th>Client</th>
+                            <th>Service</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var a in Model)
+                        {
+                            <tr>
+                                <td>@a.Date.ToString("dd.MM.yyyy")</td>
+                                <td>@a.TimeSlot.ToString(@"hh\:mm")</td>
+                                <td>@(a.User?.UserName ?? "—")</td>
+                                <td>@a.Service?.Name</td>
+                                <td class="text-wrap">@a.Notes</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+
+    <div class="card-footer border-secondary">
+        @Html.PagedListPager(
+                 Model,
+                 page => Url.Action("Index", new { page }),
+                 new PagedListRenderOptions
+        {
+            DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+            DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded,
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            MaximumPageNumbersToDisplay = 5
+        }
+                 )
+    </div>
+</div>

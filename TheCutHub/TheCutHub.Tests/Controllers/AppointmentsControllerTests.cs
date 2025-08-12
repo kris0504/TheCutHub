@@ -1,28 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Moq;
 using TheCutHub.Controllers;
 using TheCutHub.Models;
+using TheCutHub.Models.ViewModels;
 using TheCutHub.Services;
+using X.PagedList;
 using Xunit;
 
 namespace TheCutHub.Tests.Controllers
 {
     public class AppointmentsControllerTests
     {
-        private Mock<UserManager<ApplicationUser>> GetMockUserManager()
-        {
-            var store = new Mock<IUserStore<ApplicationUser>>();
-            return new Mock<UserManager<ApplicationUser>>(store.Object, null, null, null, null, null, null, null, null);
-        }
 
-        private ControllerContext GetFakeContextWithUserId(string userId)
+		private static Mock<UserManager<ApplicationUser>> MockUserManager()
+		{
+			var store = new Mock<IUserStore<ApplicationUser>>();
+			return new Mock<UserManager<ApplicationUser>>(store.Object, null, null, null, null, null, null, null, null);
+		}
+
+		private ControllerContext GetFakeContextWithUserId(string userId)
         {
             var user = new ClaimsPrincipal(new ClaimsIdentity(new[] {
                 new Claim(ClaimTypes.NameIdentifier, userId)
@@ -33,28 +35,48 @@ namespace TheCutHub.Tests.Controllers
                 HttpContext = new DefaultHttpContext { User = user }
             };
         }
+		[Fact]
+		public async Task Index_Should_Return_User_Appointments()
+		{
+			// Arrange
+			var userId = "user1";
+			var page = 1;
+			var pageSize = 10;
 
-        [Fact]
-        public async Task Index_Should_Return_User_Appointments()
-        {
-            var mockService = new Mock<IAppointmentService>();
-            var mockUserManager = GetMockUserManager();
-            mockUserManager.Setup(m => m.GetUserId(It.IsAny<ClaimsPrincipal>())).Returns("user1");
+			var mockService = new Mock<IAppointmentService>();
+			var mockUserManager = MockUserManager();
+			mockUserManager.Setup(m => m.GetUserId(It.IsAny<ClaimsPrincipal>())).Returns(userId);
 
-            mockService.Setup(s => s.GetAppointmentsByUserIdAsync("user1"))
-                .ReturnsAsync(new List<Appointment> { new Appointment { Id = 1, UserId = "user1" } });
+			var list = new List<Appointment> { new Appointment { Id = 1, UserId = userId } };
+			IPagedList<Appointment> paged = new StaticPagedList<Appointment>(list, page, pageSize, list.Count);
 
-            var controller = new AppointmentsController(mockService.Object, mockUserManager.Object);
-            controller.ControllerContext = GetFakeContextWithUserId("user1");
+			mockService
+				.Setup(s => s.GetAppointmentsByUserAsync(userId, page, pageSize))
+				.ReturnsAsync(paged);
 
-            var result = await controller.Index();
+			var controller = new AppointmentsController(mockService.Object, mockUserManager.Object);
+			controller.ControllerContext = new ControllerContext
+			{
+				HttpContext = new DefaultHttpContext
+				{
+					User = new ClaimsPrincipal(new ClaimsIdentity(
+						new[] { new Claim(ClaimTypes.NameIdentifier, userId) }, "TestAuth"))
+				}
+			};
 
-            var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<IEnumerable<Appointment>>(viewResult.Model);
-            Assert.Single(model);
-        }
+			// Act
+			var result = await controller.Index(page);
 
-        [Fact]
+			// Assert
+			var viewResult = Assert.IsType<ViewResult>(result);
+			var model = Assert.IsAssignableFrom<IPagedList<Appointment>>(viewResult.Model);
+			Assert.Single(model);
+			Assert.Equal(userId, model[0].UserId);
+
+			mockService.Verify(s => s.GetAppointmentsByUserAsync(userId, page, pageSize), Times.Once);
+		}
+
+		[Fact]
         public async Task Details_Should_Return_404_If_Id_Null()
         {
             var controller = new AppointmentsController(null!, null!);
@@ -91,7 +113,7 @@ namespace TheCutHub.Tests.Controllers
         {
             var mockService = new Mock<IAppointmentService>();
             mockService.Setup(s => s.DeleteAsync(1, "user1")).ReturnsAsync(false);
-            var mockUserManager = GetMockUserManager();
+            var mockUserManager = MockUserManager();
             mockUserManager.Setup(m => m.GetUserId(It.IsAny<ClaimsPrincipal>())).Returns("user1");
 
             var controller = new AppointmentsController(mockService.Object, mockUserManager.Object);
@@ -106,7 +128,7 @@ namespace TheCutHub.Tests.Controllers
         {
             var mockService = new Mock<IAppointmentService>();
             mockService.Setup(s => s.DeleteAsync(1, "user1")).ReturnsAsync(true);
-            var mockUserManager = GetMockUserManager();
+            var mockUserManager = MockUserManager();
             mockUserManager.Setup(m => m.GetUserId(It.IsAny<ClaimsPrincipal>())).Returns("user1");
 
             var controller = new AppointmentsController(mockService.Object, mockUserManager.Object);
@@ -140,23 +162,59 @@ namespace TheCutHub.Tests.Controllers
             var result = await controller.GetSlots(DateTime.Today, 0, 0);
             Assert.IsType<BadRequestObjectResult>(result);
         }
+		[Fact]
+		public async Task Create_Post_Should_Create_Appointment_And_Redirect()
+		{
 
-        [Fact]
-        public async Task Create_Post_Should_Create_Appointment_And_Redirect()
-        {
-            var mockService = new Mock<IAppointmentService>();
-            var mockUserManager = GetMockUserManager();
-            mockUserManager.Setup(m => m.GetUserId(It.IsAny<ClaimsPrincipal>())).Returns("user1");
+			var userId = "user-123";
+			var input = new CreateAppointmentInputModel
+			{
+				Date = new DateTime(2025, 8, 20),
+				TimeSlot = new TimeSpan(14, 30, 0),
+				BarberId = 5,
+				ServiceId = 7,
+				Notes = "Please be gentle"
+			};
 
-            var controller = new AppointmentsController(mockService.Object, mockUserManager.Object);
-            controller.ControllerContext = GetFakeContextWithUserId("user1");
+			var appointmentServiceMock = new Mock<IAppointmentService>();
+			appointmentServiceMock
+				.Setup(s => s.IsSlotFreeAsync(input.BarberId, input.Date, input.TimeSlot, input.ServiceId))
+				.ReturnsAsync(true);
+			appointmentServiceMock
+				.Setup(s => s.CreateAsync(userId, input.Date, input.TimeSlot, input.BarberId, input.ServiceId, input.Notes))
+				.Returns(Task.CompletedTask)
+				.Verifiable();
 
-            var result = await controller.Create(DateTime.Today, TimeSpan.FromHours(10), 1, 1, "note");
-            var redirect = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("Index", redirect.ActionName);
-        }
+			var userManagerMock = MockUserManager();
+			userManagerMock
+				.Setup(um => um.GetUserId(It.IsAny<ClaimsPrincipal>()))
+				.Returns(userId);   
 
-        [Fact]
+			var controller = new AppointmentsController(appointmentServiceMock.Object, userManagerMock.Object);
+
+
+			var httpContext = new DefaultHttpContext
+			{
+				User = new ClaimsPrincipal(new ClaimsIdentity(
+					new[] { new Claim(ClaimTypes.NameIdentifier, userId) }, "TestAuth"))
+			};
+			controller.ControllerContext = new ControllerContext { HttpContext = httpContext };
+			controller.TempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+
+			var result = await controller.Create(input);
+
+			var redirect = Assert.IsType<RedirectToActionResult>(result);
+			Assert.Equal(nameof(AppointmentsController.Index), redirect.ActionName);
+
+			
+			appointmentServiceMock.Verify(s =>
+				s.CreateAsync(userId, input.Date, input.TimeSlot, input.BarberId, input.ServiceId, input.Notes),
+				Times.Once);
+
+			Assert.Equal("Successfully created an appointment.", controller.TempData["Success"]);
+		}
+		
+		[Fact]
         public async Task Edit_Get_Should_Return_NotFound_If_Null()
         {
             var controller = new AppointmentsController(null!, null!);

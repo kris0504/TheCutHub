@@ -45,10 +45,12 @@
 					<ul class="navbar-nav me-auto">
 						@if (User.Identity?.IsAuthenticated ?? false)
 						{
-							<li class="nav-item"><a class="nav-link" asp-controller="Appointments" asp-action="Index">My Appointments</a></li>
-							<li class="nav-item"><a class="nav-link" asp-controller="Appointments" asp-action="Create">Create appointment</a></li>
+							<li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Appointments" asp-action="Index">My Appointments</a></li>
+							<li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Appointments" asp-action="Create">Create appointment</a></li>
 							@if (SignInManager.IsSignedIn(User) && User.IsInRole("Barber"))
 							{
+								<li class="nav-item"><a class="nav-link" asp-area="Barber" asp-controller="BarberAppointments" asp-action="Index">Client appointments</a></li>
+
 								<li class="nav-item"><a class="nav-link" asp-area="Barber" asp-controller="Profile" asp-action="Edit">My profile</a></li>
 							}
 							<li class="nav-item">

@@ -20,35 +20,66 @@ namespace TheCutHub.Tests.Controllers.Barbers
         private readonly ProfileController _controller;
         private readonly ApplicationUser _mockUser;
 
-        public BarberProfileControllerTests()
-        {
-            _mockProfileService = new Mock<IBarberProfileService>();
+		public BarberProfileControllerTests()
+		{
+			_mockProfileService = new Mock<IBarberProfileService>();
 
-            var store = new Mock<IUserStore<ApplicationUser>>();
-            _mockUserManager = new Mock<UserManager<ApplicationUser>>(
-                store.Object, null, null, null, null, null, null, null, null);
+			var store = new Mock<IUserStore<ApplicationUser>>();
+			_mockUserManager = new Mock<UserManager<ApplicationUser>>(
+				store.Object, null, null, null, null, null, null, null, null);
 
-            _mockUser = new ApplicationUser { Id = "barber123", UserName = "barber" };
-            _mockUserManager.Setup(m => m.GetUserAsync(It.IsAny<ClaimsPrincipal>()))
-                .ReturnsAsync(_mockUser);
+			_mockUser = new ApplicationUser { Id = "barber123", UserName = "barber" };
+			_mockUserManager
+				.Setup(m => m.GetUserId(It.IsAny<ClaimsPrincipal>()))
+				.Returns("barber123");
+			_mockUserManager
+				.Setup(m => m.GetUserAsync(It.IsAny<ClaimsPrincipal>()))
+				.ReturnsAsync(_mockUser);
+			
+			var http = new DefaultHttpContext();
 
-            _controller = new ProfileController(_mockProfileService.Object, _mockUserManager.Object);
-            _controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
-        }
+			_controller = new ProfileController(_mockProfileService.Object, _mockUserManager.Object)
+			{
+				ControllerContext = new ControllerContext { HttpContext = http },
+				TempData = new TempDataDictionary(http, Mock.Of<ITempDataProvider>())
+			};
+		}
 
-        [Fact]
-        public async Task Edit_Get_ReturnsView_WhenProfileExists()
-        {
-            var vm = new BarberProfileEditViewModel();
-            _mockProfileService.Setup(s => s.GetProfileAsync(_mockUser.Id)).ReturnsAsync(vm);
+		[Fact]
+		public async Task Edit_Get_ReturnsView_WhenProfileExists()
+		{
+			var vm = new BarberProfileEditViewModel();
+			_mockProfileService
+				.Setup(s => s.GetProfileAsync("barber123"))
+				.ReturnsAsync(vm);
 
-            var result = await _controller.Edit();
+			
+			var claims = new[]
+			{
+		new Claim(ClaimTypes.NameIdentifier, "barber123"),
+		new Claim(ClaimTypes.Name, "barber"),
+		new Claim(ClaimTypes.Role, "Barber"),
+	};
+			var identity = new ClaimsIdentity(claims, "TestAuth");
+			var user = new ClaimsPrincipal(identity);
 
-            var view = Assert.IsType<ViewResult>(result);
-            Assert.Equal(vm, view.Model);
-        }
+			_controller.ControllerContext = new ControllerContext
+			{
+				HttpContext = new DefaultHttpContext { User = user }
+			};
+			_controller.TempData = new TempDataDictionary(
+				_controller.ControllerContext.HttpContext,
+				Mock.Of<ITempDataProvider>());
 
-        [Fact]
+			
+			var result = await _controller.Edit();
+
+			
+			var view = Assert.IsType<ViewResult>(result);
+			Assert.Equal(vm, view.Model);
+		}
+
+		[Fact]
         public async Task Edit_Get_ReturnsNotFound_WhenProfileIsNull()
         {
             _mockProfileService.Setup(s => s.GetProfileAsync(_mockUser.Id)).ReturnsAsync((BarberProfileEditViewModel)null!);

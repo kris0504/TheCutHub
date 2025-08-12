@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Moq;
 using TheCutHub.Controllers;
 using TheCutHub.Data;
@@ -12,22 +13,35 @@ namespace TheCutHub.Tests.Controllers
 {
     public class BarbersControllerTests
     {
-        [Fact]
-        public async Task Index_Should_Return_All_Barbers()
-        {
-            var mockService = new Mock<IBarberService>();
-            mockService.Setup(s => s.GetAllAsync())
-                .ReturnsAsync(new List<Barber> { new Barber { Id = 1, FullName = "Test" } });
+		private static ApplicationDbContext GetInMemoryContext()
+		{
+			var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+				.UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+				.Options;
 
-			var mockContext = new Mock<ApplicationDbContext>(); 
-			var controller = new BarbersController(mockService.Object, mockContext.Object);
+			var ctx = new ApplicationDbContext(options);
+			return ctx;
+		}
+		[Fact]
+		public async Task Index_Should_Return_All_Barbers()
+		{
+			
+			var mockService = new Mock<IBarberService>();
+			mockService.Setup(s => s.GetAllAsync())
+				.ReturnsAsync(new List<Barber> { new Barber { Id = 1, FullName = "Test" } });
 
+			using var context = GetInMemoryContext();
+			var controller = new BarbersController(mockService.Object, context);
+
+			
 			var result = await controller.Index();
 
-            var view = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<IEnumerable<Barber>>(view.Model);
-            Assert.Single(model);
-        }
+			var view = Assert.IsType<ViewResult>(result);
+			var model = Assert.IsAssignableFrom<IEnumerable<Barber>>(view.Model);
+			Assert.Single(model);
+			mockService.Verify(s => s.GetAllAsync(), Times.Once);
+		}
+
 
 		[Fact]
 		public async Task Details_Should_Return_NotFound_If_Id_Null()
@@ -43,67 +57,85 @@ namespace TheCutHub.Tests.Controllers
 
 
 		[Fact]
-        public async Task Details_Should_Return_NotFound_If_NotFound()
-        {
-            var mockService = new Mock<IBarberService>();
-            mockService.Setup(s => s.GetDetailsAsync(1)).ReturnsAsync((Barber)null!);
-			var mockContext = new Mock<ApplicationDbContext>(); 
-			var controller = new BarbersController(mockService.Object, mockContext.Object);
+		public async Task Details_Should_Return_NotFound_If_NotFound()
+		{
+		
+			var mockService = new Mock<IBarberService>();
+			mockService.Setup(s => s.GetDetailsAsync(1))
+					   .ReturnsAsync((Barber)null!);
+			using var context = GetInMemoryContext();
+			var controller = new BarbersController(mockService.Object, context);
+			var result = await controller.Details(1);
+			Assert.IsType<NotFoundResult>(result);
+		}
 
+
+		[Fact]
+		public async Task Details_Should_Return_View_If_Found()
+		{
+			
+			var barber = new Barber { Id = 1, FullName = "Test" };
+
+			var mockService = new Mock<IBarberService>();
+			mockService.Setup(s => s.GetDetailsAsync(1)).ReturnsAsync(barber);
+
+			using var context = GetInMemoryContext();
+
+			context.Reviews.AddRange(
+				new Review { Id = 1, BarberId = 1, Rating = 4, Comment = "ok", UserId = "u1" },
+				new Review { Id = 2, BarberId = 1, Rating = 5, Comment = "great", UserId = "u2" }
+			);
+			await context.SaveChangesAsync();
+
+			var controller = new BarbersController(mockService.Object, context);
 
 			var result = await controller.Details(1);
-            Assert.IsType<NotFoundResult>(result);
-        }
-
-        [Fact]
-        public async Task Details_Should_Return_View_If_Found()
-        {
-            var barber = new Barber { Id = 1, FullName = "Test" };
-            var mockService = new Mock<IBarberService>();
-            mockService.Setup(s => s.GetDetailsAsync(1)).ReturnsAsync(barber);
-			var mockContext = new Mock<ApplicationDbContext>(); 
-			var controller = new BarbersController(mockService.Object, mockContext.Object);
+			var view = Assert.IsType<ViewResult>(result);
+			Assert.Equal(barber, view.Model);
+			Assert.Equal(4.5, (double)controller.ViewBag.AverageRating, 1);
+		}
 
 
-			var result = await controller.Details(1);
-            var view = Assert.IsType<ViewResult>(result);
-            Assert.Equal(barber, view.Model);
-        }
 
 		[Fact]
 		public async Task Create_Post_Should_Redirect_If_Valid()
 		{
 			var mockService = new Mock<IBarberService>();
-			var mockContext = new Mock<ApplicationDbContext>();
+			var context = GetInMemoryContext();
+			mockService.Setup(s => s.CreateAsync(It.IsAny<Barber>()))
+					   .Returns(Task.CompletedTask)
+					   .Verifiable();
 
-			var controller = new BarbersController(mockService.Object, mockContext.Object);
-
+			var controller = new BarbersController(mockService.Object, context);
 			var barber = new Barber { Id = 1, FullName = "Test" };
 
-			
 			var result = await controller.Create(barber);
 
-			
 			var redirect = Assert.IsType<RedirectToActionResult>(result);
 			Assert.Equal("Index", redirect.ActionName);
+
+			mockService.Verify(s => s.CreateAsync(It.Is<Barber>(b => b.FullName == "Test")), Times.Once);
 		}
 
+
 		[Fact]
-        public async Task Edit_Get_Should_Return_View_If_Found()
-        {
-            var barber = new Barber { Id = 1 };
-            var mockService = new Mock<IBarberService>();
-            mockService.Setup(s => s.GetByIdAsync(1)).ReturnsAsync(barber);
-			var mockContext = new Mock<ApplicationDbContext>(); 
-			var controller = new BarbersController(mockService.Object, mockContext.Object);
+		public async Task Edit_Get_Should_Return_View_If_Found()
+		{
+			var barber = new Barber { Id = 1 };
+			var mockService = new Mock<IBarberService>();
+			mockService.Setup(s => s.GetByIdAsync(1)).ReturnsAsync(barber);
+
+			using var context = GetInMemoryContext(); 
+			var controller = new BarbersController(mockService.Object, context);
 
 			var result = await controller.Edit(1);
 
-            var view = Assert.IsType<ViewResult>(result);
-            Assert.Equal(barber, view.Model);
-        }
+			var view = Assert.IsType<ViewResult>(result);
+			Assert.Equal(barber, view.Model);
+		}
 
-        [Fact]
+
+		[Fact]
         public async Task Edit_Post_Should_Return_NotFound_If_Id_Mismatch()
         {
             var controller = new BarbersController(null!,null!);
@@ -111,64 +143,77 @@ namespace TheCutHub.Tests.Controllers
             Assert.IsType<NotFoundResult>(result);
         }
 
-        [Fact]
-        public async Task Edit_Post_Should_Redirect_If_Valid()
-        {
-            var mockService = new Mock<IBarberService>();
-            mockService.Setup(s => s.Exists(1)).Returns(true);
+		[Fact]
+		public async Task Edit_Post_Should_Redirect_If_Valid()
+		{
+			var mockService = new Mock<IBarberService>();
+			mockService.Setup(s => s.UpdateAsync(It.IsAny<Barber>()))
+					   .Returns(Task.CompletedTask)
+					   .Verifiable();
+			mockService.Setup(s => s.Exists(1)).Returns(true);
 
-			var mockContext = new Mock<ApplicationDbContext>(); 
-			var controller = new BarbersController(mockService.Object, mockContext.Object);
+			var context = GetInMemoryContext();
+			var controller = new BarbersController(mockService.Object, context);
 
-			var result = await controller.Edit(1, new Barber { Id = 1 });
+			var result = await controller.Edit(1, new Barber { Id = 1, FullName = "Edit" });
 
-            var redirect = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("Index", redirect.ActionName);
-        }
+			var redirect = Assert.IsType<RedirectToActionResult>(result);
+			Assert.Equal("Index", redirect.ActionName);
 
-        [Fact]
-        public async Task Delete_Get_Should_Return_View_If_Found()
-        {
-            var barber = new Barber { Id = 1 };
-            var mockService = new Mock<IBarberService>();
-            mockService.Setup(s => s.GetByIdAsync(1)).ReturnsAsync(barber);
-			var mockContext = new Mock<ApplicationDbContext>();
-			var controller = new BarbersController(mockService.Object, mockContext.Object);
-            var result = await controller.Delete(1);
+			mockService.Verify(s => s.UpdateAsync(It.Is<Barber>(b => b.Id == 1 && b.FullName == "Edit")), Times.Once);
+		}
 
-            var view = Assert.IsType<ViewResult>(result);
-            Assert.Equal(barber, view.Model);
-        }
+		[Fact]
+		public async Task Delete_Get_Should_Return_View_If_Found()
+		{
+			
+			var barber = new Barber { Id = 1 };
 
-        [Fact]
-        public async Task DeleteConfirmed_Should_Redirect_If_Success()
-        {
-            var mockService = new Mock<IBarberService>();
-            mockService.Setup(s => s.DeleteAsync(1)).ReturnsAsync(true);
-			var mockContext = new Mock<ApplicationDbContext>(); 
-			var controller = new BarbersController(mockService.Object, mockContext.Object);
+			var mockService = new Mock<IBarberService>();
+			mockService.Setup(s => s.GetByIdAsync(1)).ReturnsAsync(barber);
 
-            var result = await controller.DeleteConfirmed(1);
-            var redirect = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("Index", redirect.ActionName);
-        }
+			using var context = GetInMemoryContext();
+
+			var controller = new BarbersController(mockService.Object, context);
+
+			
+			var result = await controller.Delete(1);
+
+			
+			var view = Assert.IsType<ViewResult>(result);
+			Assert.Equal(barber, view.Model);
+		}
+
+
+		[Fact]
+		public async Task DeleteConfirmed_Should_Redirect_If_Success()
+		{
+			var mockService = new Mock<IBarberService>();
+			mockService.Setup(s => s.DeleteAsync(1)).ReturnsAsync(true);
+
+			using var context = GetInMemoryContext(); 
+			var controller = new BarbersController(mockService.Object, context);
+
+			var result = await controller.DeleteConfirmed(1);
+
+			var redirect = Assert.IsType<RedirectToActionResult>(result);
+			Assert.Equal("Index", redirect.ActionName);
+			mockService.Verify(s => s.DeleteAsync(1), Times.Once);
+		}
 
 		[Fact]
 		public async Task DeleteConfirmed_Should_Return_NotFound_If_Fail()
 		{
-			
-			var mockService = new Mock<IBarberService>();
-			var mockContext = new Mock<ApplicationDbContext>();
 
+			var mockService = new Mock<IBarberService>();
 			mockService.Setup(s => s.DeleteAsync(1)).ReturnsAsync(false);
 
-			var controller = new BarbersController(mockService.Object, mockContext.Object);
+			using var context = GetInMemoryContext();
+			var controller = new BarbersController(mockService.Object, context);
 
-			
 			var result = await controller.DeleteConfirmed(1);
-
-			
 			Assert.IsType<NotFoundResult>(result);
+			mockService.Verify(s => s.DeleteAsync(1), Times.Once);
 		}
 
 	}

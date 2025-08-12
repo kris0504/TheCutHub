@@ -21,21 +21,26 @@ namespace TheCutHub.Tests.Controllers.Admin
         }
 
         private Service GetFakeService(int id = 1) => new Service { Id = id, Name = "Shave", Price = 10 };
-        [Fact]
-        public async Task Index_ReturnsViewResult_WithListOfServices()
-        {
-            
-            var services = new List<Service> { GetFakeService(), GetFakeService(2) };
-            _mockService.Setup(s => s.GetAllAsync()).ReturnsAsync(services);
+		[Fact]
+		public async Task Index_ReturnsView_WithPagedModel()
+		{
+			var services = new List<Service> { GetFakeService(), GetFakeService(2) };
+			var paged = X.PagedList.PagedListExtensions.ToPagedList(services, 1, 5);
 
-            
-            var result = await _controller.Index(null);
+			_mockService
+				.Setup(s => s.GetPagedAsync(null, 1, 5))
+				.ReturnsAsync(paged);
 
-            
-            var viewResult = Assert.IsType<ViewResult>(result);
-            Assert.Equal(services, viewResult.Model);
-        }
-        [Fact]
+			var result = await _controller.Index(null);
+
+			var viewResult = Assert.IsType<ViewResult>(result);
+			Assert.Same(paged, viewResult.Model);
+			_mockService.Verify(s => s.GetPagedAsync(null, 1, 5), Times.Once);
+		}
+
+
+
+		[Fact]
         public void Create_Get_ReturnsView()
         {
             var result = _controller.Create();

@@ -1,4 +1,4 @@
-namespace TheCutHub.Models
+namespace TheCutHub.Models.ViewModels
 {
     public class ErrorViewModel
     {

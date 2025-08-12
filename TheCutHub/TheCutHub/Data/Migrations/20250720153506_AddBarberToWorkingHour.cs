@@ -10,7 +10,9 @@ namespace TheCutHub.Data.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
+			migrationBuilder.Sql("DELETE FROM [WorkingHours];");
+
+			migrationBuilder.AddColumn<int>(
                 name: "BarberId",
                 table: "WorkingHours",
                 type: "int",
