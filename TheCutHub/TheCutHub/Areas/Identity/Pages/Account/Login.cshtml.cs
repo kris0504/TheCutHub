@@ -120,7 +120,7 @@ namespace TheCutHub.Areas.Identity.Pages.Account
 
                 if (user == null)
                 {
-                    ModelState.AddModelError(string.Empty, "Невалидно потребителско име или имейл.");
+                    ModelState.AddModelError(string.Empty, "Invalid username or password.");
                     return Page();
                 }
                 // This doesn't count login failures towards account lockout
