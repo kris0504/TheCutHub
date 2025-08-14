@@ -29,7 +29,7 @@ namespace TheCutHub.Areas.Barber.Controllers
             var barberId = await _appointmentService.GetBarberIdByUserIdAsync(userId);
             if (barberId is null)
             {
-                TempData["Error"] = "You do not have configurated barber profile.";
+                TempData["Error"] = "You do not have configured barber profile.";
                 return RedirectToAction("Edit", "Profile"); 
             }
 
