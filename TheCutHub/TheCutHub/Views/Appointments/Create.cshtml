@@ -21,13 +21,13 @@
             </div>
 
             <div class="col-md-4">
-                <label asp-for="ServiceId" class="form-label"></label>
+                <label asp-for="ServiceId" class="form-label">Service</label>
                 <select asp-for="ServiceId" id="service" class="form-select" asp-items="ViewBag.ServiceId"></select>
                 <span asp-validation-for="ServiceId" class="text-danger"></span>
             </div>
 
             <div class="col-md-4">
-                <label asp-for="BarberId" class="form-label"></label>
+                <label asp-for="BarberId" class="form-label">Barber</label>
                 <select asp-for="BarberId" class="form-select" asp-items="ViewBag.BarberId"></select>
                 <span asp-validation-for="BarberId" class="text-danger"></span>
             </div>

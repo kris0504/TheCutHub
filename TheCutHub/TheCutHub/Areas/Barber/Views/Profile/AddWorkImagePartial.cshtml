@@ -5,9 +5,9 @@
       asp-action="AddWorkImage"
       method="post"
       enctype="multipart/form-data">
-    +   @Html.AntiForgeryToken()
+       @Html.AntiForgeryToken()
     <div class="mb-3">
-        <label asp-for="ImageFile" class="form-label"></label>
+        <label asp-for="ImageFile" class="form-label">Image file:</label>
         <input asp-for="ImageFile" class="form-control" />
         <span asp-validation-for="ImageFile" class="text-danger small"></span>
     </div>
