@@ -54,6 +54,11 @@ namespace TheCutHub
                     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             }
             var app = builder.Build();
+            // Debug: log DB settings
+            var dbProvider = builder.Configuration["DB_PROVIDER"];
+            
+            Console.WriteLine($"[DEBUG] DB_PROVIDER = {dbProvider}");
+            Console.WriteLine($"[DEBUG] ConnectionString = {connectionString}");
 
 
             if (app.Environment.IsDevelopment())
