@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using TheCutHub.Areas.Admin.Interfaces;
 using TheCutHub.Areas.Admin.Services;
 using TheCutHub.Areas.Barber.Services;
@@ -15,13 +17,62 @@ namespace TheCutHub
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString));
-            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-            // builder.Services.AddScoped<AppointmentService>();
-            builder.Services.AddScoped<IAdminServiceService, AdminServiceService>();
+          
+            var provider = (Environment.GetEnvironmentVariable("DB_PROVIDER")
+                            ?? builder.Configuration["DB_PROVIDER"]
+                            ?? "sqlserver").ToLowerInvariant();
 
+            
+            string? conn = builder.Configuration.GetConnectionString("DefaultConnection");
+
+     
+            string? dbUrl = Environment.GetEnvironmentVariable("DATABASE_URL")
+                            ?? builder.Configuration["DATABASE_URL"];
+
+            if ((provider is "postgres" or "postgresql") &&
+                !string.IsNullOrWhiteSpace(dbUrl) &&
+                dbUrl.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase))
+            {
+                var uri = new Uri(dbUrl);
+                var userInfo = uri.UserInfo.Split(':', 2);
+                var npg = new NpgsqlConnectionStringBuilder
+                {
+                    Host = uri.Host,
+                    Port = uri.Port,
+                    Username = userInfo[0],
+                    Password = userInfo.Length > 1 ? userInfo[1] : "",
+                    Database = uri.AbsolutePath.Trim('/'),
+                    SslMode = SslMode.Require,
+                    TrustServerCertificate = true
+                };
+                conn = npg.ConnectionString;
+            }
+
+            if (string.IsNullOrWhiteSpace(conn))
+                throw new InvalidOperationException("No connection string resolved for DefaultConnection.");
+
+        
+            builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+            {
+                switch (provider)
+                {
+                    case "sqlite":
+                        opt.UseSqlite(conn);
+                        break;
+                    case "postgres":
+                    case "postgresql":
+                        opt.UseNpgsql(conn);
+                        break;
+                    default:
+                        opt.UseSqlServer(conn);
+                        break;
+                }
+            });
+
+            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+           
+            builder.Services.AddScoped<IAdminServiceService, AdminServiceService>();
             builder.Services.AddScoped<IBarberService, BarberService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
             builder.Services.AddScoped<IAdminAppointmentService, AdminAppointmentService>();
@@ -30,36 +81,34 @@ namespace TheCutHub
             builder.Services.AddScoped<IAdminUserService, AdminUserService>();
             builder.Services.AddScoped<IServiceService, ServiceService>();
             builder.Services.AddScoped<IAdminWorkingHourService, AdminWorkingHourService>();
-            builder.Services.AddScoped<IBarberProfileService, BarberProfileService>();
-            builder.Services.AddScoped<IAdminServiceService, AdminServiceService>();
-            builder.Services.AddScoped<
-              TheCutHub.Areas.Barber.Interfaces.IBarberAppointmentService,
-              TheCutHub.Areas.Barber.Services.BarberAppointmentService>();
-        
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-            .AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddScoped<TheCutHub.Areas.Barber.Interfaces.IBarberAppointmentService,
+                                       TheCutHub.Areas.Barber.Services.BarberAppointmentService>();
 
+            builder.Services
+                .AddDefaultIdentity<ApplicationUser>(opt => opt.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddControllersWithViews();
-            var provider = Environment.GetEnvironmentVariable("DB_PROVIDER") ?? "sqlserver";
-            if (provider.Equals("sqlite", StringComparison.OrdinalIgnoreCase))
-            {
-                builder.Services.AddDbContext<ApplicationDbContext>(opt =>
-                    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-            }
-            else
-            {
-                builder.Services.AddDbContext<ApplicationDbContext>(opt =>
-                    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            }
-            var app = builder.Build();
-            // Debug: log DB settings
-            var dbProvider = builder.Configuration["DB_PROVIDER"];
-            
-            Console.WriteLine($"[DEBUG] DB_PROVIDER = {dbProvider}");
-            Console.WriteLine($"[DEBUG] ConnectionString = {connectionString}");
 
+            var app = builder.Build();
+
+            Console.WriteLine($"[DEBUG] DB_PROVIDER = {provider}");
+            Console.WriteLine($"[DEBUG] ConnectionString = {conn}");
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                Console.WriteLine($"[DEBUG] EF ProviderName = {db.Database.ProviderName}");
+
+               
+                if (provider is "postgres" or "postgresql" or "sqlite")
+                    await db.Database.EnsureCreatedAsync();
+                else
+                    await db.Database.MigrateAsync();
+
+                await ApplicationDbInitializer.SeedAsync(scope.ServiceProvider);
+            }
 
             if (app.Environment.IsDevelopment())
             {
@@ -74,11 +123,10 @@ namespace TheCutHub
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseStatusCodePagesWithReExecute("/Error/{0}");
-            app.UseExceptionHandler("/Error");
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
@@ -90,9 +138,6 @@ namespace TheCutHub
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.MapRazorPages();
-
-            await ApplicationDbInitializer.SeedAsync(app.Services);
-       
 
             app.Run();
         }
