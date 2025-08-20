@@ -42,7 +42,17 @@ namespace TheCutHub
 
 
             builder.Services.AddControllersWithViews();
-
+            var provider = Environment.GetEnvironmentVariable("DB_PROVIDER") ?? "sqlserver";
+            if (provider.Equals("sqlite", StringComparison.OrdinalIgnoreCase))
+            {
+                builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+                    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+            }
+            else
+            {
+                builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+                    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            }
             var app = builder.Build();
 
 
@@ -77,7 +87,8 @@ namespace TheCutHub
             app.MapRazorPages();
 
             await ApplicationDbInitializer.SeedAsync(app.Services);
-           
+       
+
             app.Run();
         }
     }
