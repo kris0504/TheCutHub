@@ -17,57 +17,57 @@ namespace TheCutHub
         {
             var builder = WebApplication.CreateBuilder(args);
 
+
           
             var provider = (Environment.GetEnvironmentVariable("DB_PROVIDER")
                             ?? builder.Configuration["DB_PROVIDER"]
                             ?? "sqlserver").ToLowerInvariant();
 
-            
             string? conn = builder.Configuration.GetConnectionString("DefaultConnection");
 
-     
-            string? dbUrl = Environment.GetEnvironmentVariable("DATABASE_URL")
-                            ?? builder.Configuration["DATABASE_URL"];
-
-            if ((provider is "postgres" or "postgresql") &&
-                !string.IsNullOrWhiteSpace(dbUrl) &&
-                dbUrl.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase))
+           
+            if (provider is "postgres" or "postgresql")
             {
-                var uri = new Uri(dbUrl);
-                var userInfo = uri.UserInfo.Split(':', 2);
-                var npg = new NpgsqlConnectionStringBuilder
+                string? raw =
+                    conn ??
+                    Environment.GetEnvironmentVariable("DATABASE_URL") ??
+                    builder.Configuration["DATABASE_URL"];
+
+                if (!string.IsNullOrWhiteSpace(raw) &&
+                    (raw.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase) ||
+                     raw.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase)))
                 {
-                    Host = uri.Host,
-                    Port = uri.Port,
-                    Username = userInfo[0],
-                    Password = userInfo.Length > 1 ? userInfo[1] : "",
-                    Database = uri.AbsolutePath.Trim('/'),
-                    SslMode = SslMode.Require,
-                    TrustServerCertificate = true
-                };
-                conn = npg.ConnectionString;
+                    var uri = new Uri(raw);
+                    var userInfo = uri.UserInfo.Split(':', 2);
+                    var npg = new Npgsql.NpgsqlConnectionStringBuilder
+                    {
+                        Host = uri.Host,
+                        Port = uri.IsDefaultPort ? 5432 : uri.Port,
+                        Username = Uri.UnescapeDataString(userInfo[0]),
+                        Password = userInfo.Length > 1 ? Uri.UnescapeDataString(userInfo[1]) : "",
+                        Database = uri.AbsolutePath.Trim('/'),
+                        SslMode = Npgsql.SslMode.Require,
+                        TrustServerCertificate = true 
+                    };
+                    conn = npg.ConnectionString;
+                }
             }
 
             if (string.IsNullOrWhiteSpace(conn))
                 throw new InvalidOperationException("No connection string resolved for DefaultConnection.");
 
-        
+            
             builder.Services.AddDbContext<ApplicationDbContext>(opt =>
             {
                 switch (provider)
                 {
-                    case "sqlite":
-                        opt.UseSqlite(conn);
-                        break;
+                    case "sqlite": opt.UseSqlite(conn); break;
                     case "postgres":
-                    case "postgresql":
-                        opt.UseNpgsql(conn);
-                        break;
-                    default:
-                        opt.UseSqlServer(conn);
-                        break;
+                    case "postgresql": opt.UseNpgsql(conn); break;
+                    default: opt.UseSqlServer(conn); break;
                 }
             });
+
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
