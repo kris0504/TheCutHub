@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Globalization;
 using TheCutHub.Models;
 using TheCutHub.Models.ViewModels;
 using TheCutHub.Services;
@@ -56,21 +57,32 @@ namespace TheCutHub.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetSlots(DateTime date, int serviceId, int barberId)
+        [Produces("application/json")]
+        public async Task<IActionResult> GetSlots([FromQuery] string date, int serviceId, int barberId)
         {
+            if (string.IsNullOrWhiteSpace(date) ||
+                !DateOnly.TryParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture,
+                                         DateTimeStyles.None, out var d))
+            {
+                return BadRequest(new { error = "Invalid date. Use yyyy-MM-dd." });
+            }
             if (serviceId == 0 || barberId == 0)
-                return BadRequest("Service or Barber not selected");
+                return BadRequest(new { error = "Service or Barber not selected" });
 
             var service = await _appointmentService.GetServiceByIdAsync(serviceId);
             if (service == null)
-                return BadRequest("Invalid service");
+                return NotFound(new { error = $"Service {serviceId} not found." });
 
-            var slots = await _appointmentService.GetAvailableSlotsAsync(date, TimeSpan.FromMinutes(service.DurationMinutes), barberId);
-            var formattedSlots = slots.Select(s => s.ToString(@"hh\:mm")).ToList();
-            return Json(formattedSlots);
+            var dt = d.ToDateTime(new TimeOnly(0, 0));
+            var slots = await _appointmentService.GetAvailableSlotsAsync(
+                dt, TimeSpan.FromMinutes(service.DurationMinutes), barberId);
+
+            var formatted = slots.Select(s => s.ToString(@"hh\:mm")).ToList();
+            return Json(formatted); 
         }
 
-     
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateAppointmentInputModel input)

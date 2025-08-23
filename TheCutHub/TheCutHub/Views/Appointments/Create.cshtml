@@ -89,8 +89,23 @@
             if (!date || !serviceId || !barberId) return;
 
             try {
-                const response = await fetch(`/Appointments/GetSlots?date=${date}&serviceId=${serviceId}&barberId=${barberId}`);
-                const slots = await response.json();
+                const res = await fetch(`/Appointments/GetSlots?date=${date}&serviceId=${serviceId}&barberId=${barberId}`, {
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                const text = await res.text();
+                if (!res.ok) {
+                    console.error('Load slots failed', res.status, text);
+                    throw new Error('Failed to load slots');
+                }
+
+                let slots;
+                try {
+                    slots = JSON.parse(text); 
+                } catch (e) {
+                    console.error('Bad JSON from GetSlots:', text);
+                    throw e;
+                }
 
                 const container = document.getElementById("slots-container");
                 container.innerHTML = "";
@@ -116,8 +131,8 @@
 
                     const btn = document.createElement("button");
                     btn.type = "submit";
-                    btn.name = "TimeSlot";         
-                    btn.value = s;                  
+                    btn.name = "TimeSlot";
+                    btn.value = s;                  // "HH:mm"
                     btn.className = "btn btn-outline-primary w-100";
                     btn.textContent = s;
 
@@ -130,5 +145,7 @@
                 console.error("Failed to load slots:", e);
             }
         }
+    </script>
+
     </script>
 }
