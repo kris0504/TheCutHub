@@ -79,10 +79,11 @@ namespace TheCutHub
             builder.Services.AddScoped<IAdminBarberService, AdminBarberService>();
             builder.Services.AddScoped<IAppointmentService, AppointmentService>();
             builder.Services.AddScoped<IAdminUserService, AdminUserService>();
+            builder.Services.AddScoped<IBarberProfileService, BarberProfileService>();
             builder.Services.AddScoped<IServiceService, ServiceService>();
             builder.Services.AddScoped<TheCutHub.Areas.Barber.Interfaces.IBarberAppointmentService,
                                        TheCutHub.Areas.Barber.Services.BarberAppointmentService>();
-
+           
             builder.Services
                 .AddDefaultIdentity<ApplicationUser>(opt => opt.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole>()
