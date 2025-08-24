@@ -77,37 +77,45 @@
     <script>
         flatpickr("#date", { minDate: "today", dateFormat: "Y-m-d" });
 
-        document.getElementById("service").addEventListener("change", loadSlots);
-        document.querySelector("[name='BarberId']").addEventListener("change", loadSlots);
-        document.getElementById("date").addEventListener("change", loadSlots);
+        const dateEl = document.getElementById("date");
+        const serviceEl = document.getElementById("service");
+        const barberEl = document.querySelector("[name='BarberId']");
+        const container = document.getElementById("slots-container");
+
+        function getVals() {
+            return {
+                date: dateEl?.value ?? "",
+                serviceId: serviceEl?.value ?? "",
+                barberId: barberEl?.value ?? ""
+            };
+        }
+
+        dateEl?.addEventListener("change", loadSlots);
+        serviceEl?.addEventListener("change", loadSlots);
+        barberEl?.addEventListener("change", loadSlots);
+
+        document.addEventListener("DOMContentLoaded", () => loadSlots());
 
         async function loadSlots() {
-            const date = document.getElementById("date").value;
-            const serviceId = document.getElementById("service").value;
-            const barberId = document.querySelector("[name='BarberId']").value;
-
+            const { date, serviceId, barberId } = getVals();
             if (!date || !serviceId || !barberId) return;
 
             try {
                 const res = await fetch(`/Appointments/GetSlots?date=${date}&serviceId=${serviceId}&barberId=${barberId}`, {
                     headers: { 'Accept': 'application/json' }
                 });
-
                 const text = await res.text();
+
                 if (!res.ok) {
-                    console.error('Load slots failed', res.status, text);
-                    throw new Error('Failed to load slots');
+                    try { console.error('Load slots failed', res.status, JSON.parse(text)); }
+                    catch { console.error('Load slots failed', res.status, text); }
+                    return;
                 }
 
                 let slots;
-                try {
-                    slots = JSON.parse(text); 
-                } catch (e) {
-                    console.error('Bad JSON from GetSlots:', text);
-                    throw e;
-                }
+                try { slots = JSON.parse(text); }
+                catch (e) { console.error('Bad JSON from GetSlots:', text); return; }
 
-                const container = document.getElementById("slots-container");
                 container.innerHTML = "";
 
                 if (!slots.length) {
@@ -132,7 +140,7 @@
                     const btn = document.createElement("button");
                     btn.type = "submit";
                     btn.name = "TimeSlot";
-                    btn.value = s;                  // "HH:mm"
+                    btn.value = s;            
                     btn.className = "btn btn-outline-primary w-100";
                     btn.textContent = s;
 
@@ -146,6 +154,4 @@
             }
         }
     </script>
-
- 
 }

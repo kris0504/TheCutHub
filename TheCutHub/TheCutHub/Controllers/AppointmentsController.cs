@@ -60,28 +60,35 @@ namespace TheCutHub.Controllers
         [Produces("application/json")]
         public async Task<IActionResult> GetSlots([FromQuery] string date, int serviceId, int barberId)
         {
-            if (string.IsNullOrWhiteSpace(date) ||
-                !DateOnly.TryParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture,
-                                         DateTimeStyles.None, out var d))
+            try
             {
-                return BadRequest(new { error = "Invalid date. Use yyyy-MM-dd." });
+                if (string.IsNullOrWhiteSpace(date) ||
+                    !DateOnly.TryParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture,
+                                             DateTimeStyles.None, out var d))
+                {
+                    return BadRequest(new { error = "Invalid date. Use yyyy-MM-dd." });
+                }
+                if (serviceId <= 0 || barberId <= 0)
+                    return BadRequest(new { error = "Service or Barber not selected." });
+
+                var service = await _appointmentService.GetServiceByIdAsync(serviceId);
+                if (service == null)
+                    return NotFound(new { error = $"Service {serviceId} not found." });
+
+                var dt = d.ToDateTime(new TimeOnly(0, 0));
+                var duration = TimeSpan.FromMinutes(service.DurationMinutes);
+
+                var slots = await _appointmentService.GetAvailableSlotsAsync(dt, duration, barberId);
+                var formatted = slots.Select(s => s.ToString(@"hh\:mm")).ToList();
+
+                return Json(formatted);
             }
-            if (serviceId == 0 || barberId == 0)
-                return BadRequest(new { error = "Service or Barber not selected" });
-
-            var service = await _appointmentService.GetServiceByIdAsync(serviceId);
-            if (service == null)
-                return NotFound(new { error = $"Service {serviceId} not found." });
-
-            var dt = d.ToDateTime(new TimeOnly(0, 0));
-            var slots = await _appointmentService.GetAvailableSlotsAsync(
-                dt, TimeSpan.FromMinutes(service.DurationMinutes), barberId);
-
-            var formatted = slots.Select(s => s.ToString(@"hh\:mm")).ToList();
-            return Json(formatted); 
+            catch (Exception ex)
+            {
+              
+                return StatusCode(500, new { error = "Server error while loading slots.", detail = ex.Message });
+            }
         }
-
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
