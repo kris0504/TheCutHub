@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 using TheCutHub.Models;
 
 namespace TheCutHub.Data
@@ -25,9 +26,11 @@ namespace TheCutHub.Data
 				new Service { Id = 2, Name = "Beard Trim", Description = "Beard shaping", Price = 15, DurationMinutes = 20 },
 				new Service { Id = 3, Name = "Combo", Description = "Haircut + beard", Price = 35, DurationMinutes = 45 }
 			);
+            builder.Entity<Appointment>()
+        .Property(a => a.Date)
+        .HasColumnType("date");
 
-
-			builder.Entity<Barber>()
+            builder.Entity<Barber>()
 				.HasOne(b => b.User)
 				.WithMany()
 				.HasForeignKey(b => b.UserId)

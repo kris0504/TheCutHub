@@ -93,19 +93,13 @@ namespace TheCutHub
 
             var app = builder.Build();
 
-            Console.WriteLine($"[DEBUG] DB_PROVIDER = {provider}");
-            Console.WriteLine($"[DEBUG] ConnectionString = {conn}");
+
 
             using (var scope = app.Services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                Console.WriteLine($"[DEBUG] EF ProviderName = {db.Database.ProviderName}");
 
-               
-                if (provider is "postgres" or "postgresql" or "sqlite")
-                    await db.Database.EnsureCreatedAsync();
-                else
-                    await db.Database.MigrateAsync();
+                await db.Database.MigrateAsync();
 
                 await ApplicationDbInitializer.SeedAsync(scope.ServiceProvider);
             }

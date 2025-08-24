@@ -23,11 +23,12 @@ namespace TheCutHub.Data.Migrations
 
             migrationBuilder.AlterColumn<DateOnly>(
                 name: "Date",
-                table: "Appointments",
-                type: "date",
-                nullable: false,
-                oldClrType: typeof(DateTime),
-                oldType: "datetime2");
+            table: "Appointments",
+            type: "date",
+            nullable: false,
+            oldClrType: typeof(DateTime),
+            oldType: "timestamp with time zone");
+
         }
 
         /// <inheritdoc />
@@ -45,11 +46,12 @@ namespace TheCutHub.Data.Migrations
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "Date",
-                table: "Appointments",
-                type: "datetime2",
-                nullable: false,
-                oldClrType: typeof(DateOnly),
-                oldType: "date");
+            table: "Appointments",
+            type: "timestamp with time zone",
+            nullable: false,
+            oldClrType: typeof(DateOnly),
+            oldType: "date");
+
         }
     }
 }
