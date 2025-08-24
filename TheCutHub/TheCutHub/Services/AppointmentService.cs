@@ -91,24 +91,31 @@ namespace TheCutHub.Services
             var dayOfWeek = date.DayOfWeek;
 
             var workingHour = await _context.WorkingHours
-                .FirstOrDefaultAsync(w => w.Day == dayOfWeek && w.IsWorking && w.BarberId == barberId);
+                .AsNoTracking()
+                .FirstOrDefaultAsync(w => w.BarberId == barberId && w.Day == dayOfWeek && w.IsWorking);
 
             if (workingHour == null || workingHour.StartTime >= workingHour.EndTime)
                 return new List<TimeSpan>();
 
-           
+            
             var appointments = await _context.Appointments
-                .Include(a => a.Service)
-                .Where(a => a.Date.Date == date.Date && a.BarberId == barberId)
-                .Select(a => new
-                {
-                    a.TimeSlot,
-                    Duration = TimeSpan.FromMinutes(a.Service.DurationMinutes)
-                })
+                .AsNoTracking()
+                .Where(a => a.BarberId == barberId && a.Date.Date == date.Date)
+                .Join(_context.Services,
+                      a => a.ServiceId,
+                      s => s.Id,
+                      (a, s) => new
+                      {
+                          a.TimeSlot,
+                          Duration = TimeSpan.FromMinutes(s.DurationMinutes)
+                      })
                 .ToListAsync();
 
             var slots = new List<TimeSpan>();
             var current = workingHour.StartTime;
+
+            var intervalMinutes = workingHour.SlotIntervalInMinutes > 0 ? workingHour.SlotIntervalInMinutes : 30;
+            var interval = TimeSpan.FromMinutes(intervalMinutes);
 
             while (current + serviceDuration <= workingHour.EndTime)
             {
@@ -119,14 +126,12 @@ namespace TheCutHub.Services
                 if (!isOccupied)
                     slots.Add(current);
 
-                var interval = TimeSpan.FromMinutes(
-                    workingHour.SlotIntervalInMinutes > 0 ? workingHour.SlotIntervalInMinutes : 30);
-
                 current = current.Add(interval);
             }
 
             return slots;
         }
+
         public async Task<bool> IsSlotFreeAsync(int barberId, DateTime date, TimeSpan requestedSlot, int serviceId)
         {
             var service = await _context.Services.AsNoTracking().FirstOrDefaultAsync(s => s.Id == serviceId);
@@ -135,17 +140,20 @@ namespace TheCutHub.Services
             var requestedDuration = TimeSpan.FromMinutes(service.DurationMinutes);
             var requestedEnd = requestedSlot + requestedDuration;
 
+            
             var sameDay = await _context.Appointments
-                .Include(a => a.Service) 
+                .AsNoTracking()
                 .Where(a => a.BarberId == barberId && a.Date.Date == date.Date)
-                .Select(a => new
-                {
-                    a.TimeSlot,
-                    Duration = TimeSpan.FromMinutes(a.Service.DurationMinutes)
-                })
+                .Join(_context.Services,
+                      a => a.ServiceId,
+                      s => s.Id,
+                      (a, s) => new
+                      {
+                          a.TimeSlot,
+                          Duration = TimeSpan.FromMinutes(s.DurationMinutes)
+                      })
                 .ToListAsync();
 
-           
             var overlaps = sameDay.Any(a =>
                 requestedSlot < a.TimeSlot + a.Duration &&
                 requestedEnd > a.TimeSlot);
