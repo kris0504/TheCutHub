@@ -17,17 +17,17 @@ namespace TheCutHub
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
-          
-            var provider = (Environment.GetEnvironmentVariable("DB_PROVIDER")
-                            ?? builder.Configuration["DB_PROVIDER"]
-                            ?? "sqlserver").ToLowerInvariant();
+            var provider = (
+                Environment.GetEnvironmentVariable("DB_PROVIDER")
+                ?? builder.Configuration["DB_PROVIDER"]
+                ?? (builder.Environment.IsDevelopment() ? "sqlserver" : "postgres")
+            ).ToLowerInvariant();
 
             string? conn = builder.Configuration.GetConnectionString("DefaultConnection");
 
-           
             if (provider is "postgres" or "postgresql")
             {
+              
                 string? raw =
                     conn ??
                     Environment.GetEnvironmentVariable("DATABASE_URL") ??
@@ -38,17 +38,19 @@ namespace TheCutHub
                      raw.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase)))
                 {
                     var uri = new Uri(raw);
-                    var userInfo = uri.UserInfo.Split(':', 2);
-                    var npg = new Npgsql.NpgsqlConnectionStringBuilder
+                    var userInfo = uri.UserInfo.Split(':', 2, StringSplitOptions.None);
+
+                    var npg = new NpgsqlConnectionStringBuilder
                     {
                         Host = uri.Host,
                         Port = uri.IsDefaultPort ? 5432 : uri.Port,
                         Username = Uri.UnescapeDataString(userInfo[0]),
                         Password = userInfo.Length > 1 ? Uri.UnescapeDataString(userInfo[1]) : "",
                         Database = uri.AbsolutePath.Trim('/'),
-                        SslMode = Npgsql.SslMode.Require,
-                        TrustServerCertificate = true 
+                        SslMode = SslMode.Require
+                 
                     };
+
                     conn = npg.ConnectionString;
                 }
             }
@@ -56,22 +58,20 @@ namespace TheCutHub
             if (string.IsNullOrWhiteSpace(conn))
                 throw new InvalidOperationException("No connection string resolved for DefaultConnection.");
 
-            
-            builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+           
+            if (provider is "postgres" or "postgresql")
             {
-                switch (provider)
-                {
-                    case "sqlite": opt.UseSqlite(conn); break;
-                    case "postgres":
-                    case "postgresql": opt.UseNpgsql(conn); break;
-                    default: opt.UseSqlServer(conn); break;
-                }
-            });
-
+                builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+                    opt.UseNpgsql(conn));
+            }
+            else 
+            {
+                builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+                    opt.UseSqlServer(conn));
+            }
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-           
             builder.Services.AddScoped<IAdminServiceService, AdminServiceService>();
             builder.Services.AddScoped<IBarberService, BarberService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
@@ -80,7 +80,6 @@ namespace TheCutHub
             builder.Services.AddScoped<IAppointmentService, AppointmentService>();
             builder.Services.AddScoped<IAdminUserService, AdminUserService>();
             builder.Services.AddScoped<IServiceService, ServiceService>();
-            builder.Services.AddScoped<IAdminWorkingHourService, AdminWorkingHourService>();
             builder.Services.AddScoped<TheCutHub.Areas.Barber.Interfaces.IBarberAppointmentService,
                                        TheCutHub.Areas.Barber.Services.BarberAppointmentService>();
 
@@ -93,13 +92,19 @@ namespace TheCutHub
 
             var app = builder.Build();
 
-
-
+     
             using (var scope = app.Services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                await db.Database.MigrateAsync();
+                if (app.Environment.IsDevelopment() && provider is not ("postgres" or "postgresql"))
+                {
+                    await db.Database.MigrateAsync();
+                }
+                else
+                {
+                    await db.Database.EnsureCreatedAsync();
+                }
 
                 await ApplicationDbInitializer.SeedAsync(scope.ServiceProvider);
             }
