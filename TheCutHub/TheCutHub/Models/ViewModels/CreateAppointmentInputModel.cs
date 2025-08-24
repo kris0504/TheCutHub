@@ -6,7 +6,7 @@ namespace TheCutHub.Models.ViewModels
     public class CreateAppointmentInputModel
     {
         [Required, DataType(DataType.Date)]
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
 
         [Required(ErrorMessage = "Choose service")]
         public int ServiceId { get; set; }

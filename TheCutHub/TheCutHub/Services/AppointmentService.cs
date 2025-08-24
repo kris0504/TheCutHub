@@ -54,12 +54,12 @@ namespace TheCutHub.Services
             _context.Appointments.Add(appointment);
             await _context.SaveChangesAsync();
         }
-        public async Task CreateAsync(string userId, DateTime date, TimeSpan timeSlot, int barberId, int serviceId, string? notes)
+        public async Task CreateAsync(string userId, DateOnly date, TimeSpan timeSlot, int barberId, int serviceId, string? notes)
         {
             var appointment = new Appointment
             {
                 UserId = userId,
-                Date = date.Date,
+                Date = date,
                 TimeSlot = timeSlot,
                 BarberId = barberId,
                 ServiceId = serviceId,
@@ -86,7 +86,7 @@ namespace TheCutHub.Services
             return true;
         }
 
-        public async Task<List<TimeSpan>> GetAvailableSlotsAsync(DateTime date, TimeSpan serviceDuration, int barberId)
+        public async Task<List<TimeSpan>> GetAvailableSlotsAsync(DateOnly date, TimeSpan serviceDuration, int barberId)
         {
             var dayOfWeek = date.DayOfWeek;
 
@@ -100,7 +100,7 @@ namespace TheCutHub.Services
             
             var appointments = await _context.Appointments
                 .AsNoTracking()
-                .Where(a => a.BarberId == barberId && a.Date.Date == date.Date)
+                .Where(a => a.BarberId == barberId && a.Date == date)
                 .Join(_context.Services,
                       a => a.ServiceId,
                       s => s.Id,
@@ -132,7 +132,7 @@ namespace TheCutHub.Services
             return slots;
         }
 
-        public async Task<bool> IsSlotFreeAsync(int barberId, DateTime date, TimeSpan requestedSlot, int serviceId)
+        public async Task<bool> IsSlotFreeAsync(int barberId, DateOnly date, TimeSpan requestedSlot, int serviceId)
         {
             var service = await _context.Services.AsNoTracking().FirstOrDefaultAsync(s => s.Id == serviceId);
             if (service == null) return false;
@@ -143,7 +143,7 @@ namespace TheCutHub.Services
             
             var sameDay = await _context.Appointments
                 .AsNoTracking()
-                .Where(a => a.BarberId == barberId && a.Date.Date == date.Date)
+                .Where(a => a.BarberId == barberId && a.Date == date)
                 .Join(_context.Services,
                       a => a.ServiceId,
                       s => s.Id,

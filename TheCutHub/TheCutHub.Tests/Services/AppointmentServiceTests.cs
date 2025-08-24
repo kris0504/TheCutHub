@@ -15,7 +15,7 @@ namespace TheCutHub.Tests.Services
         private ApplicationDbContext GetInMemoryContext()
         {
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(Guid.NewGuid().ToString()) 
+                .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
 
             return new ApplicationDbContext(options);
@@ -24,16 +24,20 @@ namespace TheCutHub.Tests.Services
         [Fact]
         public async Task CreateAsync_Should_Add_Appointment()
         {
-            
             var context = GetInMemoryContext();
             var service = new AppointmentService(context);
-            var appointment = new Appointment { Id = 1, UserId = "user1", Date = DateTime.Today };
 
-            
+            var appointment = new Appointment
+            {
+                Id = 1,
+                UserId = "user1",
+                Date = DateOnly.FromDateTime(DateTime.Today),
+                TimeSlot = TimeSpan.FromHours(9)
+            };
+
             await service.CreateAsync(appointment);
             var result = await context.Appointments.FirstOrDefaultAsync();
 
-            
             Assert.NotNull(result);
             Assert.Equal("user1", result?.UserId);
         }
@@ -44,7 +48,13 @@ namespace TheCutHub.Tests.Services
             var context = GetInMemoryContext();
             var service = new AppointmentService(context);
 
-            context.Appointments.Add(new Appointment { Id = 1, UserId = "user1" });
+            context.Appointments.Add(new Appointment
+            {
+                Id = 1,
+                UserId = "user1",
+                Date = DateOnly.FromDateTime(DateTime.Today),
+                TimeSlot = TimeSpan.FromHours(9)
+            });
             await context.SaveChangesAsync();
 
             var result = await service.DeleteAsync(1, "user1");
@@ -59,7 +69,13 @@ namespace TheCutHub.Tests.Services
             var context = GetInMemoryContext();
             var service = new AppointmentService(context);
 
-            context.Appointments.Add(new Appointment { Id = 1, UserId = "user1" });
+            context.Appointments.Add(new Appointment
+            {
+                Id = 1,
+                UserId = "user1",
+                Date = DateOnly.FromDateTime(DateTime.Today),
+                TimeSlot = TimeSpan.FromHours(9)
+            });
             await context.SaveChangesAsync();
 
             var result = await service.DeleteAsync(1, "otherUser");
@@ -70,23 +86,22 @@ namespace TheCutHub.Tests.Services
         [Fact]
         public async Task GetAppointmentsByUserIdAsync_Should_Return_Only_User_Appointments()
         {
-            
             var context = GetInMemoryContext();
             var service = new AppointmentService(context);
 
-            
             context.Barbers.Add(new TheCutHub.Models.Barber { Id = 1, UserId = "barber1", FullName = "B1" });
             context.Services.Add(new Service { Id = 1, Name = "Test Cut", DurationMinutes = 30 });
             await context.SaveChangesAsync();
 
-            
+            var today = DateOnly.FromDateTime(DateTime.Today);
+
             var appointment1 = new Appointment
             {
                 Id = 1,
                 UserId = "user1",
                 BarberId = 1,
                 ServiceId = 1,
-                Date = DateTime.Today,
+                Date = today,
                 TimeSlot = TimeSpan.FromHours(9)
             };
             var appointment2 = new Appointment
@@ -95,33 +110,28 @@ namespace TheCutHub.Tests.Services
                 UserId = "user2",
                 BarberId = 1,
                 ServiceId = 1,
-                Date = DateTime.Today,
+                Date = today,
                 TimeSlot = TimeSpan.FromHours(10)
             };
             await context.Appointments.AddRangeAsync(appointment1, appointment2);
             await context.SaveChangesAsync();
 
-            
             Assert.Equal(2, await context.Appointments.CountAsync());
 
-            
             var result = await service.GetAppointmentsByUserIdAsync("user1");
 
-            
             Assert.Single(result);
             Assert.Equal("user1", result.First().UserId);
         }
 
-
         [Fact]
         public async Task GetAvailableSlotsAsync_Should_Respect_WorkingHours_And_Appointments()
         {
-            
             var context = GetInMemoryContext();
             var service = new AppointmentService(context);
-            var today = DateTime.Today;
 
-            
+            var today = DateOnly.FromDateTime(DateTime.Today);
+
             await context.WorkingHours.AddAsync(new WorkingHour
             {
                 Id = 1,
@@ -133,7 +143,6 @@ namespace TheCutHub.Tests.Services
                 IsWorking = true
             });
 
-            
             await context.Services.AddAsync(new Service
             {
                 Id = 1,
@@ -141,7 +150,6 @@ namespace TheCutHub.Tests.Services
                 DurationMinutes = 30
             });
 
-            
             await context.Appointments.AddAsync(new Appointment
             {
                 BarberId = 1,
@@ -152,10 +160,13 @@ namespace TheCutHub.Tests.Services
             });
 
             await context.SaveChangesAsync();
+
             var slots = await service.GetAvailableSlotsAsync(today, TimeSpan.FromMinutes(30), 1);
+
             Assert.Single(slots);
             Assert.Equal(new TimeSpan(9, 30, 0), slots.First());
         }
+
         [Fact]
         public async Task GetBarbers_Should_Return_All_Barbers()
         {
@@ -215,15 +226,16 @@ namespace TheCutHub.Tests.Services
             var svc = new AppointmentService(ctx);
 
             var user = new ApplicationUser { Id = "u1", UserName = "u1" };
-            var barber = new TheCutHub.Models.Barber { Id = 1, FullName = "B1", UserId = "barber1", };
+            var barber = new TheCutHub.Models.Barber { Id = 1, FullName = "B1", UserId = "barber1" };
             var service = new Service { Id = 1, Name = "Cut", DurationMinutes = 15 };
+
             var appt = new Appointment
             {
                 Id = 10,
                 UserId = user.Id,
                 BarberId = barber.Id,
                 ServiceId = service.Id,
-                Date = DateTime.Today,
+                Date = DateOnly.FromDateTime(DateTime.Today),
                 TimeSlot = TimeSpan.Zero,
                 User = user,
                 Barber = barber,
@@ -248,20 +260,17 @@ namespace TheCutHub.Tests.Services
         public async Task EditAsync_Should_Update_Existing_Appointment()
         {
             var ctx = GetInMemoryContext();
-            var svc = new AppointmentService(ctx);
-
-            var appt = new Appointment { Id = 1, UserId = "u1", Date = DateTime.Today };
+           var svc = new AppointmentService(ctx);
+        
+          var appt = new Appointment { Id = 1, UserId = "u1", Date = DateOnly.FromDateTime(DateTime.Today) };
             ctx.Appointments.Add(appt);
-            await ctx.SaveChangesAsync();
-
-          
+           await ctx.SaveChangesAsync();
+        
             appt.Date = appt.Date.AddDays(1);
             await svc.EditAsync(appt);
-
+        
             var updated = await ctx.Appointments.FindAsync(1);
-            Assert.Equal(DateTime.Today.AddDays(1), updated?.Date);
+            Assert.Equal(DateOnly.FromDateTime(DateTime.Today).AddDays(1), updated?.Date);
         }
-
-
     }
 }

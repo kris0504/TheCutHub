@@ -42,14 +42,14 @@ namespace TheCutHub.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create(DateTime? date, int? serviceId)
+        public IActionResult Create(DateOnly? date, int? serviceId)
         {
             ViewBag.ServiceId = new SelectList(_appointmentService.GetServices(), "Id", "Name", serviceId);
             ViewBag.BarberId = new SelectList(_appointmentService.GetBarbers(), "Id", "FullName");
 
             var model = new CreateAppointmentInputModel
             {
-                Date = date ?? DateTime.Today
+                Date = date ?? DateOnly.FromDateTime(DateTime.Now)
             };
 
             ViewBag.SelectedDate = date;
@@ -75,10 +75,10 @@ namespace TheCutHub.Controllers
                 if (service == null)
                     return NotFound(new { error = $"Service {serviceId} not found." });
 
-                var dt = d.ToDateTime(new TimeOnly(0, 0));
+               
                 var duration = TimeSpan.FromMinutes(service.DurationMinutes);
 
-                var slots = await _appointmentService.GetAvailableSlotsAsync(dt, duration, barberId);
+                var slots = await _appointmentService.GetAvailableSlotsAsync(d, duration, barberId);
                 var formatted = slots.Select(s => s.ToString(@"hh\:mm")).ToList();
 
                 return Json(formatted);

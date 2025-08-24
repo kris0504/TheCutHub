@@ -5,7 +5,9 @@
 
 @{
     ViewData["Title"] = "My Appointments";
-    var now = DateTime.Now;
+    var today = DateOnly.FromDateTime(DateTime.Now);
+    var nowTime = DateTime.Now.TimeOfDay;
+
 }
 
 <h1 class="mb-4">My Appointments</h1>
@@ -37,8 +39,9 @@ else
             <tbody>
                 @foreach (var appointment in Model)
                 {
-                    var isPast = appointment.Date.Date < now.Date ||
-                    (appointment.Date.Date == now.Date && appointment.TimeSlot < now.TimeOfDay);
+                    var isPast = appointment.Date < today ||
+                    (appointment.Date == today && appointment.TimeSlot < nowTime);
+
 
                     var rowClass = isPast ? "bg-secondary past-appointment" : "bg-dark text-light";
                     <tr class="@rowClass">

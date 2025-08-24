@@ -14,12 +14,13 @@ namespace TheCutHub.Models
         public ApplicationUser? User { get; set; }
         [Required]
         [DataType(DataType.Date)]
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
         [Required]
         public TimeSpan TimeSlot { get; set; }
 
         [NotMapped]
-        public DateTime AppointmentDateTime => Date.Date + TimeSlot;
+        public DateTime AppointmentDateTime =>
+    Date.ToDateTime(TimeOnly.MinValue).Add(TimeSlot);
         [Required]
         public int BarberId { get; set; }
         public Barber? Barber { get; set; }

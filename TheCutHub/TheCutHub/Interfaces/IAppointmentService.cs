@@ -14,10 +14,10 @@ namespace TheCutHub.Services
         Task CreateAsync(Appointment appointment);
         Task EditAsync(Appointment appointment);
         Task<bool> DeleteAsync(int id, string userId);
-        Task<List<TimeSpan>> GetAvailableSlotsAsync(DateTime date, TimeSpan serviceDuration, int barberId);
+        Task<List<TimeSpan>> GetAvailableSlotsAsync(DateOnly date, TimeSpan serviceDuration, int barberId);
 
-        
-        Task<bool> IsSlotFreeAsync(int barberId, DateTime date, TimeSpan requestedSlot, int serviceId);
-        Task CreateAsync(string userId, DateTime date, TimeSpan timeSlot, int barberId, int serviceId, string? notes);
+
+        Task<bool> IsSlotFreeAsync(int barberId, DateOnly date, TimeSpan requestedSlot, int serviceId);
+        Task CreateAsync(string userId, DateOnly date, TimeSpan timeSlot, int barberId, int serviceId, string? notes);
     }
 }
