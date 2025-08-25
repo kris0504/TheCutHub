@@ -71,6 +71,7 @@ namespace TheCutHub
             }
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+            builder.Services.AddScoped<IAdminWorkingHourService, AdminWorkingHourService>();
 
             builder.Services.AddScoped<IAdminServiceService, AdminServiceService>();
             builder.Services.AddScoped<IBarberService, BarberService>();
