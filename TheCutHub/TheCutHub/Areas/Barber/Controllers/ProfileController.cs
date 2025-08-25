@@ -70,34 +70,43 @@ namespace TheCutHub.Areas.Barber.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddWorkImage(AddWorkImageViewModel model)
+        public async Task<IActionResult> AddWorkImage(string? id, AddWorkImageViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 TempData["Error"] = "Form contains invalid data.";
-                return RedirectToAction("Edit");
+                return RedirectToAction(nameof(Edit), new { id });
             }
 
-            var user = await _userManager.GetUserAsync(User);
-            var success = await _profileService.AddWorkImageAsync(user.Id, model);
-            if (!success)
-            {
-                TempData["Fail"] = "Only JPG, PNG and WebP files are allowed.";
-                return RedirectToAction("Edit");
-            }
+            var targetUserId = !string.IsNullOrEmpty(id)
+                ? id
+                : _userManager.GetUserId(User);
 
-            TempData["Success"] = "Image was successfully added!";
-            return RedirectToAction("Edit");
+            if (string.IsNullOrEmpty(targetUserId))
+                return Challenge();
+
+            var success = await _profileService.AddWorkImageAsync(targetUserId, model);
+            TempData[success ? "Success" : "Fail"] =
+                success ? "Image was successfully added!" : "Only JPG, PNG and WebP files are allowed.";
+
+            return RedirectToAction(nameof(Edit), new { id = targetUserId });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteWorkImage(int id)
+        public async Task<IActionResult> DeleteWorkImage(int id, string? userId)
         {
-            var user = await _userManager.GetUserAsync(User);
-            var success = await _profileService.DeleteWorkImageAsync(user.Id, id);
+            var targetUserId = !string.IsNullOrEmpty(userId)
+                ? userId
+                : _userManager.GetUserId(User);
+
+            if (string.IsNullOrEmpty(targetUserId))
+                return Challenge();
+
+            var success = await _profileService.DeleteWorkImageAsync(targetUserId, id);
             TempData[success ? "Success" : "Fail"] = success ? "Image successfully deleted." : "Image not found.";
-            return RedirectToAction("Edit");
+
+            return RedirectToAction(nameof(Edit), new { id = targetUserId });
         }
     }
 }

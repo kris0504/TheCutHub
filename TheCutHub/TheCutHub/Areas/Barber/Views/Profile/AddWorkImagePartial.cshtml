@@ -1,11 +1,15 @@
 ﻿@model TheCutHub.Models.ViewModels.AddWorkImageViewModel
+@{
+    var currentId = Context.Request.RouteValues["id"] as string;
+}
 
 <form asp-area="Barber"
       asp-controller="Profile"
       asp-action="AddWorkImage"
+      asp-route-id="@currentId"
       method="post"
       enctype="multipart/form-data">
-       @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
     <div class="mb-3">
         <label asp-for="ImageFile" class="form-label">Image file:</label>
         <input asp-for="ImageFile" class="form-control" />

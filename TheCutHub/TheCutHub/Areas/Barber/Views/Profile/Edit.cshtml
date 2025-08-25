@@ -74,7 +74,11 @@
                                 <div class="card shadow-sm">
                                     <img src="@img.ImageUrl" class="card-img-top img-fluid" />
                                     <div class="card-body p-2 text-center">
-                                        <form asp-action="DeleteWorkImage" method="post" asp-route-id="@img.Id" onsubmit="return confirm('Do you really want to delete this picture?');">
+                                        <form asp-action="DeleteWorkImage"
+                                              method="post"
+                                              asp-route-id="@img.Id"
+                                              asp-route-userId="@Context.Request.RouteValues["id"]"
+                                              onsubmit="return confirm('Do you really want to delete this picture?');">
                                             @Html.AntiForgeryToken()
                                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                         </form>
