@@ -34,10 +34,14 @@
 
         <div class="card shadow-sm">
             <div class="card-body">
-                <form asp-area="Barber" asp-controller="Profile" asp-action="Edit"
-                      method="post" enctype="multipart/form-data" id="profileForm">
+                <form asp-area="Barber"
+                      asp-controller="Profile"
+                      asp-action="Edit"
+                      asp-route-id="@(Context.Request.RouteValues["id"])"
+                      method="post"
+                      enctype="multipart/form-data"
+                      id="profileForm">
                     @Html.AntiForgeryToken()
-
                     <div class="form-group mb-3">
                         <label asp-for="FullName" class="form-label">Name</label>
                         <input asp-for="FullName" class="form-control" />

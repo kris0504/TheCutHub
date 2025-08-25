@@ -48,25 +48,33 @@ namespace TheCutHub.Areas.Barber.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(BarberProfileEditViewModel model)
+        public async Task<IActionResult> Edit(string? id, BarberProfileEditViewModel model)
         {
-            var user = await _userManager.GetUserAsync(User);
+            var targetUserId = !string.IsNullOrEmpty(id)
+                ? id
+                : _userManager.GetUserId(User);
+
+            if (string.IsNullOrEmpty(targetUserId))
+                return Challenge();
+
             if (!ModelState.IsValid)
             {
-                model.WorkImages = (await _profileService.GetProfileAsync(user.Id))?.WorkImages ?? [];
+  
+                model.WorkImages = (await _profileService.GetProfileAsync(targetUserId))?.WorkImages ?? [];
                 return View(model);
             }
 
-            var success = await _profileService.UpdateProfileAsync(user.Id, model);
+            var success = await _profileService.UpdateProfileAsync(targetUserId, model);
             if (!success)
             {
                 TempData["Fail"] = "Profile not found.";
-                return RedirectToAction(nameof(Edit));
+                return RedirectToAction(nameof(Edit), new { id = targetUserId });
             }
 
             TempData["Success"] = "Profile successfully updated.";
-            return RedirectToAction(nameof(Edit));
+            return RedirectToAction(nameof(Edit), new { id = targetUserId });
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
